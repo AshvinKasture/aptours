@@ -25,6 +25,17 @@
         background: rgba(255, 255, 255, 0.6);
         backdrop-filter: blur(6px);
       }
+      
+      /* Smooth scrolling with offset for sticky header */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      
+      /* Ensure sections have proper spacing */
+      section {
+        scroll-margin-top: 80px;
+      }
     </style>
   </head>
   <body class="antialiased text-slate-800 bg-slate-50">
@@ -56,15 +67,15 @@
             >
             <a
               class="nav-link text-sm hover:text-sky-600"
-              href="#tours"
-              data-link
-              >Tours</a
-            >
-            <a
-              class="nav-link text-sm hover:text-sky-600"
               href="#services"
               data-link
               >Services</a
+            >
+            <a
+              class="nav-link text-sm hover:text-sky-600"
+              href="#tours"
+              data-link
+              >Tours</a
             >
             <a
               class="nav-link text-sm hover:text-sky-600"
@@ -116,11 +127,11 @@
       <!-- Mobile menu panel -->
       <div id="mobileMenu" class="md:hidden hidden">
         <div class="px-4 pb-6 flex flex-col gap-2">
-          <a class="block py-2" href="#home" data-link>Home</a>
-          <a class="block py-2" href="#tours" data-link>Tours</a>
-          <a class="block py-2" href="#services" data-link>Services</a>
-          <a class="block py-2" href="#about" data-link>About</a>
-          <a class="block py-2" href="#contact" data-link>Contact</a>
+          <a class="block py-2 hover:text-sky-600 transition-colors" href="#home" data-link>Home</a>
+          <a class="block py-2 hover:text-sky-600 transition-colors" href="#services" data-link>Services</a>
+          <a class="block py-2 hover:text-sky-600 transition-colors" href="#tours" data-link>Tours</a>
+          <a class="block py-2 hover:text-sky-600 transition-colors" href="#about" data-link>About</a>
+          <a class="block py-2 hover:text-sky-600 transition-colors" href="#contact" data-link>Contact</a>
         </div>
       </div>
     </header>
@@ -548,8 +559,8 @@
           <div>
             <div class="font-semibold">Quick Links</div>
             <ul class="mt-3 space-y-1 text-sm text-slate-600">
-              <li><a href="#tours" data-link>Featured Tours</a></li>
               <li><a href="#services" data-link>Services</a></li>
+              <li><a href="#tours" data-link>Featured Tours</a></li>
               <li><a href="#about" data-link>About</a></li>
               <li><a href="#contact" data-link>Contact</a></li>
             </ul>
@@ -591,22 +602,58 @@
 
       const mobileBtn = document.getElementById("mobileBtn");
       const mobileMenu = document.getElementById("mobileMenu");
-      mobileBtn.addEventListener("click", () =>
-        mobileMenu.classList.toggle("hidden")
-      );
+      
+      // Mobile menu toggle
+      mobileBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-      // Hash link handler: smooth scroll and show sections
+      // Hash link handler: smooth scroll and show sections with proper offset
       document.querySelectorAll("[data-link]").forEach((a) => {
         a.addEventListener("click", (e) => {
           e.preventDefault();
           const href = a.getAttribute("href") || "#home";
           const id = href.replace("#", "") || "home";
-          document
-            .getElementById(id)
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          if (!mobileMenu.classList.contains("hidden"))
-            mobileMenu.classList.add("hidden");
+          const targetElement = document.getElementById(id);
+          
+          if (targetElement) {
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+            
+            // Calculate offset for sticky header (header height is approximately 64px)
+            const headerHeight = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+            
+            // Smooth scroll to target with offset
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }
         });
+      });
+
+      // Handle initial hash on page load
+      window.addEventListener('load', () => {
+        if (window.location.hash) {
+          const id = window.location.hash.replace("#", "");
+          const targetElement = document.getElementById(id);
+          if (targetElement) {
+            const headerHeight = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+            
+            setTimeout(() => {
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
+            }, 100);
+          }
+        }
       });
     </script>
   </body>
