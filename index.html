@@ -10,35 +10,16 @@
     />
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add Font Awesome CDN in <head> -->
+    <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <style>
-      /* small extras */
-      .hero-bg {
-        background-size: cover;
-        background-position: center;
-      }
-      .glass {
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(6px);
-      }
-      
-      /* Smooth scrolling with offset for sticky header */
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
-      
-      /* Ensure sections have proper spacing */
-      section {
-        scroll-margin-top: 80px;
-      }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body class="antialiased text-slate-800 bg-slate-50">
+  <body class="antialiased text-sla        </div>
+      </section>ate-50">
     <!-- Header / Nav -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -137,93 +118,138 @@
     </header>
 
     <!-- Content wrapper (hash-based routing) -->
-    <main id="app" class="max-w-6xl mx-auto">
-      <!-- HOME Section -->
+    <main id="app" class="max-w-full mx-auto">
+      <!-- HOME Section with Parallax -->
       <section
         id="home"
-        class="min-h-[70vh] flex items-center hero-bg"
-        style="
-          background-image: linear-gradient(
-              180deg,
-              rgba(2, 6, 23, 0.35),
-              rgba(2, 6, 23, 0.2)
-            ),
-            url('./assets/hero-bg-2.jpg');
-        "
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
       >
-        <div class="w-full px-4 py-20">
-          <div class="max-w-3xl">
-            <span
-              class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium"
-              >Established • Trusted</span
-            >
-            <h1
-              class="mt-6 text-3xl sm:text-4xl font-extrabold leading-tight text-white"
-            >
-              AP Tours &amp; Travels — Tailor-made experiences for curious
-              travellers
-            </h1>
-            <p class="mt-4 text-sky-100 text-lg">
-              From Himalayan treks to cultural heritage tours — we design
-              journeys that stay with you. Explore handcrafted itineraries,
-              small-group treks, and private tours.
-            </p>
+        <div class="parallax-overlay"></div>
+        <div class="pattern-overlay"></div>
+        <div class="parallax-content">
+          <div class="fade-in-up">
+            <span class="inline-block px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-200 text-sm font-medium backdrop-blur-sm border border-emerald-400/30">
+              Established • Trusted
+            </span>
+          </div>
+          <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold leading-tight fade-in-up delay-100">
+            AP Tours &amp; Travels
+          </h1>
+          <h2 class="mt-4 text-xl sm:text-2xl font-light text-blue-100 fade-in-up delay-200">
+            Tailor-made experiences for curious travellers
+          </h2>
+          <p class="mt-6 text-lg text-blue-50/90 max-w-2xl mx-auto fade-in-up delay-300">
+            From Himalayan treks to cultural heritage tours — we design journeys that stay with you. 
+            Explore handcrafted itineraries, small-group treks, and private tours.
+          </p>
 
-            <div class="mt-8 flex gap-3">
-              <a
-                href="#tours"
-                data-link
-                class="inline-block px-5 py-3 rounded-md bg-white text-slate-900 font-medium shadow hover:scale-[1.01]"
-                >View Tours</a
-              >
-              <a
-                href="#contact"
-                data-link
-                class="inline-block px-5 py-3 rounded-md border border-white text-white hover:bg-white/10"
-                >Get an Enquiry</a
-              >
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up delay-400">
+            <a
+              href="#tours"
+              data-link
+              class="inline-block px-8 py-4 rounded-lg bg-white text-slate-900 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            >
+              Explore Our Tours
+            </a>
+            <a
+              href="#contact"
+              data-link
+              class="inline-block px-8 py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+            >
+              Plan Your Journey
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Why Choose AP Tours?</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">We create extraordinary travel experiences with attention to every detail</p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 floating">
+                <i class="fas fa-route text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">Custom Itineraries</h3>
+              <p class="text-slate-600">
+                We craft trips based on your preferences — activity-level, budget and duration.
+              </p>
+            </div>
+            
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: 2s;">
+                <i class="fas fa-user-friends text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">Experienced Guides</h3>
+              <p class="text-slate-600">
+                Local guides with safety-first approach and deep regional knowledge.
+              </p>
+            </div>
+            
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: 4s;">
+                <i class="fas fa-headset text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">End-to-end Support</h3>
+              <p class="text-slate-600">
+                Transport, permits, accommodations — we handle logistics so you can enjoy the view.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Quick highlights -->
-      <section id="services" class="py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">Custom Itineraries</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                We craft trips based on your preferences — activity-level,
-                budget and duration.
-              </p>
-            </div>
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">Experienced Guides</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                Local guides with safety-first approach and deep regional
-                knowledge.
-              </p>
-            </div>
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">End-to-end Support</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                Transport, permits, accommodations — we handle logistics so you
-                can enjoy the view.
-              </p>
-            </div>
+      <!-- Parallax Section - Adventure Awaits -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1640179563805-184d0da2ba6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-hiking text-5xl mb-6 text-white/80"></i>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Adventure Awaits</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Step into a world where every path leads to wonder. From Himalayan treks to sacred Indian temples.
+          </p>
+        </div>
+      </section>
+
+      <!-- Parallax Section - Mount Kailash -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1601821139990-9fc929db79ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 floating">Sacred Journeys</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed">
+            Experience the spiritual magnificence of Kailash Mansarovar, Char Dham, and the mystical landscapes of the Indian Himalayas
+          </p>
+          <div class="mt-8">
+            <a href="#tours" data-link class="inline-block px-8 py-4 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+              Discover Sacred Tours
+            </a>
           </div>
         </div>
       </section>
 
       <!-- Tours / Gallery -->
-      <section id="tours" class="py-12 px-4 bg-white">
+      <section id="tours" class="py-20 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold">Featured Treks &amp; Tours</h2>
-            <a href="#contact" data-link class="text-sm text-sky-600"
-              >Request a custom package →</a
-            >
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Featured Treks &amp; Tours</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Embark on extraordinary journeys through breathtaking landscapes</p>
+            <a href="#contact" data-link class="inline-block mt-4 text-sky-600 hover:text-sky-800 transition-colors">
+              Request a custom package →
+            </a>
           </div>
 
           <div
@@ -300,236 +326,363 @@
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="py-12 px-4">
-        <div
-          class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-        >
-          <div>
-            <h2 class="text-2xl font-bold">About AP Tours &amp; Travels</h2>
-            <p class="mt-4 text-slate-600">
-              AP Tours &amp; Travels is a boutique travel company focused on
-              curated trekking and cultural experiences across the Himalayas and
-              neighbouring regions. Our small-group trips prioritise safety,
-              responsible tourism and authentic experiences.
-            </p>
-
-            <ul class="mt-4 space-y-2 text-sm text-slate-600">
-              <li>• Licensed local guides with first-aid training</li>
-              <li>• Custom itineraries for families and solo travellers</li>
-              <li>• Eco-friendly stays and community engagement</li>
-            </ul>
+      <!-- Parallax Section - Himalayan Landscape -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1635183625020-93dc1face215?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-mountain text-6xl mb-6 text-white/80"></i>
           </div>
-          <div class="rounded-lg overflow-hidden shadow">
-            <img
-              src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3f2b1a2c8d9e6f7a8b9c0d1e2f3a4b5c"
-              alt="About image"
-              class="w-full h-64 object-cover"
-            />
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Reach New Heights</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Every summit tells a story. Every trail leads to discovery. Join us in exploring India's most magnificent mountain ranges and sacred sites.
+          </p>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">About AP Tours &amp; Travels</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Your trusted partner for extraordinary mountain adventures and cultural discoveries</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+              <div class="prose prose-lg">
+                <p class="text-slate-700 leading-relaxed mb-6">
+                  AP Tours &amp; Travels is a boutique travel company focused on curated trekking and cultural experiences 
+                  across the Himalayas and neighbouring regions. Our small-group trips prioritise safety, responsible tourism 
+                  and authentic experiences.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-shield-alt text-sky-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Safety First</h4>
+                      <p class="text-sm text-slate-600">Licensed local guides with first-aid training</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-users text-emerald-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Personal Touch</h4>
+                      <p class="text-sm text-slate-600">Custom itineraries for families and solo travellers</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-leaf text-green-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Eco-Friendly</h4>
+                      <p class="text-sm text-slate-600">Sustainable stays and community engagement</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-star text-purple-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Excellence</h4>
+                      <p class="text-sm text-slate-600">Trusted experiences since 2025</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="order-1 md:order-2">
+              <div class="relative">
+                <div class="rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img
+                    src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Mountain guide with trekkers"
+                    class="w-full h-80 object-cover"
+                  />
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-sky-500 to-emerald-400 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-xl">
+                  AP
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Parallax Section - Spiritual Temples -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1612438214708-f428a707dd4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-om text-5xl mb-6 text-white/80"></i>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Spiritual Temples</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Discover ancient temples nestled in the mountains. Experience the divine blend of spirituality and natural beauty.
+          </p>
+          <div class="mt-8">
+            <a href="#contact" data-link class="inline-block px-8 py-4 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+              Explore Temple Tours
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Parallax Section - Call to Action -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1697106719728-14f5aad54a27?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 floating">Ready for Your Adventure?</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed mb-8 max-w-3xl">
+            Let us craft your perfect mountain journey. From sacred peaks of Himalayas to ancient temples, your next great Indian adventure awaits.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#contact" data-link class="inline-block px-8 py-4 rounded-lg bg-white text-slate-900 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              Start Planning Now
+            </a>
+            <a href="tel:+919822020500" class="inline-block px-8 py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+              Call Us Today
+            </a>
           </div>
         </div>
       </section>
 
       <!-- Contact / Enquiry Form -->
-      <section id="contact" class="py-12 px-4 bg-slate-50">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h2 class="text-2xl font-bold">
-              Get in touch — Request a quote or custom itinerary
-            </h2>
-            <p class="mt-3 text-slate-600">
-              Use the form to send us an enquiry. We'll reply within 24–48
-              hours.
-            </p>
+      <section id="contact" class="py-20 px-4 bg-gradient-to-br from-slate-100 to-slate-200">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Get in Touch</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Ready to embark on your next adventure? Let's plan your perfect mountain journey together.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-slate-800 mb-4">Let's Start Planning Your Journey</h3>
+              <p class="text-slate-600 leading-relaxed">
+                Use the form to send us an enquiry about your dream trek or tour. We'll get back to you within 24–48 hours 
+                with a personalized itinerary and quote.
+              </p>
+            </div>
 
-            <div class="mt-6 space-y-4">
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M16 3v4M8 3v4m-6 4h20"
-                  />
-                </svg>
-                <div>
-                  <div class="text-sm font-medium">Office</div>
-                  <div class="text-xs text-slate-600">Pune, India</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Office Location Card -->
+              <div class="col-span-1 sm:col-span-2 flex items-start gap-4 p-6 bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100">
+                <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-800 mb-2 text-lg">Office Location</h4>
+                  <div class="text-slate-600 text-sm leading-relaxed space-y-1">
+                    <div class="font-semibold text-slate-700">AP Tours & Travels</div>
+                    <div>SR No. 33/3/2,</div>
+                    <div>Office No. 11,</div>
+                    <div>Samarth Carina Commercial,</div>
+                    <div>Thergaon, Mulshi,</div>
+                    <div class="font-medium text-slate-700">Pune - 411033, Maharashtra, India</div>
+                  </div>
+                  <div class="mt-3">
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=Himalaya+Business+Centre+FC+Road+Shivajinagar+Pune+411005+Maharashtra+India" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center text-xs text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-200 hover:bg-sky-100 hover:border-sky-300 transition-all duration-200 cursor-pointer"
+                    >
+                      <i class="fas fa-directions text-xs mr-1"></i>
+                      Get Directions
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8m-9 5v6"
-                  />
-                </svg>
-                <div>
-                  <div class="text-sm font-medium">Email</div>
-                  <div class="text-xs text-slate-600">info@aptours.in</div>
+              <!-- Email Card -->
+              <div class="flex items-start gap-4 p-5 bg-gradient-to-br from-white to-emerald-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-emerald-100">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                  <i class="fas fa-envelope text-white text-lg"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-slate-800 mb-2">Email Us</h4>
+                  <a href="mailto:info@aptours.in" class="text-emerald-600 hover:text-emerald-700 transition-colors font-medium text-sm block mb-2">
+                    info@aptours.in
+                  </a>
+                  <p class="text-xs text-slate-500">
+                    We reply within 24-48 hours
+                  </p>
                 </div>
               </div>
 
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5h2l.4 2M7 13h10l1.6-8H5.4L7 13zM16 19a2 2 0 1 1-4 0"
-                  />
-                </svg>
-                <div>
-                  <div class="text-sm font-medium">Phone</div>
-                  <div class="text-xs text-slate-600">+91 98220 20500</div>
+              <!-- Phone Card -->
+              <div class="flex items-start gap-4 p-5 bg-gradient-to-br from-white to-purple-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-purple-100">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                  <i class="fas fa-phone text-white text-lg"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-slate-800 mb-2">Call Us</h4>
+                  <a href="tel:+919822020500" class="text-purple-600 hover:text-purple-700 transition-colors font-medium text-sm block mb-2">
+                    +91 98220 20500
+                  </a>
+                  <p class="text-xs text-slate-500">
+                    Available 9 AM - 6 PM IST
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Social links -->
-            <div class="mt-6 flex items-center gap-3">
-              <a
-                aria-label="facebook"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="Facebook"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.2c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.5.7-1.5 1.4V12H20l-.5 2.9h-2v7A10 10 0 0 0 22 12z"/></svg> -->
-                <i class="fa-brands fa-facebook"></i>
-              </a>
-              <a
-                aria-label="instagram"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="Instagram"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zM18.8 6.2a1.2 1.2 0 1 1-1.2-1.2 1.2 1.2 0 0 1 1.2 1.2z"/></svg> -->
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a
-                aria-label="whatsapp"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="WhatsApp"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.5 20.5L2 22l1.5-4.5A11 11 0 1 0 20.5 3.5zM12 19a7 7 0 0 1-3.9-1.2l-.3-.2-2.3.6.6-2.2-.2-.3A7 7 0 1 1 12 19z"/></svg> -->
-                <i class="fa-brands fa-whatsapp"></i>
-              </a>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="font-semibold text-slate-800 mb-4">Follow Our Adventures</h4>
+              <div class="flex items-center gap-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center hover:bg-blue-200 transition-colors group"
+                  title="Facebook"
+                >
+                  <i class="fab fa-facebook-f text-blue-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center hover:bg-pink-200 transition-colors group"
+                  title="Instagram"
+                >
+                  <i class="fab fa-instagram text-pink-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center hover:bg-green-200 transition-colors group"
+                  title="WhatsApp"
+                >
+                  <i class="fab fa-whatsapp text-green-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Form -->
-          <div>
-            <div class="rounded-xl bg-white p-6 shadow">
-              <h3 class="font-semibold">Send an enquiry</h3>
-              <p class="text-sm text-slate-500 mt-1">
-                Quick — tell us what you’re looking for and we'll get back
-                within 24–48 hrs.
-              </p>
+          <!-- Enhanced Form -->
+          <div class="space-y-6">
+            <!-- Form Header -->
+            <div class="bg-gradient-to-br from-white to-sky-50 rounded-xl p-6 shadow-sm border border-sky-100">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl flex items-center justify-center shadow-md">
+                  <i class="fas fa-paper-plane text-white text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-800 text-lg">Send an Enquiry</h3>
+                  <p class="text-sm text-slate-600">Let's plan your perfect adventure together</p>
+                </div>
+              </div>
+              
+              <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-info-circle text-sky-600 text-sm mt-0.5"></i>
+                  <div class="text-sm text-sky-700">
+                    <p class="font-medium">Quick Response Guarantee</p>
+                    <p>We'll get back to you within 24-48 hours with a personalized itinerary and detailed quote.</p>
+                  </div>
+                </div>
+              </div>
 
               <!-- Form: Replace action with your Formspree or Zoho Form endpoint -->
               <form
                 id="enquiryForm"
                 action="https://formspree.io/f/yourFormID"
                 method="POST"
-                class="mt-4 grid grid-cols-1 gap-3"
+                class="mt-6 space-y-5"
               >
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Name and Email Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="space-y-2">
+                    <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                      <i class="fas fa-user text-slate-500 text-xs"></i>
+                      Your Name *
+                    </label>
+                    <input
+                      name="name"
+                      class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                      <i class="fas fa-envelope text-slate-500 text-xs"></i>
+                      Email Address *
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="space-y-2">
+                  <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                    <i class="fas fa-phone text-slate-500 text-xs"></i>
+                    Phone Number <span class="text-slate-400">(optional)</span>
+                  </label>
                   <input
-                    name="name"
-                    class="px-4 py-2 border rounded-md"
-                    placeholder="Your name"
-                    required
-                  />
-                  <input
-                    name="email"
-                    type="email"
-                    class="px-4 py-2 border rounded-md"
-                    placeholder="Your email"
-                    required
+                    name="phone"
+                    class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                    placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
-                <input
-                  name="phone"
-                  class="px-4 py-2 border rounded-md"
-                  placeholder="Phone (optional)"
-                />
-                <textarea
-                  name="message"
-                  rows="5"
-                  class="px-4 py-2 border rounded-md"
-                  placeholder="Tell us about your travel plans..."
-                  required
-                ></textarea>
 
-                <div class="flex items-center gap-3">
-                  <button
-                    type="submit"
-                    class="px-4 py-2 rounded-md bg-sky-600 text-white font-medium"
-                  >
-                    Send Enquiry
-                  </button>
-                  <div id="formStatus" class="text-sm text-slate-600"></div>
+                <!-- Travel Plans -->
+                <div class="space-y-2">
+                  <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                    <i class="fas fa-map text-slate-500 text-xs"></i>
+                    Tell us about your travel plans *
+                  </label>
+                  <textarea
+                    name="message"
+                    rows="6"
+                    class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white resize-none"
+                    placeholder="Please describe your ideal trip: destinations, duration, group size, budget range, special interests, or any specific requirements..."
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="pt-4 border-t border-slate-200">
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <button
+                      type="submit"
+                      class="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-sky-600 to-sky-700 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      <i class="fas fa-paper-plane text-sm"></i>
+                      Send Enquiry
+                    </button>
+                    <div id="formStatus" class="text-sm text-slate-600 flex items-center gap-2">
+                      <i class="fas fa-shield-alt text-emerald-500 text-xs"></i>
+                      <span>Your information is secure and private</span>
+                    </div>
+                  </div>
                 </div>
               </form>
-
-              <script>
-                // Basic client-side submit handler to show status; works with Formspree or similar
-                document
-                  .getElementById("enquiryForm")
-                  .addEventListener("submit", async function (e) {
-                    const status = document.getElementById("formStatus");
-                    status.textContent = "Sending...";
-                    // use default HTML form post (for non-JS fallback), but try fetch if CORS allows
-                    try {
-                      e.preventDefault();
-                      const form = e.target;
-                      const data = new FormData(form);
-                      const res = await fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: { Accept: "application/json" },
-                      });
-                      if (res.ok) {
-                        status.textContent =
-                          "Thank you — we received your enquiry.";
-                        form.reset();
-                      } else {
-                        const err = await res.json().catch(() => ({}));
-                        status.textContent =
-                          err.error ||
-                          "Something went wrong. Please try again.";
-                      }
-                    } catch (err) {
-                      status.textContent =
-                        "Unable to send — check form endpoint or network.";
-                    }
-                  });
-              </script>
             </div>
           </div>
-        </div>
       </section>
 
       <!-- Footer -->
@@ -590,71 +743,13 @@
         <div
           class="max-w-6xl mx-auto mt-6 border-t pt-6 text-sm text-slate-500"
         >
-          &copy; <span id="year"></span> AP Tours &amp; Travels — Demo. Built
+          &copy; <span id="year"></span> AP Tours &amp; Travels — Built
           with ❤️ by AshTech
         </div>
       </footer>
     </main>
 
-    <script>
-      // Small JS: mobile toggle, hash navigation and year
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const mobileBtn = document.getElementById("mobileBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
-      
-      // Mobile menu toggle
-      mobileBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Hash link handler: smooth scroll and show sections with proper offset
-      document.querySelectorAll("[data-link]").forEach((a) => {
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          const href = a.getAttribute("href") || "#home";
-          const id = href.replace("#", "") || "home";
-          const targetElement = document.getElementById(id);
-          
-          if (targetElement) {
-            // Close mobile menu if open
-            if (!mobileMenu.classList.contains("hidden")) {
-              mobileMenu.classList.add("hidden");
-            }
-            
-            // Calculate offset for sticky header (header height is approximately 64px)
-            const headerHeight = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-            
-            // Smooth scroll to target with offset
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
-            });
-          }
-        });
-      });
-
-      // Handle initial hash on page load
-      window.addEventListener('load', () => {
-        if (window.location.hash) {
-          const id = window.location.hash.replace("#", "");
-          const targetElement = document.getElementById(id);
-          if (targetElement) {
-            const headerHeight = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-            
-            setTimeout(() => {
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-              });
-            }, 100);
-          }
-        }
-      });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="./js/main.js"></script>
   </body>
 </html>
