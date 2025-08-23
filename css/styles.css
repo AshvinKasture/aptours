@@ -1,0 +1,195 @@
+/* AP Tours & Travels - Main Stylesheet */
+
+/* Base styles */
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* Smooth scrolling with offset for sticky header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Ensure sections have proper spacing */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Parallax Effects */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(2, 6, 23, 0.4), rgba(59, 130, 246, 0.3));
+  z-index: 1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 2rem;
+  transform: translateZ(0);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll !important;
+    min-height: 100vh;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    transform: none !important;
+    margin: 2rem 0;
+    transition: background-size 0.1s ease-out;
+    overflow: hidden;
+  }
+  
+  /* First parallax section (home) should not have top margin */
+  .parallax:first-of-type {
+    margin-top: 0;
+  }
+  
+  /* Add separator between parallax sections */
+  .parallax + .parallax::before {
+    content: '';
+    display: block;
+    height: 3rem;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.8), rgba(255,255,255,0));
+    position: relative;
+    z-index: 10;
+    margin-bottom: -3rem;
+  }
+  
+  .parallax-content {
+    padding: 2rem 1.5rem;
+    max-width: 90%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .parallax-content h2 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  .parallax-content p {
+    font-size: 1.1rem !important;
+    line-height: 1.4;
+  }
+  
+  /* Mobile floating animation */
+  .floating {
+    animation: floatMobile 4s ease-in-out infinite;
+  }
+  
+  @keyframes floatMobile {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-10px); 
+    }
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .parallax {
+    min-height: 85vh;
+  }
+  
+  .parallax-content {
+    padding: 2rem;
+    max-width: 85%;
+  }
+  
+  .parallax-content h2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* Alternative mobile parallax with transform effect */
+@supports not (background-attachment: fixed) {
+  .parallax {
+    background-attachment: scroll;
+    position: relative;
+    transform: translateZ(0);
+  }
+}
+
+/* Background patterns */
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+}
