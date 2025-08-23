@@ -18,7 +18,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body class="antialiased text-slate-800 bg-slate-50">
+  <body class="antialiased text-sla        </div>
+      </section>ate-50">
     <!-- Header / Nav -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -484,43 +485,64 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-map-marker-alt text-sky-600 text-xl"></i>
+              <!-- Office Location Card -->
+              <div class="col-span-1 sm:col-span-2 flex items-start gap-4 p-6 bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100">
+                <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <i class="fas fa-map-marker-alt text-white text-xl"></i>
                 </div>
-                <div>
-                  <h4 class="font-semibold text-slate-800 mb-1">Office Location</h4>
-                  <p class="text-slate-600">Pune, India</p>
+                <div class="flex-1">
+                  <h4 class="font-bold text-slate-800 mb-2 text-lg">Office Location</h4>
+                  <div class="text-slate-600 text-sm leading-relaxed space-y-1">
+                    <div class="font-semibold text-slate-700">AP Tours & Travels</div>
+                    <div>SR No. 33/3/2,</div>
+                    <div>Office No. 11,</div>
+                    <div>Samarth Carina Commercial,</div>
+                    <div>Thergaon, Mulshi,</div>
+                    <div class="font-medium text-slate-700">Pune - 411033, Maharashtra, India</div>
+                  </div>
+                  <div class="mt-3">
+                    <a 
+                      href="https://www.google.com/maps/search/?api=1&query=Himalaya+Business+Centre+FC+Road+Shivajinagar+Pune+411005+Maharashtra+India" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center text-xs text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-200 hover:bg-sky-100 hover:border-sky-300 transition-all duration-200 cursor-pointer"
+                    >
+                      <i class="fas fa-directions text-xs mr-1"></i>
+                      Get Directions
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-envelope text-emerald-600 text-xl"></i>
+              <!-- Email Card -->
+              <div class="flex items-start gap-4 p-5 bg-gradient-to-br from-white to-emerald-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-emerald-100">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                  <i class="fas fa-envelope text-white text-lg"></i>
                 </div>
-                <div>
-                  <h4 class="font-semibold text-slate-800 mb-1">Email Us</h4>
-                  <a href="mailto:info@aptours.in" class="text-emerald-600 hover:text-emerald-700 transition-colors">info@aptours.in</a>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-phone text-purple-600 text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-semibold text-slate-800 mb-1">Call Us</h4>
-                  <a href="tel:+919822020500" class="text-purple-600 hover:text-purple-700 transition-colors">+91 98220 20500</a>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-slate-800 mb-2">Email Us</h4>
+                  <a href="mailto:info@aptours.in" class="text-emerald-600 hover:text-emerald-700 transition-colors font-medium text-sm block mb-2">
+                    info@aptours.in
+                  </a>
+                  <p class="text-xs text-slate-500">
+                    We reply within 24-48 hours
+                  </p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-clock text-orange-600 text-xl"></i>
+              <!-- Phone Card -->
+              <div class="flex items-start gap-4 p-5 bg-gradient-to-br from-white to-purple-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-purple-100">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                  <i class="fas fa-phone text-white text-lg"></i>
                 </div>
-                <div>
-                  <h4 class="font-semibold text-slate-800 mb-1">Response Time</h4>
-                  <p class="text-slate-600">Within 24-48 hours</p>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-slate-800 mb-2">Call Us</h4>
+                  <a href="tel:+919822020500" class="text-purple-600 hover:text-purple-700 transition-colors font-medium text-sm block mb-2">
+                    +91 98220 20500
+                  </a>
+                  <p class="text-xs text-slate-500">
+                    Available 9 AM - 6 PM IST
+                  </p>
                 </div>
               </div>
             </div>
@@ -554,63 +576,113 @@
             </div>
           </div>
 
-          <!-- Form -->
-          <div>
-            <div class="rounded-xl bg-white p-6 shadow">
-              <h3 class="font-semibold">Send an enquiry</h3>
-              <p class="text-sm text-slate-500 mt-1">
-                Quick — tell us what you’re looking for and we'll get back
-                within 24–48 hrs.
-              </p>
+          <!-- Enhanced Form -->
+          <div class="space-y-6">
+            <!-- Form Header -->
+            <div class="bg-gradient-to-br from-white to-sky-50 rounded-xl p-6 shadow-sm border border-sky-100">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl flex items-center justify-center shadow-md">
+                  <i class="fas fa-paper-plane text-white text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-800 text-lg">Send an Enquiry</h3>
+                  <p class="text-sm text-slate-600">Let's plan your perfect adventure together</p>
+                </div>
+              </div>
+              
+              <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-info-circle text-sky-600 text-sm mt-0.5"></i>
+                  <div class="text-sm text-sky-700">
+                    <p class="font-medium">Quick Response Guarantee</p>
+                    <p>We'll get back to you within 24-48 hours with a personalized itinerary and detailed quote.</p>
+                  </div>
+                </div>
+              </div>
 
               <!-- Form: Replace action with your Formspree or Zoho Form endpoint -->
               <form
                 id="enquiryForm"
                 action="https://formspree.io/f/yourFormID"
                 method="POST"
-                class="mt-4 grid grid-cols-1 gap-3"
+                class="mt-6 space-y-5"
               >
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Name and Email Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="space-y-2">
+                    <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                      <i class="fas fa-user text-slate-500 text-xs"></i>
+                      Your Name *
+                    </label>
+                    <input
+                      name="name"
+                      class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                      <i class="fas fa-envelope text-slate-500 text-xs"></i>
+                      Email Address *
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="space-y-2">
+                  <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                    <i class="fas fa-phone text-slate-500 text-xs"></i>
+                    Phone Number <span class="text-slate-400">(optional)</span>
+                  </label>
                   <input
-                    name="name"
-                    class="px-4 py-2 border rounded-md"
-                    placeholder="Your name"
-                    required
-                  />
-                  <input
-                    name="email"
-                    type="email"
-                    class="px-4 py-2 border rounded-md"
-                    placeholder="Your email"
-                    required
+                    name="phone"
+                    class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white"
+                    placeholder="+91 XXXXX XXXXX"
                   />
                 </div>
-                <input
-                  name="phone"
-                  class="px-4 py-2 border rounded-md"
-                  placeholder="Phone (optional)"
-                />
-                <textarea
-                  name="message"
-                  rows="5"
-                  class="px-4 py-2 border rounded-md"
-                  placeholder="Tell us about your travel plans..."
-                  required
-                ></textarea>
 
-                <div class="flex items-center gap-3">
-                  <button
-                    type="submit"
-                    class="px-4 py-2 rounded-md bg-sky-600 text-white font-medium"
-                  >
-                    Send Enquiry
-                  </button>
-                  <div id="formStatus" class="text-sm text-slate-600"></div>
+                <!-- Travel Plans -->
+                <div class="space-y-2">
+                  <label class="text-sm font-medium text-slate-700 flex items-center gap-2">
+                    <i class="fas fa-map text-slate-500 text-xs"></i>
+                    Tell us about your travel plans *
+                  </label>
+                  <textarea
+                    name="message"
+                    rows="6"
+                    class="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-200 bg-white resize-none"
+                    placeholder="Please describe your ideal trip: destinations, duration, group size, budget range, special interests, or any specific requirements..."
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="pt-4 border-t border-slate-200">
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <button
+                      type="submit"
+                      class="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-r from-sky-600 to-sky-700 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      <i class="fas fa-paper-plane text-sm"></i>
+                      Send Enquiry
+                    </button>
+                    <div id="formStatus" class="text-sm text-slate-600 flex items-center gap-2">
+                      <i class="fas fa-shield-alt text-emerald-500 text-xs"></i>
+                      <span>Your information is secure and private</span>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
       </section>
 
       <!-- Footer -->
