@@ -36,6 +36,168 @@
       section {
         scroll-margin-top: 80px;
       }
+
+      /* Parallax Effects */
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: transform;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      .parallax-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(2, 6, 23, 0.4), rgba(59, 130, 246, 0.3));
+        z-index: 1;
+      }
+
+      .parallax-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        max-width: 800px;
+        padding: 2rem;
+        transform: translateZ(0);
+      }
+
+      /* Floating animation for parallax elements */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Fade in animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      /* Staggered animation delays */
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .parallax {
+          background-attachment: scroll !important;
+          min-height: 100vh; /* Increased back to full height */
+          background-position: center center !important;
+          background-size: cover !important;
+          background-repeat: no-repeat !important;
+          transform: none !important;
+          /* Add spacing between consecutive parallax sections */
+          margin: 2rem 0;
+        }
+        
+        /* First parallax section (home) should not have top margin */
+        .parallax:first-of-type {
+          margin-top: 0;
+        }
+        
+        /* Add separator between parallax sections */
+        .parallax + .parallax::before {
+          content: '';
+          display: block;
+          height: 3rem;
+          background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.8), rgba(255,255,255,0));
+          position: relative;
+          z-index: 10;
+          margin-bottom: -3rem;
+        }
+        
+        .parallax-content {
+          padding: 2rem 1.5rem; /* Increased padding */
+          max-width: 90%;
+        }
+        
+        .parallax-content h2 {
+          font-size: 2rem !important;
+          line-height: 1.2;
+        }
+        
+        .parallax-content p {
+          font-size: 1.1rem !important;
+          line-height: 1.4;
+        }
+        
+        /* Reduce floating animation on mobile for better performance */
+        .floating {
+          animation: floatMobile 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatMobile {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+      }
+      
+      /* Tablet optimizations */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .parallax {
+          min-height: 85vh;
+        }
+        
+        .parallax-content {
+          padding: 2rem;
+          max-width: 85%;
+        }
+        
+        .parallax-content h2 {
+          font-size: 2.5rem !important;
+        }
+      }
+      
+      /* Alternative mobile parallax with transform effect */
+      @supports not (background-attachment: fixed) {
+        .parallax {
+          background-attachment: scroll;
+          position: relative;
+          transform: translateZ(0);
+        }
+      }
+
+      /* Subtle background patterns */
+      .pattern-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+          radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+      }
     </style>
   </head>
   <body class="antialiased text-slate-800 bg-slate-50">
@@ -137,93 +299,138 @@
     </header>
 
     <!-- Content wrapper (hash-based routing) -->
-    <main id="app" class="max-w-6xl mx-auto">
-      <!-- HOME Section -->
+    <main id="app" class="max-w-full mx-auto">
+      <!-- HOME Section with Parallax -->
       <section
         id="home"
-        class="min-h-[70vh] flex items-center hero-bg"
-        style="
-          background-image: linear-gradient(
-              180deg,
-              rgba(2, 6, 23, 0.35),
-              rgba(2, 6, 23, 0.2)
-            ),
-            url('./assets/hero-bg-2.jpg');
-        "
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
       >
-        <div class="w-full px-4 py-20">
-          <div class="max-w-3xl">
-            <span
-              class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium"
-              >Established • Trusted</span
-            >
-            <h1
-              class="mt-6 text-3xl sm:text-4xl font-extrabold leading-tight text-white"
-            >
-              AP Tours &amp; Travels — Tailor-made experiences for curious
-              travellers
-            </h1>
-            <p class="mt-4 text-sky-100 text-lg">
-              From Himalayan treks to cultural heritage tours — we design
-              journeys that stay with you. Explore handcrafted itineraries,
-              small-group treks, and private tours.
-            </p>
+        <div class="parallax-overlay"></div>
+        <div class="pattern-overlay"></div>
+        <div class="parallax-content">
+          <div class="fade-in-up">
+            <span class="inline-block px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-200 text-sm font-medium backdrop-blur-sm border border-emerald-400/30">
+              Established • Trusted
+            </span>
+          </div>
+          <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold leading-tight fade-in-up delay-100">
+            AP Tours &amp; Travels
+          </h1>
+          <h2 class="mt-4 text-xl sm:text-2xl font-light text-blue-100 fade-in-up delay-200">
+            Tailor-made experiences for curious travellers
+          </h2>
+          <p class="mt-6 text-lg text-blue-50/90 max-w-2xl mx-auto fade-in-up delay-300">
+            From Himalayan treks to cultural heritage tours — we design journeys that stay with you. 
+            Explore handcrafted itineraries, small-group treks, and private tours.
+          </p>
 
-            <div class="mt-8 flex gap-3">
-              <a
-                href="#tours"
-                data-link
-                class="inline-block px-5 py-3 rounded-md bg-white text-slate-900 font-medium shadow hover:scale-[1.01]"
-                >View Tours</a
-              >
-              <a
-                href="#contact"
-                data-link
-                class="inline-block px-5 py-3 rounded-md border border-white text-white hover:bg-white/10"
-                >Get an Enquiry</a
-              >
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up delay-400">
+            <a
+              href="#tours"
+              data-link
+              class="inline-block px-8 py-4 rounded-lg bg-white text-slate-900 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            >
+              Explore Our Tours
+            </a>
+            <a
+              href="#contact"
+              data-link
+              class="inline-block px-8 py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+            >
+              Plan Your Journey
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Why Choose AP Tours?</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">We create extraordinary travel experiences with attention to every detail</p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 floating">
+                <i class="fas fa-route text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">Custom Itineraries</h3>
+              <p class="text-slate-600">
+                We craft trips based on your preferences — activity-level, budget and duration.
+              </p>
+            </div>
+            
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: 2s;">
+                <i class="fas fa-user-friends text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">Experienced Guides</h3>
+              <p class="text-slate-600">
+                Local guides with safety-first approach and deep regional knowledge.
+              </p>
+            </div>
+            
+            <div class="p-8 rounded-2xl glass shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 floating" style="animation-delay: 4s;">
+                <i class="fas fa-headset text-white text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-xl text-slate-800 mb-3">End-to-end Support</h3>
+              <p class="text-slate-600">
+                Transport, permits, accommodations — we handle logistics so you can enjoy the view.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Quick highlights -->
-      <section id="services" class="py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">Custom Itineraries</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                We craft trips based on your preferences — activity-level,
-                budget and duration.
-              </p>
-            </div>
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">Experienced Guides</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                Local guides with safety-first approach and deep regional
-                knowledge.
-              </p>
-            </div>
-            <div class="p-6 rounded-xl glass shadow">
-              <h3 class="font-semibold text-lg">End-to-end Support</h3>
-              <p class="mt-2 text-sm text-slate-600">
-                Transport, permits, accommodations — we handle logistics so you
-                can enjoy the view.
-              </p>
-            </div>
+      <!-- Parallax Section - Adventure Awaits -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1640179563805-184d0da2ba6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-hiking text-5xl mb-6 text-white/80"></i>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Adventure Awaits</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Step into a world where every path leads to wonder. From Himalayan treks to sacred Indian temples.
+          </p>
+        </div>
+      </section>
+
+      <!-- Parallax Section - Mount Kailash -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1601821139990-9fc929db79ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 floating">Sacred Journeys</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed">
+            Experience the spiritual magnificence of Kailash Mansarovar, Char Dham, and the mystical landscapes of the Indian Himalayas
+          </p>
+          <div class="mt-8">
+            <a href="#tours" data-link class="inline-block px-8 py-4 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+              Discover Sacred Tours
+            </a>
           </div>
         </div>
       </section>
 
       <!-- Tours / Gallery -->
-      <section id="tours" class="py-12 px-4 bg-white">
+      <section id="tours" class="py-20 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold">Featured Treks &amp; Tours</h2>
-            <a href="#contact" data-link class="text-sm text-sky-600"
-              >Request a custom package →</a
-            >
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Featured Treks &amp; Tours</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Embark on extraordinary journeys through breathtaking landscapes</p>
+            <a href="#contact" data-link class="inline-block mt-4 text-sky-600 hover:text-sky-800 transition-colors">
+              Request a custom package →
+            </a>
           </div>
 
           <div
@@ -300,142 +507,232 @@
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="py-12 px-4">
-        <div
-          class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-        >
-          <div>
-            <h2 class="text-2xl font-bold">About AP Tours &amp; Travels</h2>
-            <p class="mt-4 text-slate-600">
-              AP Tours &amp; Travels is a boutique travel company focused on
-              curated trekking and cultural experiences across the Himalayas and
-              neighbouring regions. Our small-group trips prioritise safety,
-              responsible tourism and authentic experiences.
-            </p>
-
-            <ul class="mt-4 space-y-2 text-sm text-slate-600">
-              <li>• Licensed local guides with first-aid training</li>
-              <li>• Custom itineraries for families and solo travellers</li>
-              <li>• Eco-friendly stays and community engagement</li>
-            </ul>
+      <!-- Parallax Section - Himalayan Landscape -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1635183625020-93dc1face215?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-mountain text-6xl mb-6 text-white/80"></i>
           </div>
-          <div class="rounded-lg overflow-hidden shadow">
-            <img
-              src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3f2b1a2c8d9e6f7a8b9c0d1e2f3a4b5c"
-              alt="About image"
-              class="w-full h-64 object-cover"
-            />
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Reach New Heights</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Every summit tells a story. Every trail leads to discovery. Join us in exploring India's most magnificent mountain ranges and sacred sites.
+          </p>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">About AP Tours &amp; Travels</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Your trusted partner for extraordinary mountain adventures and cultural discoveries</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+              <div class="prose prose-lg">
+                <p class="text-slate-700 leading-relaxed mb-6">
+                  AP Tours &amp; Travels is a boutique travel company focused on curated trekking and cultural experiences 
+                  across the Himalayas and neighbouring regions. Our small-group trips prioritise safety, responsible tourism 
+                  and authentic experiences.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-shield-alt text-sky-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Safety First</h4>
+                      <p class="text-sm text-slate-600">Licensed local guides with first-aid training</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-users text-emerald-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Personal Touch</h4>
+                      <p class="text-sm text-slate-600">Custom itineraries for families and solo travellers</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-leaf text-green-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Eco-Friendly</h4>
+                      <p class="text-sm text-slate-600">Sustainable stays and community engagement</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <i class="fas fa-star text-purple-600 text-sm"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-800 mb-1">Excellence</h4>
+                      <p class="text-sm text-slate-600">Trusted experiences since 2025</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="order-1 md:order-2">
+              <div class="relative">
+                <div class="rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img
+                    src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3"
+                    alt="Mountain guide with trekkers"
+                    class="w-full h-80 object-cover"
+                  />
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-sky-500 to-emerald-400 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-xl">
+                  AP
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Parallax Section - Spiritual Temples -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1612438214708-f428a707dd4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <div class="floating">
+            <i class="fas fa-om text-5xl mb-6 text-white/80"></i>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Spiritual Temples</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl">
+            Discover ancient temples nestled in the mountains. Experience the divine blend of spirituality and natural beauty.
+          </p>
+          <div class="mt-8">
+            <a href="#contact" data-link class="inline-block px-8 py-4 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all duration-300">
+              Explore Temple Tours
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Parallax Section - Call to Action -->
+      <section
+        class="parallax"
+        style="background-image: url('https://images.unsplash.com/photo-1697106719728-14f5aad54a27?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');"
+      >
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 floating">Ready for Your Adventure?</h2>
+          <p class="text-xl sm:text-2xl font-light leading-relaxed mb-8 max-w-3xl">
+            Let us craft your perfect mountain journey. From sacred peaks of Himalayas to ancient temples, your next great Indian adventure awaits.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#contact" data-link class="inline-block px-8 py-4 rounded-lg bg-white text-slate-900 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              Start Planning Now
+            </a>
+            <a href="tel:+919822020500" class="inline-block px-8 py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+              Call Us Today
+            </a>
           </div>
         </div>
       </section>
 
       <!-- Contact / Enquiry Form -->
-      <section id="contact" class="py-12 px-4 bg-slate-50">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h2 class="text-2xl font-bold">
-              Get in touch — Request a quote or custom itinerary
-            </h2>
-            <p class="mt-3 text-slate-600">
-              Use the form to send us an enquiry. We'll reply within 24–48
-              hours.
-            </p>
+      <section id="contact" class="py-20 px-4 bg-gradient-to-br from-slate-100 to-slate-200">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">Get in Touch</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Ready to embark on your next adventure? Let's plan your perfect mountain journey together.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-slate-800 mb-4">Let's Start Planning Your Journey</h3>
+              <p class="text-slate-600 leading-relaxed">
+                Use the form to send us an enquiry about your dream trek or tour. We'll get back to you within 24–48 hours 
+                with a personalized itinerary and quote.
+              </p>
+            </div>
 
-            <div class="mt-6 space-y-4">
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M16 3v4M8 3v4m-6 4h20"
-                  />
-                </svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-sky-600 text-xl"></i>
+                </div>
                 <div>
-                  <div class="text-sm font-medium">Office</div>
-                  <div class="text-xs text-slate-600">Pune, India</div>
+                  <h4 class="font-semibold text-slate-800 mb-1">Office Location</h4>
+                  <p class="text-slate-600">Pune, India</p>
                 </div>
               </div>
 
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8m-9 5v6"
-                  />
-                </svg>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-emerald-600 text-xl"></i>
+                </div>
                 <div>
-                  <div class="text-sm font-medium">Email</div>
-                  <div class="text-xs text-slate-600">info@aptours.in</div>
+                  <h4 class="font-semibold text-slate-800 mb-1">Email Us</h4>
+                  <a href="mailto:info@aptours.in" class="text-emerald-600 hover:text-emerald-700 transition-colors">info@aptours.in</a>
                 </div>
               </div>
 
-              <div class="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-sky-600"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5h2l.4 2M7 13h10l1.6-8H5.4L7 13zM16 19a2 2 0 1 1-4 0"
-                  />
-                </svg>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-phone text-purple-600 text-xl"></i>
+                </div>
                 <div>
-                  <div class="text-sm font-medium">Phone</div>
-                  <div class="text-xs text-slate-600">+91 98220 20500</div>
+                  <h4 class="font-semibold text-slate-800 mb-1">Call Us</h4>
+                  <a href="tel:+919822020500" class="text-purple-600 hover:text-purple-700 transition-colors">+91 98220 20500</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-clock text-orange-600 text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-800 mb-1">Response Time</h4>
+                  <p class="text-slate-600">Within 24-48 hours</p>
                 </div>
               </div>
             </div>
 
             <!-- Social links -->
-            <div class="mt-6 flex items-center gap-3">
-              <a
-                aria-label="facebook"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="Facebook"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.2c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.5.7-1.5 1.4V12H20l-.5 2.9h-2v7A10 10 0 0 0 22 12z"/></svg> -->
-                <i class="fa-brands fa-facebook"></i>
-              </a>
-              <a
-                aria-label="instagram"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="Instagram"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zM18.8 6.2a1.2 1.2 0 1 1-1.2-1.2 1.2 1.2 0 0 1 1.2 1.2z"/></svg> -->
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a
-                aria-label="whatsapp"
-                class="p-2 rounded-md hover:bg-slate-100"
-                href="#"
-                title="WhatsApp"
-              >
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.5 20.5L2 22l1.5-4.5A11 11 0 1 0 20.5 3.5zM12 19a7 7 0 0 1-3.9-1.2l-.3-.2-2.3.6.6-2.2-.2-.3A7 7 0 1 1 12 19z"/></svg> -->
-                <i class="fa-brands fa-whatsapp"></i>
-              </a>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="font-semibold text-slate-800 mb-4">Follow Our Adventures</h4>
+              <div class="flex items-center gap-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center hover:bg-blue-200 transition-colors group"
+                  title="Facebook"
+                >
+                  <i class="fab fa-facebook-f text-blue-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center hover:bg-pink-200 transition-colors group"
+                  title="Instagram"
+                >
+                  <i class="fab fa-instagram text-pink-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center hover:bg-green-200 transition-colors group"
+                  title="WhatsApp"
+                >
+                  <i class="fab fa-whatsapp text-green-600 group-hover:scale-110 transition-transform"></i>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -607,6 +904,79 @@
       mobileBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
       });
+
+      // Enhanced mobile parallax handler
+      function initMobileParallax() {
+        const isMobile = window.innerWidth <= 768;
+        const parallaxElements = document.querySelectorAll('.parallax');
+        
+        if (isMobile) {
+          // Ensure proper mobile display
+          parallaxElements.forEach(element => {
+            element.style.backgroundAttachment = 'scroll';
+            element.style.backgroundPosition = 'center center';
+            element.style.backgroundSize = 'cover';
+            element.style.backgroundRepeat = 'no-repeat';
+            element.style.transform = 'none';
+            element.style.willChange = 'auto';
+          });
+          
+          // Add subtle mobile parallax effect
+          let ticking = false;
+          
+          function updateMobileParallax() {
+            parallaxElements.forEach((element, index) => {
+              const rect = element.getBoundingClientRect();
+              const elementTop = rect.top;
+              const elementHeight = rect.height;
+              const windowHeight = window.innerHeight;
+              
+              // Only apply effect when element is in viewport
+              if (elementTop < windowHeight && (elementTop + elementHeight) > 0) {
+                // Calculate scroll progress for this element (0 to 1)
+                const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + elementHeight)));
+                
+                // Subtle parallax offset (much less aggressive than desktop)
+                const parallaxOffset = (scrollProgress - 0.5) * 30; // 30px max offset
+                
+                element.style.backgroundPosition = `center calc(50% + ${parallaxOffset}px)`;
+              }
+            });
+            
+            ticking = false;
+          }
+          
+          function requestMobileParallaxTick() {
+            if (!ticking) {
+              requestAnimationFrame(updateMobileParallax);
+              ticking = true;
+            }
+          }
+          
+          // Remove any existing listeners first
+          window.removeEventListener('scroll', window.mobileParallaxHandler);
+          
+          // Add new optimized listener
+          window.mobileParallaxHandler = requestMobileParallaxTick;
+          window.addEventListener('scroll', window.mobileParallaxHandler, { passive: true });
+          
+        } else {
+          // Remove mobile parallax listener for desktop
+          window.removeEventListener('scroll', window.mobileParallaxHandler);
+          
+          // Reset to fixed attachment for desktop
+          parallaxElements.forEach(element => {
+            element.style.backgroundAttachment = 'fixed';
+            element.style.backgroundPosition = 'center';
+            element.style.backgroundSize = 'cover';
+            element.style.transform = 'none';
+          });
+        }
+      }
+      
+      // Initialize parallax on load and resize
+      window.addEventListener('load', initMobileParallax);
+      window.addEventListener('resize', initMobileParallax);
 
       // Hash link handler: smooth scroll and show sections with proper offset
       document.querySelectorAll("[data-link]").forEach((a) => {
