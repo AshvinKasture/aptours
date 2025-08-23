@@ -116,6 +116,9 @@
           transform: none !important;
           /* Add spacing between consecutive parallax sections */
           margin: 2rem 0;
+          /* Enable smooth transitions for zoom effects */
+          transition: background-size 0.1s ease-out;
+          overflow: hidden;
         }
         
         /* First parallax section (home) should not have top margin */
@@ -137,6 +140,9 @@
         .parallax-content {
           padding: 2rem 1.5rem; /* Increased padding */
           max-width: 90%;
+          /* Ensure content stays above zoom effects */
+          position: relative;
+          z-index: 2;
         }
         
         .parallax-content h2 {
@@ -887,7 +893,7 @@
         <div
           class="max-w-6xl mx-auto mt-6 border-t pt-6 text-sm text-slate-500"
         >
-          &copy; <span id="year"></span> AP Tours &amp; Travels — Demo. Built
+          &copy; <span id="year"></span> AP Tours &amp; Travels — Built
           with ❤️ by AshTech
         </div>
       </footer>
@@ -921,7 +927,7 @@
             element.style.willChange = 'auto';
           });
           
-          // Add subtle mobile parallax effect
+          // Add enhanced mobile parallax effect with zoom
           let ticking = false;
           
           function updateMobileParallax() {
@@ -931,15 +937,33 @@
               const elementHeight = rect.height;
               const windowHeight = window.innerHeight;
               
-              // Only apply effect when element is in viewport
-              if (elementTop < windowHeight && (elementTop + elementHeight) > 0) {
+              // Only apply effect when element is in viewport or near it
+              if (elementTop < windowHeight + 200 && (elementTop + elementHeight) > -200) {
                 // Calculate scroll progress for this element (0 to 1)
-                const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + elementHeight)));
+                const rawProgress = (windowHeight - elementTop) / (windowHeight + elementHeight);
+                const scrollProgress = Math.max(0, Math.min(1, rawProgress));
                 
                 // Subtle parallax offset (much less aggressive than desktop)
                 const parallaxOffset = (scrollProgress - 0.5) * 30; // 30px max offset
                 
+                // Zoom effect: starts at 105% when entering, goes to 100% at center, then to 95% when leaving
+                let zoomFactor;
+                if (scrollProgress < 0.5) {
+                  // Element is entering viewport - zoom from 105% to 100%
+                  zoomFactor = 105 - (scrollProgress * 10); // 105% to 100%
+                } else {
+                  // Element is leaving viewport - zoom from 100% to 95%
+                  zoomFactor = 100 - ((scrollProgress - 0.5) * 10); // 100% to 95%
+                }
+                
+                // Apply the effects
                 element.style.backgroundPosition = `center calc(50% + ${parallaxOffset}px)`;
+                element.style.backgroundSize = `${zoomFactor}%`;
+                
+                // Add subtle opacity effect for elements far from center
+                const centerDistance = Math.abs(scrollProgress - 0.5);
+                const opacity = 1 - (centerDistance * 0.1); // Slight fade at edges
+                element.style.opacity = Math.max(0.9, opacity);
               }
             });
             
@@ -960,6 +984,9 @@
           window.mobileParallaxHandler = requestMobileParallaxTick;
           window.addEventListener('scroll', window.mobileParallaxHandler, { passive: true });
           
+          // Initial call to set up elements
+          updateMobileParallax();
+          
         } else {
           // Remove mobile parallax listener for desktop
           window.removeEventListener('scroll', window.mobileParallaxHandler);
@@ -970,6 +997,7 @@
             element.style.backgroundPosition = 'center';
             element.style.backgroundSize = 'cover';
             element.style.transform = 'none';
+            element.style.opacity = '1';
           });
         }
       }
