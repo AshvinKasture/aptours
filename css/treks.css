@@ -261,6 +261,16 @@
   .detail-item {
     padding: 6px;
   }
+  
+  /* Mobile CTA Button Styling */
+  .cta-button {
+    flex-shrink: 0;
+    min-width: auto;
+    max-width: 140px;
+    padding: 10px 18px !important;
+    font-size: 0.9rem;
+    margin-left: 8px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -270,8 +280,12 @@
   }
   
   .cta-button {
-    width: 100%;
+    width: auto;
+    max-width: 130px;
+    padding: 10px 16px !important;
+    font-size: 0.875rem;
     text-align: center;
+    margin-left: 12px;
   }
   
   .filter-btn {
