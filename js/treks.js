@@ -194,9 +194,9 @@ function createTrekCard(trek) {
               <div class="text-2xl font-bold text-sky-600">${trek.price}</div>
               <div class="text-xs text-slate-500">per person</div>
             </div>
-            <a href="../index.html#contact" 
+            <a href="./trek-details.html?id=${trek.id}" 
                class="cta-button px-6 py-3 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-blue-700 transition-all duration-300">
-              Enquire Now
+              View Details
             </a>
           </div>
         </div>
