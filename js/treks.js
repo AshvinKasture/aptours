@@ -22,7 +22,84 @@ const treksData = [
     buttonGradient: "from-sky-600 to-blue-600",
     buttonHoverGradient: "hover:from-sky-700 hover:to-blue-700",
     titleHoverColor: "group-hover:text-sky-600",
-    description: "Journey to the base of the world's highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure."
+    description: "Journey to the base of the world's highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Kathmandu",
+        description: "Arrive at Tribhuvan International Airport, Kathmandu. Transfer to hotel. Briefing about the trek and equipment check. Explore Thamel area in the evening."
+      },
+      {
+        day: 2,
+        title: "Fly to Lukla & Trek to Phakding",
+        description: "Early morning scenic flight to Lukla (2,840m). Begin trekking to Phakding (2,610m). Walk through beautiful landscapes and cross suspension bridges. Overnight in tea house."
+      },
+      {
+        day: 3,
+        title: "Phakding to Namche Bazaar",
+        description: "Trek to Namche Bazaar (3,440m), the Sherpa capital. Cross several suspension bridges including the famous Hillary Bridge. First glimpse of Everest weather permitting."
+      },
+      {
+        day: 4,
+        title: "Acclimatization Day in Namche",
+        description: "Rest day for acclimatization. Hike to Everest View Hotel for stunning mountain views. Visit Sherpa Museum and explore the bustling Namche market."
+      },
+      {
+        day: 5,
+        title: "Namche to Tengboche",
+        description: "Trek to Tengboche (3,860m) through rhododendron forests. Visit the famous Tengboche Monastery with panoramic views of Everest, Ama Dablam, and other peaks."
+      },
+      {
+        day: 6,
+        title: "Tengboche to Dingboche",
+        description: "Continue to Dingboche (4,410m). Pass through Pangboche village and enjoy views of Lhotse, Island Peak, and Ama Dablam. Overnight in tea house."
+      },
+      {
+        day: 7,
+        title: "Acclimatization Day in Dingboche",
+        description: "Second acclimatization day. Hike to Nagarjun Hill (5,100m) for spectacular views of Makalu, Lhotse, Cho Oyu, and other peaks. Return to Dingboche."
+      },
+      {
+        day: 8,
+        title: "Dingboche to Lobuche",
+        description: "Trek to Lobuche (4,940m) via Thukla Pass. Pay respects at the memorial stones of climbers. Challenging day with thin air and rocky terrain."
+      },
+      {
+        day: 9,
+        title: "Lobuche to EBC via Gorak Shep",
+        description: "Trek to Gorak Shep (5,164m) and continue to Everest Base Camp (5,364m). Achieve the main goal of reaching EBC. Return to Gorak Shep for overnight."
+      },
+      {
+        day: 10,
+        title: "Kala Patthar & Return to Pheriche",
+        description: "Early morning hike to Kala Patthar (5,545m) for sunrise views of Everest. Best viewpoint of the trek. Descend to Pheriche (4,371m) for overnight."
+      },
+      {
+        day: 11,
+        title: "Pheriche to Namche Bazaar",
+        description: "Long descent back to Namche Bazaar. Retrace steps through Tengboche and Phunki Tenga. Celebrate completion at Namche's Irish Pub."
+      },
+      {
+        day: 12,
+        title: "Namche to Lukla",
+        description: "Final trekking day back to Lukla. Cross the Hillary Bridge one last time. Farewell dinner with trekking crew. Last night in the mountains."
+      },
+      {
+        day: 13,
+        title: "Fly back to Kathmandu",
+        description: "Morning flight from Lukla to Kathmandu. Rest and recover at hotel. Optional shopping for souvenirs in Thamel. Farewell dinner."
+      },
+      {
+        day: 14,
+        title: "Explore Kathmandu",
+        description: "Visit UNESCO World Heritage sites - Pashupatinath Temple, Boudhanath Stupa, or Swayambhunath. Rest and preparation for departure."
+      },
+      {
+        day: 15,
+        title: "Departure",
+        description: "Transfer to Tribhuvan International Airport for final departure. End of the adventure with memories of a lifetime."
+      }
+    ]
   },
   {
     id: 2,
@@ -41,7 +118,69 @@ const treksData = [
     buttonGradient: "from-purple-600 to-indigo-600",
     buttonHoverGradient: "hover:from-purple-700 hover:to-indigo-700",
     titleHoverColor: "group-hover:text-purple-600",
-    description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake."
+    description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Kathmandu",
+        description: "Arrive in Kathmandu. Transfer to hotel. Evening briefing and preparation for the sacred journey ahead."
+      },
+      {
+        day: 2,
+        title: "Drive to Syabrubesi",
+        description: "Drive to Syabrubesi (1,550m) via scenic mountain roads. Prepare for border crossing formalities."
+      },
+      {
+        day: 3,
+        title: "Cross to Kerung & Drive to Saga",
+        description: "Cross Nepal-Tibet border at Rasuwa. Drive to Saga (4,640m). First day at high altitude, rest and acclimatize."
+      },
+      {
+        day: 4,
+        title: "Saga to Mansarovar Lake",
+        description: "Drive to sacred Mansarovar Lake (4,590m). Perform puja and take holy dip. Witness stunning sunset over the lake."
+      },
+      {
+        day: 5,
+        title: "Mansarovar to Darchen",
+        description: "Morning rituals at Mansarovar. Drive to Darchen (4,575m), base camp for Kailash Parikrama. Preparation for circumambulation."
+      },
+      {
+        day: 6,
+        title: "Darchen to Dirapuk",
+        description: "Begin Kailash Parikrama. Trek to Dirapuk (4,909m). First day of the sacred circumambulation around Mount Kailash."
+      },
+      {
+        day: 7,
+        title: "Dirapuk to Zuthulpuk via Dolma La",
+        description: "Cross Dolma La Pass (5,630m) - the highest point. Descent to Zuthulpuk (4,790m). Most challenging day of the pilgrimage."
+      },
+      {
+        day: 8,
+        title: "Zuthulpuk to Darchen",
+        description: "Complete the Kailash Parikrama by returning to Darchen. Celebration of completing the sacred circumambulation."
+      },
+      {
+        day: 9,
+        title: "Darchen to Saga",
+        description: "Drive back to Saga. Rest and reflect on the spiritual journey completed. Overnight in guesthouse."
+      },
+      {
+        day: 10,
+        title: "Saga to Kerung",
+        description: "Drive to Kerung near the Nepal border. Complete immigration formalities. Last night in Tibet."
+      },
+      {
+        day: 11,
+        title: "Kerung to Kathmandu",
+        description: "Cross back to Nepal and drive to Kathmandu. Farewell dinner celebrating the successful completion of the pilgrimage."
+      },
+      {
+        day: 12,
+        title: "Departure",
+        description: "Transfer to airport for final departure. End of the sacred journey with spiritual blessings and unforgettable memories."
+      }
+    ]
   },
   {
     id: 3,
@@ -417,7 +556,13 @@ function initializeTreksPage() {
 }
 
 // DOM Content Loaded Event Listener
-document.addEventListener('DOMContentLoaded', initializeTreksPage);
+document.addEventListener('DOMContentLoaded', function() {
+  // Only initialize treks page functionality if we're on the treks listing page
+  const treksGrid = document.getElementById('treksGrid');
+  if (treksGrid) {
+    initializeTreksPage();
+  }
+});
 
 // Export functions for potential external use
 if (typeof module !== 'undefined' && module.exports) {
