@@ -193,3 +193,45 @@ section {
   background-size: 50px 50px;
   z-index: 1;
 }
+
+/* Featured Trek Cards - Consistent Height */
+#featuredTreksContainer {
+  display: grid;
+  align-items: stretch;
+}
+
+.trek-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trek-card .bg-white {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure CTA button alignment */
+.trek-card .cta-button {
+  white-space: nowrap;
+}
+
+/* Loading state for trek cards */
+.trek-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive card spacing */
+@media (max-width: 768px) {
+  .trek-card .p-6 {
+    padding: 1.25rem;
+  }
+  
+  .trek-card .cta-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
