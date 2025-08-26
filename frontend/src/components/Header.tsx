@@ -1,83 +1,120 @@
-import React from 'react';
-import { useMobileMenu } from '../hooks/useMobileMenu';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const Header: React.FC = () => {
-  const { isOpen, toggle } = useMobileMenu();
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#services', label: 'Services' },
-    { href: '#treks', label: 'Tours' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' }
-  ];
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
+  };
 
-  const handleNavClick = (href: string) => {
-    // Smooth scroll to section
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleMobileMenuClose = () => {
+    setIsOpen(false);
+  };
+
+  // Custom scroll function with header offset for smooth scrolling
+  const scrollWithOffset = (el: HTMLElement) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80; // Header height offset
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
   };
 
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <button 
-            onClick={() => handleNavClick('#home')} 
-            className="flex items-center gap-3"
-          >
+          <Link to="/" className="flex items-center gap-3">
+            {/* Company logo */}
             <img 
-              src="/logo.png" 
+              src="/aptours/assets/logo.png" 
               alt="AP Tours & Travels Logo" 
               className="w-10 h-10 rounded-full object-cover"
             />
             <div className="hidden sm:block">
               <div className="text-lg font-semibold text-slate-800">AP Tours & Travels</div>
-              <div className="text-xs text-slate-500">Explore. Experience. Enjoy.</div>
+              <div className="text-xs text-slate-500">
+                Explore. Experience. Enjoy.
+              </div>
             </div>
-          </button>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
-                onClick={() => handleNavClick(link.href)}
-              >
-                {link.label}
-              </button>
-            ))}
+            <HashLink
+              smooth
+              to="/#home"
+              scroll={scrollWithOffset}
+              className={`nav-link text-sm transition-colors ${
+                isActive('/') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
+            >
+              Home
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#services"
+              scroll={scrollWithOffset}
+              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Services
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#tours"
+              scroll={scrollWithOffset}
+              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Tours
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#about"
+              scroll={scrollWithOffset}
+              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              About
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#contact"
+              scroll={scrollWithOffset}
+              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Contact
+            </HashLink>
           </nav>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => handleNavClick('#contact')}
+            <HashLink
+              smooth
+              to="/#contact"
+              scroll={scrollWithOffset}
               className="hidden md:inline-block px-4 py-2 rounded-md bg-sky-600 text-white text-sm font-medium hover:bg-sky-700 transition-colors"
             >
               Enquire
-            </button>
+            </HashLink>
 
             {/* Mobile menu button */}
             <button
-              onClick={toggle}
+              onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 rounded-md text-slate-700 focus:outline-none focus:ring"
             >
               <svg
-                className="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
                 fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {isOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
               </svg>
             </button>
           </div>
@@ -85,22 +122,59 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile menu panel */}
-      <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="px-4 pb-6 flex flex-col gap-2 bg-white/95 backdrop-blur">
-          {navLinks.map((link) => (
-            <button
-              key={link.href}
-              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors text-left"
-              onClick={() => {
-                handleNavClick(link.href);
-                toggle();
-              }}
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-slate-200">
+          <div className="px-4 pb-6 flex flex-col gap-2">
+            <HashLink 
+              smooth
+              to="/#home"
+              scroll={scrollWithOffset}
+              onClick={handleMobileMenuClose}
+              className={`block py-2 transition-colors ${
+                isActive('/') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
-              {link.label}
-            </button>
-          ))}
+              Home
+            </HashLink>
+            <HashLink 
+              smooth
+              to="/#services"
+              scroll={scrollWithOffset}
+              onClick={handleMobileMenuClose}
+              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Services
+            </HashLink>
+            <HashLink 
+              smooth
+              to="/#tours"
+              scroll={scrollWithOffset}
+              onClick={handleMobileMenuClose}
+              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Tours
+            </HashLink>
+            <HashLink 
+              smooth
+              to="/#about"
+              scroll={scrollWithOffset}
+              onClick={handleMobileMenuClose}
+              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              About
+            </HashLink>
+            <HashLink 
+              smooth
+              to="/#contact"
+              scroll={scrollWithOffset}
+              onClick={handleMobileMenuClose}
+              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+            >
+              Contact
+            </HashLink>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };

@@ -31,7 +31,7 @@ const AboutSection: React.FC = () => {
               </div>
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-xl p-2">
                 <img 
-                  src="/logo_transparent.png" 
+                  src="/aptours/logo_transparent.png" 
                   alt="AP Tours & Travels Logo" 
                   className="w-full h-full rounded-xl object-cover"
                 />

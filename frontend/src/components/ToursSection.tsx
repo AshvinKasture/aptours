@@ -1,4 +1,5 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import type { Trek } from '../types';
 
 const ToursSection: React.FC = () => {
@@ -47,7 +48,7 @@ const ToursSection: React.FC = () => {
   };
 
   return (
-    <section id="treks" className="py-20 px-4 bg-white">
+    <section id="tours" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
@@ -57,15 +58,20 @@ const ToursSection: React.FC = () => {
             Embark on extraordinary journeys through breathtaking landscapes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-            <a href="./treks/index.html" className="inline-block px-6 py-3 rounded-lg bg-sky-600 text-white font-semibold hover:bg-sky-700 transition-all duration-300">
-              View All Treks
-            </a>
-            <button 
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <HashLink 
+              to="/tours"
+              smooth
+              className="inline-block px-6 py-3 rounded-lg bg-sky-600 text-white font-semibold hover:bg-sky-700 transition-all duration-300"
+            >
+              View All Tours
+            </HashLink>
+            <HashLink 
+              smooth
+              to="/#contact"
               className="inline-block px-6 py-3 rounded-lg border-2 border-sky-600 text-sky-600 hover:bg-sky-600 hover:text-white transition-all duration-300"
             >
               Request Custom Package
-            </button>
+            </HashLink>
           </div>
         </div>
 
@@ -120,9 +126,12 @@ const ToursSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <button className="w-full px-4 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors font-medium text-sm">
+                <Link 
+                  to={`/tours/${trek.id}`}
+                  className="w-full block text-center px-4 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors font-medium text-sm"
+                >
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           ))}
