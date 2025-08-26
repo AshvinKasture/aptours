@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
+/*
+ * NOTE: react-router-hash-link does not reliably work with HashRouter
+ * 
+ * Known issues when using HashRouter + react-router-hash-link:
+ * - Navigation links may not scroll to sections properly
+ * - Active link highlighting may not work as expected 
+ * - Hash fragment routing conflicts can occur
+ * 
+ * If you experience issues with navigation, scrolling, or active link highlighting,
+ * this HashRouter + react-router-hash-link combination is likely the root cause.
+ * 
+ * Current workaround: Custom intersection observer for active state detection
+ * Alternative solutions: Switch to BrowserRouter or implement custom hash scrolling
+ */
+
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
-
-  const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
 
   const handleMobileMenuClose = () => {
     setIsOpen(false);
@@ -21,6 +31,45 @@ const Header: React.FC = () => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -80; // Header height offset
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+  };
+
+  // Intersection Observer for active section detection
+  useEffect(() => {
+    const sections = ['home', 'services', 'tours', 'about', 'contact'];
+    const sectionElements = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+    if (sectionElements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.id) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-100px 0px -50% 0px',
+        threshold: 0.1
+      }
+    );
+
+    sectionElements.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionElements.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, [location.pathname]);
+
+  const isNavActive = (section: string) => {
+    if (location.pathname === '/') {
+      return activeSection === section;
+    }
+    return false;
   };
 
   return (
@@ -48,7 +97,7 @@ const Header: React.FC = () => {
               to="/#home"
               scroll={scrollWithOffset}
               className={`nav-link text-sm transition-colors ${
-                isActive('/') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+                isNavActive('home') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
               }`}
             >
               Home
@@ -57,7 +106,9 @@ const Header: React.FC = () => {
               smooth
               to="/#services"
               scroll={scrollWithOffset}
-              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+              className={`nav-link text-sm transition-colors ${
+                isNavActive('services') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Services
             </HashLink>
@@ -65,7 +116,9 @@ const Header: React.FC = () => {
               smooth
               to="/#tours"
               scroll={scrollWithOffset}
-              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+              className={`nav-link text-sm transition-colors ${
+                isNavActive('tours') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Tours
             </HashLink>
@@ -73,7 +126,9 @@ const Header: React.FC = () => {
               smooth
               to="/#about"
               scroll={scrollWithOffset}
-              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+              className={`nav-link text-sm transition-colors ${
+                isNavActive('about') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               About
             </HashLink>
@@ -81,7 +136,9 @@ const Header: React.FC = () => {
               smooth
               to="/#contact"
               scroll={scrollWithOffset}
-              className="nav-link text-sm text-slate-700 hover:text-sky-600 transition-colors"
+              className={`nav-link text-sm transition-colors ${
+                isNavActive('contact') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Contact
             </HashLink>
@@ -131,7 +188,7 @@ const Header: React.FC = () => {
               scroll={scrollWithOffset}
               onClick={handleMobileMenuClose}
               className={`block py-2 transition-colors ${
-                isActive('/') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+                isNavActive('home') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
               }`}
             >
               Home
@@ -141,7 +198,9 @@ const Header: React.FC = () => {
               to="/#services"
               scroll={scrollWithOffset}
               onClick={handleMobileMenuClose}
-              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+              className={`block py-2 transition-colors ${
+                isNavActive('services') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Services
             </HashLink>
@@ -150,7 +209,9 @@ const Header: React.FC = () => {
               to="/#tours"
               scroll={scrollWithOffset}
               onClick={handleMobileMenuClose}
-              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+              className={`block py-2 transition-colors ${
+                isNavActive('tours') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Tours
             </HashLink>
@@ -159,7 +220,9 @@ const Header: React.FC = () => {
               to="/#about"
               scroll={scrollWithOffset}
               onClick={handleMobileMenuClose}
-              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+              className={`block py-2 transition-colors ${
+                isNavActive('about') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               About
             </HashLink>
@@ -168,7 +231,9 @@ const Header: React.FC = () => {
               to="/#contact"
               scroll={scrollWithOffset}
               onClick={handleMobileMenuClose}
-              className="block py-2 text-slate-700 hover:text-sky-600 transition-colors"
+              className={`block py-2 transition-colors ${
+                isNavActive('contact') ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
+              }`}
             >
               Contact
             </HashLink>
