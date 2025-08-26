@@ -1,51 +1,46 @@
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import TrekCard from './TrekCard';
 import type { Trek } from '../types';
+import { getTrekImagePath } from '../utils/assets';
 
 const ToursSection: React.FC = () => {
-  // Sample trek data - this would normally come from a backend API
+  // Featured trek data - matching the HTML version exactly
   const featuredTreks: Trek[] = [
     {
       id: '1',
-      title: 'Everest Base Camp',
-      description: 'Journey to the base of the world\'s highest mountain through breathtaking Himalayan landscapes.',
-      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3',
-      duration: '14 days',
-      difficulty: 'Challenging',
-      price: 'Starting from ₹85,000',
+      title: 'Everest Base Camp Trek',
+      description: 'Journey to the base of the world\'s highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure.',
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
+      duration: '15N / 16D',
+      difficulty: 'Extreme',
+      type: 'Himalayan Trek',
+      price: '₹1,85,000',
+      maxAltitude: '5,364m',
       highlights: ['Sherpa culture', 'Tengboche Monastery', 'Kala Patthar viewpoint']
     },
     {
       id: '2',
-      title: 'Kailash Mansarovar',
-      description: 'Sacred pilgrimage to Mount Kailash and the holy Mansarovar Lake in Tibet.',
-      image: 'https://images.unsplash.com/photo-1601821139990-9fc929db79ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3',
-      duration: '12 days',
-      difficulty: 'Moderate',
-      price: 'Starting from ₹1,25,000',
+      title: 'Mount Kailash Mansarovar',
+      description: 'Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.',
+      image: getTrekImagePath('Kailash_stock.jpg'),
+      duration: '11N / 12D',
+      difficulty: 'Challenging',
+      type: 'Sacred Pilgrimage',
+      price: '₹2,25,000',
+      maxAltitude: '5,630m',
       highlights: ['Sacred Mt. Kailash', 'Mansarovar Lake', 'Spiritual journey']
     },
     {
       id: '3',
-      title: 'Hidden Himalayan Valleys',
-      description: 'Explore remote valleys and ancient villages in the lesser-known regions of the Himalayas.',
-      image: 'https://images.unsplash.com/photo-1640179563805-184d0da2ba6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3',
-      duration: '10 days',
-      difficulty: 'Moderate',
-      price: 'Starting from ₹65,000',
-      highlights: ['Remote villages', 'Local culture', 'Pristine nature']
+      title: 'Nepal Cultural Family Tour',
+      description: 'Perfect family adventure exploring Nepal\'s rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations.',
+      image: getTrekImagePath('BoudhnathStupa.jpg'),
+      duration: '7N / 8D',
+      type: 'Nepal Family Package',
+      price: '₹45,000',
+      highlights: ['Kathmandu UNESCO sites', 'Boudhanath Stupa', 'Patan Durbar Square', 'Mountain views']
     }
   ];
-
-  const getDifficultyColor = (difficulty: Trek['difficulty']) => {
-    switch (difficulty) {
-      case 'Easy': return 'bg-green-100 text-green-800';
-      case 'Moderate': return 'bg-yellow-100 text-yellow-800';
-      case 'Challenging': return 'bg-orange-100 text-orange-800';
-      case 'Extreme': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
 
   return (
     <section id="tours" className="py-20 px-4 bg-white">
@@ -75,65 +70,9 @@ const ToursSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {featuredTreks.map((trek) => (
-            <div 
-              key={trek.id}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={trek.image}
-                  alt={trek.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(trek.difficulty)}`}>
-                    {trek.difficulty}
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  {trek.title}
-                </h3>
-                <p className="text-slate-600 mb-4 text-sm leading-relaxed">
-                  {trek.description}
-                </p>
-                
-                <div className="flex items-center justify-between text-sm text-slate-500 mb-4">
-                  <span className="flex items-center gap-1">
-                    <i className="fas fa-clock"></i>
-                    {trek.duration}
-                  </span>
-                  <span className="font-semibold text-sky-600">
-                    {trek.price}
-                  </span>
-                </div>
-                
-                <div className="mb-4">
-                  <div className="text-xs text-slate-500 mb-2">Highlights:</div>
-                  <div className="flex flex-wrap gap-2">
-                    {trek.highlights.map((highlight, index) => (
-                      <span 
-                        key={index}
-                        className="px-2 py-1 bg-slate-100 text-slate-600 rounded-full text-xs"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <Link 
-                  to={`/tours/${trek.id}`}
-                  className="w-full block text-center px-4 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors font-medium text-sm"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
+            <TrekCard key={trek.id} trek={trek} />
           ))}
         </div>
       </div>

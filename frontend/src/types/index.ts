@@ -4,9 +4,11 @@ export interface Trek {
   description: string;
   image: string;
   duration: string;
-  difficulty: 'Easy' | 'Moderate' | 'Challenging' | 'Extreme';
+  difficulty?: 'Easy' | 'Moderate' | 'Challenging' | 'Extreme';
+  type: 'Himalayan Trek' | 'Sacred Pilgrimage' | 'Nepal Family Package' | 'Bike Rides';
   price: string;
   highlights: string[];
+  maxAltitude?: string;
 }
 
 export interface ContactForm {
