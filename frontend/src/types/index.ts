@@ -9,6 +9,7 @@ export interface Trek {
   price: string;
   highlights: string[];
   maxAltitude?: string;
+  category?: string; // For filtering in ToursPage
 }
 
 export interface ContactForm {
