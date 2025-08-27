@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import FilterDropdown from './FilterDropdown';
+import { useTours } from '../contexts/TourContext';
 
 interface BreadcrumbItem {
   label: string;
@@ -16,6 +17,7 @@ interface FilterOption {
 
 interface BreadcrumbProps {
   showFilter?: boolean;
+  // Optional props for when not using context
   filterOptions?: FilterOption[];
   selectedFilter?: string;
   onFilterChange?: (filter: string) => void;
@@ -25,13 +27,21 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
   showFilter = false,
-  filterOptions = [],
-  selectedFilter = 'all',
+  filterOptions,
+  selectedFilter,
   onFilterChange,
   getAllCount,
   getFilterCount
 }) => {
   const location = useLocation();
+  const tourContext = useTours();
+  
+  // Use context values as fallback when props are not provided
+  const actualFilterOptions = filterOptions || tourContext.filterButtons.slice(1); // Remove 'All' option
+  const actualSelectedFilter = selectedFilter || tourContext.selectedFilter;
+  const actualOnFilterChange = onFilterChange || tourContext.setSelectedFilter;
+  const actualGetAllCount = getAllCount || tourContext.getAllCount;
+  const actualGetFilterCount = getFilterCount || tourContext.getFilterCount;
   
   const getBreadcrumbs = (): BreadcrumbItem[] => {
     const path = location.pathname;
@@ -96,13 +106,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           </ol>
 
           {/* Filter Section (only show when requested) */}
-          {showFilter && getAllCount && getFilterCount && (
+          {showFilter && (
             <FilterDropdown
-              options={filterOptions}
-              selectedFilter={selectedFilter}
-              onFilterChange={onFilterChange!}
-              getAllCount={getAllCount}
-              getFilterCount={getFilterCount}
+              options={actualFilterOptions}
+              selectedFilter={actualSelectedFilter}
+              onFilterChange={actualOnFilterChange}
+              getAllCount={actualGetAllCount}
+              getFilterCount={actualGetFilterCount}
             />
           )}
         </div>

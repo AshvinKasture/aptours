@@ -16,7 +16,12 @@ const ToursSection: React.FC = () => {
       type: 'Himalayan Trek',
       price: '₹1,85,000',
       maxAltitude: '5,364m',
-      highlights: ['Sherpa culture', 'Tengboche Monastery', 'Kala Patthar viewpoint']
+      highlights: ['Sherpa culture', 'Tengboche Monastery', 'Kala Patthar viewpoint'],
+      slideshowImages: [
+        getTrekImagePath('Everest_Base_Camp_stock.jpg'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg')
+      ]
     },
     {
       id: '2',
@@ -28,7 +33,12 @@ const ToursSection: React.FC = () => {
       type: 'Sacred Pilgrimage',
       price: '₹2,25,000',
       maxAltitude: '5,630m',
-      highlights: ['Sacred Mt. Kailash', 'Mansarovar Lake', 'Spiritual journey']
+      highlights: ['Sacred Mt. Kailash', 'Mansarovar Lake', 'Spiritual journey'],
+      slideshowImages: [
+        getTrekImagePath('Kailash_stock.jpg'),
+        getTrekImagePath('Kailash_stock.jpg'),
+        getTrekImagePath('Kailash_stock.jpg')
+      ]
     },
     {
       id: '3',
@@ -38,7 +48,12 @@ const ToursSection: React.FC = () => {
       duration: '7N / 8D',
       type: 'Nepal Family Package',
       price: '₹45,000',
-      highlights: ['Kathmandu UNESCO sites', 'Boudhanath Stupa', 'Patan Durbar Square', 'Mountain views']
+      highlights: ['Kathmandu UNESCO sites', 'Boudhanath Stupa', 'Patan Durbar Square', 'Mountain views'],
+      slideshowImages: [
+        getTrekImagePath('BoudhnathStupa.jpg'),
+        getTrekImagePath('BoudhnathStupa.jpg'),
+        getTrekImagePath('BoudhnathStupa.jpg')
+      ]
     }
   ];
 

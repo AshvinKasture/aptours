@@ -8,7 +8,8 @@ export interface Trek {
   id: string;
   title: string;
   description: string;
-  image: string;
+  image: string; // Cover image for tour cards and main display
+  slideshowImages: string[]; // Array of images for slideshow in details page
   duration: string;
   difficulty?: 'Easy' | 'Moderate' | 'Challenging' | 'Extreme';
   type: 'Himalayan Trek' | 'Sacred Pilgrimage' | 'Nepal Family Package' | 'Bike Rides';

@@ -1,16 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TrekCard from '../components/TrekCard';
 import Breadcrumb from '../components/Breadcrumb';
-import type { Trek } from '../types';
-import { getTrekImagePath } from '../utils/assets';
+import { useTours } from '../contexts/TourContext';
 
 const ToursPage = () => {
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  const [filteredTreks, setFilteredTreks] = useState<Trek[]>([]);
   const pageTopRef = useRef<HTMLDivElement>(null);
+  const { filteredTreks } = useTours();
 
   // Custom scroll function with header offset for smooth scrolling
   const scrollWithOffset = (el: HTMLElement) => {
@@ -18,135 +16,6 @@ const ToursPage = () => {
     const yOffset = -80; // Header height offset
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
   };
-
-  // Sample trek data using our Trek interface
-  const treksData: Trek[] = [
-    {
-      id: '1',
-      title: "Everest Base Camp Trek",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
-      category: "himalayan adventure",
-      type: "Himalayan Trek",
-      difficulty: "Extreme",
-      duration: "15N / 16D",
-      maxAltitude: "5,364m",
-      price: "₹1,85,000",
-      highlights: ['Sherpa culture', 'Tengboche Monastery', 'Kala Patthar viewpoint'],
-      description: "Journey to the base of the world's highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure."
-    },
-    {
-      id: '2',
-      title: "Mount Kailash Mansarovar",
-      image: getTrekImagePath('Kailash_stock.jpg'),
-      category: "pilgrimage",
-      type: "Sacred Pilgrimage",
-      difficulty: "Challenging",
-      duration: "11N / 12D",
-      maxAltitude: "5,630m",
-      price: "₹2,25,000",
-      highlights: ['Sacred Mt. Kailash', 'Mansarovar Lake', 'Spiritual journey'],
-      description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake."
-    },
-    {
-      id: '3',
-      title: "Nepal Cultural Family Tour",
-      image: getTrekImagePath('BoudhnathStupa.jpg'),
-      category: "cultural family",
-      type: "Nepal Family Package",
-      duration: "7N / 8D",
-      price: "₹45,000",
-      highlights: ['Kathmandu UNESCO sites', 'Boudhanath Stupa', 'Patan Durbar Square', 'Mountain views'],
-      description: "Perfect family adventure exploring Nepal's rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations."
-    },
-    {
-      id: '4',
-      title: "Hidden Himalayan Valleys",
-      image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-      category: "cultural adventure",
-      type: "Himalayan Trek",
-      difficulty: "Moderate",
-      duration: "10N / 11D",
-      maxAltitude: "4,200m",
-      price: "₹85,000",
-      highlights: ['Hidden valleys', 'Ancient monasteries', 'Traditional villages', 'Local culture'],
-      description: "Explore hidden valleys, ancient monasteries, and traditional mountain villages. Immerse yourself in local culture and pristine natural beauty."
-    },
-    {
-      id: '5',
-      title: "Annapurna Circuit Trek",
-      image: getTrekImagePath('AnnapurnaBaseCamp.jpg'),
-      category: "himalayan adventure",
-      type: "Himalayan Trek",
-      difficulty: "Challenging",
-      duration: "14N / 15D",
-      maxAltitude: "5,416m",
-      price: "₹1,25,000",
-      highlights: ['Thorong La Pass', 'Diverse landscapes', 'Annapurna range', 'Mountain villages'],
-      description: "Classic trek around the Annapurna massif featuring diverse landscapes, from subtropical forests to high alpine terrain with stunning mountain views."
-    },
-    {
-      id: '6',
-      title: "Manaslu Circuit Trek",
-      image: getTrekImagePath('AnnapurnaLodge.jpg'),
-      category: "himalayan adventure",
-      type: "Himalayan Trek",
-      difficulty: "Challenging",
-      duration: "16N / 17D",
-      maxAltitude: "5,106m",
-      price: "₹1,55,000",
-      highlights: ['Larkya La Pass', 'Remote valleys', 'Manaslu Base Camp', 'Tibetan culture'],
-      description: "Off-the-beaten-path trek around Mount Manaslu, the eighth highest peak in the world, through remote valleys and traditional Tibetan villages."
-    }
-  ];
-
-  const filterButtons = [
-    { 
-      id: 'all', 
-      label: 'All Treks', 
-      icon: '🏔️',
-      color: 'from-slate-500 to-slate-600',
-      description: 'All available treks'
-    },
-    { 
-      id: 'himalayan', 
-      label: 'Himalayan', 
-      icon: '⛰️',
-      color: 'from-blue-500 to-indigo-600',
-      description: 'High altitude adventures'
-    },
-    { 
-      id: 'pilgrimage', 
-      label: 'Pilgrimage', 
-      icon: '🙏',
-      color: 'from-amber-500 to-orange-600',
-      description: 'Sacred spiritual journeys'
-    },
-    { 
-      id: 'cultural', 
-      label: 'Cultural', 
-      icon: '🏛️',
-      color: 'from-emerald-500 to-teal-600',
-      description: 'Heritage & traditions'
-    },
-    { 
-      id: 'adventure', 
-      label: 'Adventure', 
-      icon: '🎒',
-      color: 'from-red-500 to-pink-600',
-      description: 'Thrilling expeditions'
-    }
-  ];
-
-  useEffect(() => {
-    let filtered = treksData;
-
-    // Filter by category
-    if (selectedFilter !== 'all') {
-      filtered = filtered.filter(trek => trek.category?.includes(selectedFilter));
-    }
-
-    setFilteredTreks(filtered);
-  }, [selectedFilter]);
 
   // Scroll to top when component mounts - React best practice with useRef
   useEffect(() => {
@@ -165,29 +34,10 @@ const ToursPage = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const handleFilterClick = (filter: string) => {
-    setSelectedFilter(filter);
-  };
-
-  const getFilterCount = (filterId: string) => {
-    return treksData.filter(trek => trek.category?.includes(filterId)).length;
-  };
-
-  const getAllCount = () => {
-    return treksData.length;
-  };
-
   return (
     <div ref={pageTopRef} className="antialiased text-slate-50">
       <Header />
-      <Breadcrumb 
-        showFilter={true}
-        filterOptions={filterButtons.slice(1)} // Remove 'All' option since it's the default
-        selectedFilter={selectedFilter}
-        onFilterChange={handleFilterClick}
-        getAllCount={getAllCount}
-        getFilterCount={getFilterCount}
-      />
+      <Breadcrumb showFilter={true} />
 
       {/* Treks Grid */}
       <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
