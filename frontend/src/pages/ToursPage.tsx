@@ -100,19 +100,52 @@ const ToursPage = () => {
   ];
 
   const filterButtons = [
-    { id: 'all', label: 'All Treks' },
-    { id: 'himalayan', label: 'Himalayan' },
-    { id: 'pilgrimage', label: 'Pilgrimage' },
-    { id: 'cultural', label: 'Cultural' },
-    { id: 'adventure', label: 'Adventure' }
+    { 
+      id: 'all', 
+      label: 'All Treks', 
+      icon: '🏔️',
+      color: 'from-slate-500 to-slate-600',
+      description: 'All available treks'
+    },
+    { 
+      id: 'himalayan', 
+      label: 'Himalayan', 
+      icon: '⛰️',
+      color: 'from-blue-500 to-indigo-600',
+      description: 'High altitude adventures'
+    },
+    { 
+      id: 'pilgrimage', 
+      label: 'Pilgrimage', 
+      icon: '🙏',
+      color: 'from-amber-500 to-orange-600',
+      description: 'Sacred spiritual journeys'
+    },
+    { 
+      id: 'cultural', 
+      label: 'Cultural', 
+      icon: '🏛️',
+      color: 'from-emerald-500 to-teal-600',
+      description: 'Heritage & traditions'
+    },
+    { 
+      id: 'adventure', 
+      label: 'Adventure', 
+      icon: '🎒',
+      color: 'from-red-500 to-pink-600',
+      description: 'Thrilling expeditions'
+    }
   ];
 
   useEffect(() => {
-    if (selectedFilter === 'all') {
-      setFilteredTreks(treksData);
-    } else {
-      setFilteredTreks(treksData.filter(trek => trek.category?.includes(selectedFilter)));
+    let filtered = treksData;
+
+    // Filter by category
+    if (selectedFilter !== 'all') {
+      filtered = filtered.filter(trek => trek.category?.includes(selectedFilter));
     }
+
+    setFilteredTreks(filtered);
   }, [selectedFilter]);
 
   // Scroll to top when component mounts - React best practice with useRef
@@ -136,40 +169,47 @@ const ToursPage = () => {
     setSelectedFilter(filter);
   };
 
+  const getFilterCount = (filterId: string) => {
+    return treksData.filter(trek => trek.category?.includes(filterId)).length;
+  };
+
+  const getAllCount = () => {
+    return treksData.length;
+  };
+
   return (
     <div ref={pageTopRef} className="antialiased text-slate-50">
       <Header />
-      <Breadcrumb />
-
-      {/* Filter Section */}
-      <section className="filter-section py-4 md:py-8 px-4 bg-white border-b border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-2 md:gap-4 items-center justify-center">
-            {filterButtons.map((button) => (
-              <button
-                key={button.id}
-                className={`filter-btn px-3 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
-                  selectedFilter === button.id
-                    ? 'bg-sky-600 text-white'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
-                onClick={() => handleFilterClick(button.id)}
-              >
-                {button.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Breadcrumb 
+        showFilter={true}
+        filterOptions={filterButtons.slice(1)} // Remove 'All' option since it's the default
+        selectedFilter={selectedFilter}
+        onFilterChange={handleFilterClick}
+        getAllCount={getAllCount}
+        getFilterCount={getFilterCount}
+      />
 
       {/* Treks Grid */}
       <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="treksGrid">
-            {filteredTreks.map((trek) => (
-              <TrekCard key={trek.id} trek={trek} />
-            ))}
-          </div>
+          {filteredTreks.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="treksGrid">
+              {filteredTreks.map((trek) => (
+                <TrekCard key={trek.id} trek={trek} />
+              ))}
+            </div>
+          ) : (
+            /* Ultra-Minimal No Results State */
+            <div className="text-center py-8">
+              <div className="max-w-xs mx-auto">
+                <svg className="mx-auto h-12 w-12 text-slate-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <h3 className="text-lg font-medium text-slate-600 mb-1">No treks in this category</h3>
+                <p className="text-slate-500 text-sm mb-3">Select "All Categories" from the dropdown above to see all treks</p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
