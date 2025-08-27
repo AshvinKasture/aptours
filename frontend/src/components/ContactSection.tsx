@@ -172,7 +172,9 @@ const ContactSection: React.FC = () => {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -187,7 +189,7 @@ const ContactSection: React.FC = () => {
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
                       Phone Number 
-                      <span className="text-slate-400 font-normal">(optional)</span>
+                      <span className="text-slate-400 font-normal ml-2">(optional)</span>
                     </label>
                     <input
                       type="tel"
@@ -202,7 +204,9 @@ const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">Email Address *</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -218,7 +222,7 @@ const ContactSection: React.FC = () => {
                 <div>
                   <label htmlFor="destination" className="block text-sm font-medium text-slate-700 mb-2">
                     Interested Destination/Trek 
-                    <span className="text-slate-400 font-normal">(optional)</span>
+                    <span className="text-slate-400 font-normal ml-2">(optional)</span>
                   </label>
                   <select
                     id="destination"
@@ -237,7 +241,9 @@ const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">Message *</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -246,7 +252,7 @@ const ContactSection: React.FC = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors resize-none text-slate-800 bg-white placeholder-slate-400"
-                    placeholder="Tell us about your dream trek... preferred dates, group size, fitness level, specific interests, etc."
+                    placeholder="Tell us about your dream trek..."
                   ></textarea>
                 </div>
 

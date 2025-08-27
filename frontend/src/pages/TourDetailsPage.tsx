@@ -463,7 +463,7 @@ const TourDetailsPage = () => {
                     />
                   </svg>
                   <span className="text-slate-600 font-medium truncate">
-                    Trek Details
+                    Tour Details
                   </span>
                 </li>
               </ol>

@@ -87,7 +87,7 @@ const Header: React.FC = () => {
               alt="AP Tours & Travels Logo" 
               className="w-10 h-10 rounded-full object-cover"
             />
-            <div className="hidden sm:block">
+            <div>
               <div className="text-lg font-semibold text-slate-800">AP Tours & Travels</div>
               <div className="text-xs text-slate-500">
                 Explore. Experience. Enjoy.
