@@ -3,6 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TrekCard from '../components/TrekCard';
+import Breadcrumb from '../components/Breadcrumb';
 import type { Trek } from '../types';
 import { getTrekImagePath } from '../utils/assets';
 
@@ -138,6 +139,7 @@ const ToursPage = () => {
   return (
     <div ref={pageTopRef} className="antialiased text-slate-50">
       <Header />
+      <Breadcrumb />
 
       {/* Filter Section */}
       <section className="filter-section py-4 md:py-8 px-4 bg-white border-b border-slate-200">
