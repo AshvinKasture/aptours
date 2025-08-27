@@ -390,7 +390,7 @@ const TourDetailsPage = () => {
               <h2 className="text-2xl font-bold text-slate-600 mb-2">Trek Not Found</h2>
               <p className="text-slate-500 mb-6">The trek you're looking for doesn't exist or has been removed.</p>
               <HashLink 
-                to="/#tours" 
+                to="/tours" 
                 className="inline-block px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-700 transition-colors"
               >
                 Back to All Treks
@@ -411,7 +411,7 @@ const TourDetailsPage = () => {
       <section className="py-4 px-4 bg-slate-50 border-b border-slate-200">
         <div className="max-w-6xl mx-auto">
           <HashLink 
-            to="/#tours" 
+            to="/tours" 
             className="inline-flex items-center gap-2 text-slate-600 hover:text-sky-600 transition-colors"
           >
             <i className="fas fa-arrow-left"></i>
@@ -488,47 +488,29 @@ const TourDetailsPage = () => {
             <div className="lg:col-span-2 space-y-6">
               {/* Trek Title Section */}
               <div className="bg-white rounded-2xl p-6 shadow-xl">
-                <div className="mb-4">
+                <div className="mb-4 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-2 px-3 py-1 bg-sky-100 text-sky-700 text-sm font-semibold rounded-full">
                     <i className={`${getTypeIcon(trek.type)} text-sm`}></i>
                     <span>{trek.type}</span>
                   </span>
+                  {trek.difficulty && (
+                    <span className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-full">
+                      <i className="fas fa-chart-line text-xs"></i>
+                      <span>Difficulty: {trek.difficulty}</span>
+                    </span>
+                  )}
+                  {trek.maxAltitude && (
+                    <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">
+                      <i className="fas fa-mountain text-xs"></i>
+                      <span>Max Altitude: {trek.maxAltitude}</span>
+                    </span>
+                  )}
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-slate-800">{trek.title}</h1>
-              </div>
-
-              {/* Quick Info Cards (Desktop) */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <i className="fas fa-chart-line text-orange-600 text-xl"></i>
-                  </div>
-                  <div className="text-xs text-slate-500 mb-1">Difficulty</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.difficulty || 'N/A'}</div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <i className="fas fa-mountain text-purple-600 text-xl"></i>
-                  </div>
-                  <div className="text-xs text-slate-500 mb-1">Max Altitude</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.maxAltitude || 'N/A'}</div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <i className="fas fa-clock text-blue-600 text-xl"></i>
-                  </div>
-                  <div className="text-xs text-slate-500 mb-1">Duration</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.duration}</div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 shadow-lg text-center">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <i className="fas fa-users text-green-600 text-xl"></i>
-                  </div>
-                  <div className="text-xs text-slate-500 mb-1">Group Size</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.groupSize || 'N/A'}</div>
+                <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">{trek.title}</h1>
+                <div className="flex items-center gap-2 text-slate-600 mb-2">
+                  <i className="fas fa-clock text-blue-600"></i>
+                  <span className="text-lg font-semibold">{trek.duration}</span>
+                  <span className="text-sm">journey</span>
                 </div>
               </div>
 
@@ -537,14 +519,6 @@ const TourDetailsPage = () => {
                 <h2 className="text-2xl font-bold text-slate-800 mb-4">About This Trek</h2>
                 <div className="prose prose-slate max-w-none">
                   <p className="text-slate-600 leading-relaxed">{trek.description}</p>
-                  
-                  {/* Placeholder for future detailed content */}
-                  <div className="mt-6 p-4 bg-slate-50 rounded-lg border-2 border-dashed border-slate-200">
-                    <p className="text-slate-500 text-center">
-                      <i className="fas fa-info-circle mr-2"></i>
-                      Detailed itinerary, inclusions, and other information will be added here.
-                    </p>
-                  </div>
                 </div>
               </div>
 
@@ -717,55 +691,29 @@ const TourDetailsPage = () => {
 
           {/* Mobile Title Section */}
           <div className="lg:hidden bg-white rounded-2xl p-6 shadow-xl mb-8">
-            <div className="mb-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-sky-100 text-sky-700 text-sm font-semibold rounded-full">
-                <i className={`${getTypeIcon(trek.type)} text-sm`}></i>
+            <div className="mb-4 flex flex-wrap gap-1.5">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-sky-100 text-sky-700 text-xs font-semibold rounded-full">
+                <i className={`${getTypeIcon(trek.type)} text-xs`}></i>
                 <span>{trek.type}</span>
               </span>
+              {trek.difficulty && (
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">
+                  <i className="fas fa-chart-line text-xs"></i>
+                  <span>{trek.difficulty}</span>
+                </span>
+              )}
+              {trek.maxAltitude && (
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">
+                  <i className="fas fa-mountain text-xs"></i>
+                  <span>{trek.maxAltitude}</span>
+                </span>
+              )}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">{trek.title}</h1>
-            
-            {/* Mobile Compact Stats */}
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-chart-line text-orange-600 text-xs"></i>
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500">Difficulty</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.difficulty || 'N/A'}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-mountain text-purple-600 text-xs"></i>
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500">Max Altitude</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.maxAltitude || 'N/A'}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-clock text-blue-600 text-xs"></i>
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500">Duration</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.duration}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-users text-green-600 text-xs"></i>
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500">Group Size</div>
-                  <div className="text-sm font-bold text-slate-800">{trek.groupSize || 'N/A'}</div>
-                </div>
-              </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">{trek.title}</h1>
+            <div className="flex items-center gap-2 text-slate-600">
+              <i className="fas fa-clock text-blue-600"></i>
+              <span className="text-lg font-semibold">{trek.duration}</span>
+              <span className="text-sm">journey</span>
             </div>
           </div>
 
@@ -805,14 +753,6 @@ const TourDetailsPage = () => {
               <h2 className="text-2xl font-bold text-slate-800 mb-4">About This Trek</h2>
               <div className="prose prose-slate max-w-none">
                 <p className="text-slate-600 leading-relaxed">{trek.description}</p>
-                
-                {/* Placeholder for future detailed content */}
-                <div className="mt-6 p-4 bg-slate-50 rounded-lg border-2 border-dashed border-slate-200">
-                  <p className="text-slate-500 text-center">
-                    <i className="fas fa-info-circle mr-2"></i>
-                    Detailed itinerary, inclusions, and other information will be added here.
-                  </p>
-                </div>
               </div>
             </div>
 
