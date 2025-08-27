@@ -7,8 +7,8 @@ import { useTours } from '../contexts/TourContext';
 import type { Trek } from '../types';
 
 const TourDetailsPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const { getTrekById } = useTours();
+  const { slug } = useParams<{ slug: string }>();
+  const { getTrekBySlug } = useTours();
   const [trek, setTrek] = useState<Trek | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -92,10 +92,10 @@ const TourDetailsPage = () => {
   };
 
   useEffect(() => {
-    if (id) {
+    if (slug) {
       // Simulate loading delay
       const timer = setTimeout(() => {
-        const trekDetails = getTrekById(id);
+        const trekDetails = getTrekBySlug(slug);
         setTrek(trekDetails || null);
         setIsLoading(false);
       }, 500);
@@ -104,7 +104,7 @@ const TourDetailsPage = () => {
     } else {
       setIsLoading(false);
     }
-  }, [id, getTrekById]);
+  }, [slug, getTrekBySlug]);
 
   // Auto-advance carousel every 5 seconds
   useEffect(() => {
@@ -222,7 +222,7 @@ const TourDetailsPage = () => {
                     />
                   </svg>
                   <span className="text-slate-600 font-medium truncate">
-                    Tour Details
+                    {trek?.title || "Tour Details"}
                   </span>
                 </li>
               </ol>

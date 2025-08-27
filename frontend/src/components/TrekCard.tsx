@@ -130,7 +130,7 @@ const TrekCard: React.FC<TrekCardProps> = ({ trek }) => {
               <div className="text-xs text-slate-500">per person</div>
             </div>
             <Link 
-              to={`/tours/${trek.id}`}
+              to={`/tours/${trek.slug}`}
               className={`cta-button px-6 py-3 bg-gradient-to-r ${getButtonGradient(trek.type)} text-white font-semibold rounded-lg ${getButtonHoverGradient(trek.type)} transition-all duration-300 flex-shrink-0`}
             >
               View Details

@@ -2,12 +2,13 @@ import { HashLink } from 'react-router-hash-link';
 import TrekCard from './TrekCard';
 import type { Trek } from '../types';
 import { getTrekImagePath } from '../utils/assets';
+import { createSlug } from '../utils';
 
 const ToursSection: React.FC = () => {
   // Featured trek data - matching the HTML version exactly
   const featuredTreks: Trek[] = [
     {
-      id: '1',
+      slug: createSlug('Everest Base Camp Trek'),
       title: 'Everest Base Camp Trek',
       description: 'Journey to the base of the world\'s highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure.',
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
@@ -24,7 +25,7 @@ const ToursSection: React.FC = () => {
       ]
     },
     {
-      id: '2',
+      slug: createSlug('Mount Kailash Mansarovar'),
       title: 'Mount Kailash Mansarovar',
       description: 'Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.',
       image: getTrekImagePath('Kailash_stock.jpg'),
@@ -41,7 +42,7 @@ const ToursSection: React.FC = () => {
       ]
     },
     {
-      id: '3',
+      slug: createSlug('Nepal Cultural Family Tour'),
       title: 'Nepal Cultural Family Tour',
       description: 'Perfect family adventure exploring Nepal\'s rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations.',
       image: getTrekImagePath('BoudhnathStupa.jpg'),
@@ -87,7 +88,7 @@ const ToursSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {featuredTreks.map((trek) => (
-            <TrekCard key={trek.id} trek={trek} />
+            <TrekCard key={trek.slug} trek={trek} />
           ))}
         </div>
       </div>

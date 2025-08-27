@@ -2,13 +2,14 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { Trek } from '../types';
 import { getTrekImagePath } from '../utils/assets';
+import { createSlug } from '../utils';
 
 interface TourContextType {
   treksData: Trek[];
   filteredTreks: Trek[];
   selectedFilter: string;
   setSelectedFilter: (filter: string) => void;
-  getTrekById: (id: string) => Trek | undefined;
+  getTrekBySlug: (slug: string) => Trek | undefined;
   getFilterCount: (filterId: string) => number;
   getAllCount: () => number;
   filterButtons: Array<{
@@ -41,7 +42,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
   // Sample trek data using our Trek interface
   const treksData: Trek[] = [
     {
-      id: '1',
+      slug: createSlug("Everest Base Camp Trek"),
       title: "Everest Base Camp Trek",
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
       slideshowImages: [
@@ -87,7 +88,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      id: '2',
+      slug: createSlug("Mount Kailash Mansarovar"),
       title: "Mount Kailash Mansarovar",
       image: getTrekImagePath('Kailash_stock.jpg'),
       slideshowImages: [
@@ -133,7 +134,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      id: '3',
+      slug: createSlug("Nepal Cultural Family Tour"),
       title: "Nepal Cultural Family Tour",
       image: getTrekImagePath('BoudhnathStupa.jpg'),
       slideshowImages: [
@@ -177,7 +178,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      id: '4',
+      slug: createSlug("Hidden Himalayan Valleys"),
       title: "Hidden Himalayan Valleys",
       image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
       slideshowImages: [
@@ -218,7 +219,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      id: '5',
+      slug: createSlug("Annapurna Circuit Trek"),
       title: "Annapurna Circuit Trek",
       image: getTrekImagePath('AnnapurnaBaseCamp.jpg'),
       slideshowImages: [
@@ -259,7 +260,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      id: '6',
+      slug: createSlug("Manaslu Circuit Trek"),
       title: "Manaslu Circuit Trek",
       image: getTrekImagePath('AnnapurnaLodge.jpg'),
       slideshowImages: [
@@ -351,8 +352,8 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
   }, [selectedFilter]);
 
   // Helper functions
-  const getTrekById = (id: string): Trek | undefined => {
-    return treksData.find(trek => trek.id === id);
+  const getTrekBySlug = (slug: string): Trek | undefined => {
+    return treksData.find(trek => trek.slug === slug);
   };
 
   const getFilterCount = (filterId: string): number => {
@@ -368,7 +369,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     filteredTreks,
     selectedFilter,
     setSelectedFilter,
-    getTrekById,
+    getTrekBySlug,
     getFilterCount,
     getAllCount,
     filterButtons

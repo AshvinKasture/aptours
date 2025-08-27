@@ -5,7 +5,7 @@ export interface ItineraryDay {
 }
 
 export interface Trek {
-  id: string;
+  slug: string; // URL-friendly slug generated from title
   title: string;
   description: string;
   image: string; // Cover image for tour cards and main display
