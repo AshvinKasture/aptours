@@ -436,6 +436,22 @@ const TourDetailsPage = () => {
                     </div>
                   ))}
                 </div>
+                
+                {/* Itinerary Disclaimer */}
+                <div className="mt-6 p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                  <div className="flex items-start gap-3">
+                    <i className="fas fa-exclamation-triangle text-amber-500 mt-1"></i>
+                    <div>
+                      <p className="text-sm text-amber-800 font-medium mb-1">Important Notice</p>
+                      <p className="text-xs text-amber-700 leading-relaxed">
+                        * The itinerary is subject to change due to weather conditions, natural disasters, 
+                        flight cancellations, or other unforeseen circumstances beyond our control. 
+                        Safety is our top priority, and modifications may be necessary to ensure the 
+                        wellbeing of all participants.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -467,7 +483,7 @@ const TourDetailsPage = () => {
 
                   <div className="text-xs text-slate-500 text-center">
                     <i className="fas fa-shield-alt mr-1"></i>
-                    Best price guaranteed • Free cancellation
+                    Best price guaranteed
                   </div>
                 </div>
 
@@ -637,6 +653,22 @@ const TourDetailsPage = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+              
+              {/* Itinerary Disclaimer */}
+              <div className="mt-6 p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                <div className="flex items-start gap-3">
+                  <i className="fas fa-exclamation-triangle text-amber-500 mt-1"></i>
+                  <div>
+                    <p className="text-sm text-amber-800 font-medium mb-1">Important Notice</p>
+                    <p className="text-xs text-amber-700 leading-relaxed">
+                      * The itinerary is subject to change due to weather conditions, natural disasters, 
+                      flight cancellations, or other unforeseen circumstances beyond our control. 
+                      Safety is our top priority, and modifications may be necessary to ensure the 
+                      wellbeing of all participants.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
