@@ -1,3 +1,9 @@
+export interface ItineraryDay {
+  day: number;
+  title: string;
+  description: string;
+}
+
 export interface Trek {
   id: string;
   title: string;
@@ -9,7 +15,9 @@ export interface Trek {
   price: string;
   highlights: string[];
   maxAltitude?: string;
+  groupSize?: string; // Added groupSize property
   category?: string; // For filtering in ToursPage
+  itinerary?: ItineraryDay[]; // Added itinerary property
 }
 
 export interface ContactForm {
