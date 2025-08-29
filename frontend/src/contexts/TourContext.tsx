@@ -44,21 +44,19 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Everest Base Camp Trek"),
       title: "Everest Base Camp Trek",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
       slideshowImages: [
-        getTrekImagePath('Everest_Base_Camp_stock.jpg'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg')
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
       ],
       category: "himalayan adventure",
       type: "Himalayan Trek",
-      difficulty: "Extreme",
-      duration: "15N / 16D",
+      difficulty: "Moderate",
+      duration: "13N / 14D",
       maxAltitude: "5,364m",
-      groupSize: "8-12 people",
       price: "₹1,85,000",
-      highlights: ['Sherpa culture', 'Tengboche Monastery', 'Kala Patthar viewpoint'],
-      description: "Journey to the base of the world's highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure.",
+      description: "The Everest Base Camp trek is a guided adventure through the heart of the Himalayas, offering breathtaking views of Everest, Nuptse, and Lhotse. Trekkers experience Sherpa culture, visit iconic sites like Thyangboche and Kalapatthar, and end at the historic Everest Base Camp.",
       itinerary: [
         {
           day: 1,
@@ -67,24 +65,74 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         },
         {
           day: 2,
-          title: "Fly to Lukla, Trek to Phakding",
-          description: "Early morning scenic flight to Lukla (2,840m), one of the world's most thrilling airports. Begin your trek through the beautiful Dudh Koshi valley towards Phakding (2,610m). Cross several suspension bridges decorated with colorful prayer flags. The trail offers stunning views of snow-capped peaks and provides the first taste of Sherpa culture. This gentle trek helps with acclimatization while enjoying the mountain atmosphere."
+          title: "LUKLA 2800m/9186ft & PHAKDING 2652m/8701ft",
+          description: "A memorable 30-minute mountain flight from Kathmandu to Lukla, spectacular aerial view of snowcapped peaks ranges. Lukla has the most amazing Short Take Off and Landing (STOL) airstrip in Nepal and is quite a dramatic place. Lunch will be served at Lukla or en route to Phakding, depending upon the arrival time. You will have time to wander around, while the Sherpa crew sort and divide the baggage on the Ghopkyo (mixed breed of yak and normal cow, as the yak cannot survive below 3000m/9843ft) some loads are carried by porters. Trek to Phakding is mostly a gradual uphill walk with a pleasant view of Kusum-Kangru (6369m/20895ft), going over a suspension bridge and climbing to Ghat from where 1.5 hrs of walking will take us to Phakding for the overnight stay in a lodge at Phakding near the banks of Dudh Koshi river."
         },
         {
           day: 3,
-          title: "Trek to Namche Bazaar",
-          description: "Trek from Phakding to the famous Namche Bazaar (3,440m), the gateway to the Everest region. Cross the impressive Hillary Suspension Bridge and enter Sagarmatha National Park. The steep climb to Namche is challenging but rewarding, with first glimpses of Mount Everest on clear days. Namche is a bustling Sherpa town with markets, internet cafes, and stunning mountain views. This marks your entry into the high Himalayas."
+          title: "NAMCHE BAZAAR 3440m/11286ft",
+          description: "From Phakding, trek along the bank of Dudh Koshi crossing it and re-crossing it later via suspension bridges. We pass through Benkar village with a magnificent view of Thamserkhu 6608m. It is a busy trail filled with trekkers, porter and Ghopkyos (cross between cow and a yak) leading to Monjo (2835m/9301ft), a small Sherpa settlement. Moving ahead we come to the entrance of Everest National Park at Jorsalle (3096m/11296ft); the last place with shops till we reach Namche Bazaar. It’s a 2 hour’s uphill walk along a winding trail to the famed Namche Bazaar with its colorful houses located in a natural U-shaped amphitheatre. The trek offers magnificent views of Kwangde, Kusum Kangru, Everest- Nuptse wall, Lhotse and a close view of Taweche."
         },
         {
           day: 4,
-          title: "Acclimatization Day in Namche",
-          description: "Important acclimatization day in Namche Bazaar. Take a day hike to Everest View Hotel (3,880m) for spectacular panoramic views of Everest, Lhotse, and Ama Dablam. Visit the Sherpa Culture Museum and learn about the history and traditions of the region. Explore the colorful Saturday market if timing allows. Rest and hydrate well to prepare your body for higher altitudes ahead."
+          title: "NAMCHE BAZAAR 3440m/11286ft",
+          description: "We halt for a day at Namche Bazaar for rest and acclimatization. You can go on a short day hike to the nearby Sherpa villages of Khumjung and Kunde to view Everest, Lhotse and Ama Dablam. Or take a short walk to the Everest National Park office, perched atop a magnificent spot overlooking Namche Bazaar and breathtaking views of the surrounding snowcapped giants and deep valleys. A nearby museum provides interesting information regarding the Himalayas."
         },
         {
           day: 5,
-          title: "Trek to Tengboche Monastery",
-          description: "Scenic trek to Tengboche (3,860m), home to the region's most important monastery. The trail offers incredible views of Everest, Nuptse, Lhotse, Ama Dablam, and other peaks. Visit the famous Tengboche Monastery, a spiritual center of the Khumbu region. If fortunate, witness the evening prayers of the Buddhist monks. The monastery sits on a ridge with 360-degree mountain views, making it one of the most scenic stops on the trek."
-        }
+          title: "THYANGBOCHE 3867m/12687 ft",
+          description: "The walk is fairly easy for the first half then a 20 minutes climb to the top ridge of Namche Bazaar from where the trail proceeds with magnificent views of the giant snow peaks of Everest, Nuptse, Lhotse, Ama Dablam, Thermasharkhu and Kwangde-ri peak till we reach Phungitenga (3250m/10663ft) a small Sherpa settlement with beautiful prayer wheels propelled by water. Silver fir blue pines, rhododendron and some few magnolia and birch trees cover the area. From there a winding trail through the pleasant shaded woods takes us to Thyangboche, the beautiful spot offers an eyeful of Himalayan beauties—Mt. Ama Dablam, considered the most beautiful mountain, Everest, Nuptse, Lhotse and Lhotse Shar."
+        },
+        {
+          day: 6,
+          title: "DINGBOCHE 4358m/14298ft",
+          description: "The trail descends through a beautiful forest of birch, fir, juniper and rhododendron to Deboche (3650m/11975ft) with magnificent view of Mt Ama Dablam, Mt Everest, Nuptse and Lhotse. Along the way we’ll see religious motifs painted and carved on rock faces, Buddhist stupas, prayer wheels and flags. The trail goes past a long mani prayer wall, then over a bridge above the narrow gorge of Imja-Tse river and up a gradual walk to Pangboche (3900m12795ft). From here we push on to scenic Shomare for lunch. No more trees at this altitude but stunning views of Ama Dablam, Nuptse and Lhotse. Later we’ll wall through the beautiful Imjatse valley, from where the Island Peak (6189m/20,305ft), Nepal’s most popular trekking peak, comes to view. The trek ends at Dingboche (4358m/14298ft), an authentic mountain settlement with beautiful patchwork of field enclosed by stone walls."
+        },
+        {
+          day: 7,
+          title: "DINGBOCHE 4358m/14298ft",
+          description: "Today’s a day of rest. You can hike eastwards to Chhukhung (4730m/14800ft) that lies within the Imjatse valley for better acclimatization which takes about 3-4 hrs from Dingboche. The trek is gradual but you will feel the thin air as the altitude gains slowly while approaching. At Chhukhung, there are about five teahouses overlooking the superb view of snowcapped peaks and glaciers of Lhotse, Ama Dablam and Imja glacier. Chhukhung is the last settlement in eastern Khumbu region."
+        },
+        {
+          day: 8,
+          title: "LOBUCHE 4928m/16168ft",
+          description: "From Dingboche the trail heads north with the path ascending gradually for about 40 -50 minutes as you approach a stupa with mani prayer wheels. From here it’s a gentle trail over the stony meadow overlooking Pheriche village (4270m/14009ft) down below. After a pleasant walk of 1.5 to 2 hrs the trail reaches Thugla after crossing a small wooden bridge over the raging Khumbu glacial river. From here a steep 1 hr walk will take us to a resting spot that fantastically showcases Everest and other prominent Himalayan peaks. A gradual ascent of 1.5 to 2 hours will take us to Lobuche, which comes as a surprise as it is a very tiny settlement, well-hidden and sheltered from the wind, a pastoral home of yak herders."
+        },
+        {
+          day: 9,
+          title: "GORAKSHEP 5140m/16,865ft & EVEREST BASE CAMP 5364m/17598ft",
+          description: "The first hour of walk involves a gradual ascent at the end of the grassy field then a short climb of about 20 minutes. Continue along the side of the Khumbu Glacier, which is straight forward at first, but later the path becomes rocky and an awkward climb across the moraine. This is compensated by the fabulous mountain setting as the path gets closer to the world’s highest mountain. The sugar loaf dome of Pumori lies directly ahead and to our right, on the opposite side of the glacier, Nuptse rises in a sheer spire. Just behind it, remaining elusive to the last moment is the Mt Everest. Gorakshep is another small cluster of teashops, directly above is Kalapatthar 5545m/18192ft. After a break here at Gorakshep we’ll continue towards Everest Base Camp and the Khumbu Icefall. Treading upon the icefall can be quite tricky, trails change every year due to glacial movements, so pay special heed and follow the lead Sherpa. The walk can be quite strenuous due to thin air, rocky dunes, moraines and streams till you reach the base camp but it’s worth it. The base camp is a lively place during the high expedition season. Head back to Gorakshep for the overnight stay."
+        },
+        {
+          day: 10,
+          title: "KALAPATTHAR 5545m/18,192ft, PHERICHE 4243m/13920ft",
+          description: "Early morning hike to Kalapatthar, a small rocky peak on the southwest ridge of Mt.Pumori, which is a popular peak for expedition groups to acclimatize and to perform practice climbs before attempting higher summits. View from here is beyond imagination, Everest seems just a stone’s throw away between Nuptse and Lhotse while other snowcapped giants dominate the surrounding view. The Everest Base Camp is also visible from here on the Khumbu Glacier. After a wonderful time here we’ll descend back to Gorakshep and continue our journey to Pheriche. It’s a downhill walk most of the way after reaching Thugla where the Dingboche trails branches off and our route descends further down to the flat Pheriche valley. Afternoons can be very windy here and an hour’s walk will take us to Pheriche for the overnight stop."
+        },
+        {
+          day: 11,
+          title: "NAMCHE BAZAAR 3440m/11286ft",
+          description: "From Pheriche a short walk brings you to a bridge then it is downhill all the way, with few ups along the way. At the end of it lies a bridge from where the trail heads back to the woodlands and vegetation with an hour-long uphill walk to Namche for the overnight stop."
+        },
+        {
+          day: 12,
+          title: "LUKLA 2800m/9186ft",
+          description: "You can walk at your own leisurely pace enjoying the lush green scenery and the amazing view of the surrounding mountains. Apart from a few short uphill stretches, the only long climb will be from a place called Choplung just before reaching Lukla (40 minutes). At Lukla, we’ll have a merry dinner party at night with the whole Sherpa crew and porters."
+        },
+        {
+          day: 13,
+          title: "KATHMANDU 1336m/4383ft",
+          description: "The flight back to Kathmandu offers another chance to enjoy the aerial view of the Himalayas all the way to Kathmandu. Flights are usually scheduled in the morning due to high winds in the afternoon; sometime flights can be delayed due to weather or some other reason. Upon reaching Kathmandu, our staff will arrange your hotel transfer and escort you there. Upon reaching Kathmandu please inform our staff if you would like to go for a guided tour of the city or take the early morning mountain flight to view the mountains tomorrow."
+        },
+        {
+          day: 14,
+          title: "KATHMANDU 1336m/4383ft",
+          description: "This day has been allotted as contingency in case there is weather issues."
+        },
+        {
+          day: 15,
+          title: "Departure 1336m/4383ft",
+          description: "As per your international flight time, we will transfer you to the airport."
+        },
       ]
     },
     {
@@ -101,9 +149,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       difficulty: "Challenging",
       duration: "11N / 12D",
       maxAltitude: "5,630m",
-      groupSize: "10-15 people",
       price: "₹2,25,000",
-      highlights: ['Sacred Mt. Kailash', 'Mansarovar Lake', 'Spiritual journey'],
       description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.",
       itinerary: [
         {
@@ -145,9 +191,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       category: "cultural family",
       type: "Nepal Family Package",
       duration: "7N / 8D",
-      groupSize: "4-8 people",
       price: "₹45,000",
-      highlights: ['Kathmandu UNESCO sites', 'Boudhanath Stupa', 'Patan Durbar Square', 'Mountain views'],
       description: "Perfect family adventure exploring Nepal's rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations.",
       itinerary: [
         {
@@ -191,9 +235,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       difficulty: "Moderate",
       duration: "10N / 11D",
       maxAltitude: "4,200m",
-      groupSize: "6-10 people",
       price: "₹85,000",
-      highlights: ['Hidden valleys', 'Ancient monasteries', 'Traditional villages', 'Local culture'],
       description: "Explore hidden valleys, ancient monasteries, and traditional mountain villages. Immerse yourself in local culture and pristine natural beauty.",
       itinerary: [
         {
@@ -232,9 +274,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       difficulty: "Challenging",
       duration: "14N / 15D",
       maxAltitude: "5,416m",
-      groupSize: "8-12 people",
       price: "₹1,25,000",
-      highlights: ['Thorong La Pass', 'Diverse landscapes', 'Annapurna range', 'Mountain villages'],
       description: "Classic trek around the Annapurna massif featuring diverse landscapes, from subtropical forests to high alpine terrain with stunning mountain views.",
       itinerary: [
         {
@@ -273,9 +313,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       difficulty: "Challenging",
       duration: "16N / 17D",
       maxAltitude: "5,106m",
-      groupSize: "6-10 people",
       price: "₹1,55,000",
-      highlights: ['Larkya La Pass', 'Remote valleys', 'Manaslu Base Camp', 'Tibetan culture'],
       description: "Off-the-beaten-path trek around Mount Manaslu, the eighth highest peak in the world, through remote valleys and traditional Tibetan villages.",
       itinerary: [
         {

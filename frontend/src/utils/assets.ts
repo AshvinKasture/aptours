@@ -13,6 +13,7 @@ export const getAssetPath = (path: string): string => {
 /**
  * Get image path specifically for trek images in the assets folder
  */
-export const getTrekImagePath = (imageName: string): string => {
-  return getAssetPath(`assets/${imageName}`);
+export const getTrekImagePath = (imageName: string, folder: string = ''): string => {
+  const folderPath = folder ? `${folder}/` : '';
+  return getAssetPath(`assets/${folderPath}${imageName}`);
 };

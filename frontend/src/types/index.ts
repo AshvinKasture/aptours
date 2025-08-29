@@ -14,9 +14,7 @@ export interface Trek {
   difficulty?: 'Easy' | 'Moderate' | 'Challenging' | 'Extreme';
   type: 'Himalayan Trek' | 'Sacred Pilgrimage' | 'Nepal Family Package' | 'Bike Rides';
   price: string;
-  highlights: string[];
   maxAltitude?: string;
-  groupSize?: string; // Added groupSize property
   category?: string; // For filtering in ToursPage
   itinerary?: ItineraryDay[]; // Added itinerary property
 }
