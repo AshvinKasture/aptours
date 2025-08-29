@@ -11,6 +11,7 @@ on:
         options:
           - main
           - react-app
+          - dev
 
 permissions:
   contents: read
