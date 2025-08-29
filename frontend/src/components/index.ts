@@ -1,0 +1,11 @@
+export { default as Header } from './Header';
+export { default as HeroSection } from './HeroSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as ParallaxSection } from './ParallaxSection';
+export { default as ToursSection } from './ToursSection';
+export { default as AboutSection } from './AboutSection';
+export { default as ContactSection } from './ContactSection';
+export { default as Footer } from './Footer';
+export { default as TrekCard } from './TrekCard';
+export { default as Breadcrumb } from './Breadcrumb';
+export { default as FilterDropdown } from './FilterDropdown';

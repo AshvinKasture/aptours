@@ -1,0 +1,617 @@
+/* AP Tours Custom Styles */
+
+/* Base styles */
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* Smooth scrolling with offset for sticky header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Ensure sections have proper spacing */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Trek Details Carousel Styles */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-dot.active {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  transform: scale(1.2);
+}
+
+/* Itinerary Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Timeline Styles */
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #e2e8f0, #cbd5e1);
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(to right, #0ea5e9, #3b82f6);
+  border-radius: 2px;
+  transition: width 0.4s ease-out;
+}
+
+.timeline-dots {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.timeline-dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-dot.active {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  transform: scale(1.3);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
+}
+
+.timeline-dot.completed {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.timeline-dot-label {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot.active .timeline-dot-label {
+  color: #0ea5e9;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Mobile Timeline */
+.mobile-timeline-container {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.mobile-timeline-dots {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px;
+  min-width: max-content;
+}
+
+.mobile-timeline-dot {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-timeline-dot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-timeline-dot.active {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
+}
+
+.mobile-timeline-dot.completed {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.mobile-dot-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.mobile-timeline-dot.active .mobile-dot-label {
+  color: white;
+}
+
+.mobile-timeline-dot.completed .mobile-dot-label {
+  color: white;
+}
+
+/* Smooth scrolling for itinerary navigation */
+.itinerary-day-content {
+  scroll-behavior: smooth;
+}
+
+/* Day Content Styles */
+.day-content {
+  position: relative;
+}
+
+.day-detail {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease-out;
+}
+
+.day-detail.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.day-header {
+  margin-bottom: 1rem;
+}
+
+.day-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.day-description {
+  background-color: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.day-description p {
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Remove custom mobile timeline styles - using original ones from trek-details.css */
+
+/* Remove timeline navigation button styles - not used in original */
+
+/* Day number styles in timeline dots - Remove this as it's not in original */
+/* .day-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-dot.active .day-number {
+  color: white;
+} */
+
+/* Enhanced Parallax Effects */
+.parallax-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Desktop parallax - traditional fixed background */
+@media (min-width: 769px) {
+  .parallax-section {
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+}
+
+/* Mobile-optimized parallax */
+@media (max-width: 768px) {
+  .parallax-section {
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    min-height: 80vh;
+  }
+  
+  /* Mobile parallax activation */
+  .parallax-section.mobile-parallax-active {
+    animation: mobileParallaxEntry 1.5s ease-out forwards;
+  }
+  
+  /* Enhanced mobile visual effects */
+  .parallax-section::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
+    background: inherit;
+    filter: blur(0.5px);
+    transform: scale(1.05);
+    z-index: -1;
+    opacity: 0.8;
+  }
+}
+
+/* Mobile parallax entry animation */
+@keyframes mobileParallaxEntry {
+  from {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Enhanced floating animation */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes floatingMobile {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+.floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+/* Mobile-specific floating */
+@media (max-width: 768px) {
+  .floating {
+    animation: floatingMobile 3s ease-in-out infinite;
+  }
+}
+
+/* Mobile-specific parallax content animations */
+@media (max-width: 768px) {
+  .parallax-section h2 {
+    animation: fadeInScale 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+  
+  .parallax-section p {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+  
+  .parallax-section .inline-block,
+  .parallax-section a {
+    animation: fadeInScale 0.8s ease-out forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  
+  .parallax-section .floating {
+    animation: floatingMobile 3s ease-in-out infinite;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+  
+  /* Enhanced touch targets for mobile */
+  .parallax-section a,
+  .parallax-section button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+  
+  /* Improve readability on mobile */
+  .parallax-section {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Add subtle border radius to content containers */
+  .parallax-section > div:last-child {
+    border-radius: 16px;
+    padding: 2rem 1rem;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Desktop hover enhancements */
+@media (min-width: 769px) {
+  .parallax-section .floating:hover {
+    animation-play-state: paused;
+    transform: translateY(-15px) scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .parallax-section h2:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: text-shadow 0.3s ease;
+  }
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Pattern overlay for texture */
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Enhanced form styles */
+.form-focus:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Image hover effects */
+.image-zoom {
+  transition: transform 0.3s ease;
+}
+
+.image-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Button ripple effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+  transform: translate(-50%, -50%);
+}
+
+.btn-ripple:hover:before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
