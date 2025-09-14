@@ -52,13 +52,6 @@ const FeaturedTours: React.FC = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-1 sm:px-4">
       <div className="text-center mb-8 sm:mb-10">
-        <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 fade-in-up px-4 sm:px-2">
-          Featured Adventures
-        </h3>
-        <p className="text-xs sm:text-lg text-blue-50/80 fade-in-up max-w-2xl mx-auto px-8 sm:px-4 leading-relaxed hero-text-container">
-          <span className="sm:hidden">Popular journeys await</span>
-          <span className="hidden sm:inline">Discover our most popular journeys and create memories that last a lifetime</span>
-        </p>
       </div>
       
       <div className="relative">
