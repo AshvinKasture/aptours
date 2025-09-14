@@ -268,11 +268,11 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Annapurna Base Camp Trek"),
       title: "Annapurna Base Camp Trek",
-      image: getTrekImagePath('AnnapurnaBaseCamp.jpg'),
+      image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
       slideshowImages: [
-        getTrekImagePath('AnnapurnaBaseCamp.jpg'),
-        getTrekImagePath('AnnapurnaBaseCamp.jpg'),
-        getTrekImagePath('AnnapurnaBaseCamp.jpg')
+        getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
+        getTrekImagePath('Annapurna_Base_Camp_3.jpg', 'Annapurna_Base_Camp'),
+        getTrekImagePath('Annapurna_Base_Camp_4.jpg', 'Annapurna_Base_Camp')
       ],
       category: "himalayan adventure",
       type: "Himalayan Trek",
