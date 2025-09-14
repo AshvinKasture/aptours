@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import ParallaxSection from '../components/ParallaxSection';
-import ToursSection from '../components/ToursSection';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -28,6 +27,7 @@ const HomePage = () => {
 
         {/* Adventure Awaits Parallax */}
         <ParallaxSection backgroundImage="https://images.unsplash.com/photo-1640179563805-184d0da2ba6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3">
+        {/* <ParallaxSection backgroundImage="/kailash_stock.jpg"> */}
           <div className="floating mb-6">
             <i className="fas fa-hiking text-4xl md:text-5xl text-white/90"></i>
           </div>
@@ -56,9 +56,6 @@ const HomePage = () => {
             </HashLink>
           </div>
         </ParallaxSection>
-
-        {/* Tours Section */}
-        <ToursSection />
 
         {/* Reach New Heights Parallax */}
         <ParallaxSection backgroundImage="https://images.unsplash.com/photo-1635183625020-93dc1face215?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3">
