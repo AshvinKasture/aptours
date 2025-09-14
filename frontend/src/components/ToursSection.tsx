@@ -11,7 +11,7 @@ const ToursSection: React.FC = () => {
       slug: createSlug('Everest Base Camp Trek'),
       title: 'Everest Base Camp Trek',
       description: 'Journey to the base of the world\'s highest peak. Experience breathtaking Himalayan landscapes, Sherpa culture, and the ultimate trekking adventure.',
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg'),
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
       duration: '15N / 16D',
       difficulty: 'Extreme',
       type: 'Himalayan Trek',
