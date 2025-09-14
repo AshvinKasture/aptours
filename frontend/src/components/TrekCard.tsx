@@ -119,7 +119,7 @@ const TrekCard: React.FC<TrekCardProps> = ({ trek }) => {
           </h3>
           
           <p className="text-slate-600 text-sm mb-4 leading-relaxed flex-grow">
-            {trek.description}
+            {trek.shortDescription || trek.description}
           </p>
 
           {/* Price and CTA */}
