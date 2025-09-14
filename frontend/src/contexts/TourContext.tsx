@@ -56,6 +56,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       duration: "13N / 14D",
       maxAltitude: "5,364m",
       price: "₹1,85,000",
+      // shortDescription: "Ultimate Himalayan adventure to the base of the world's highest peak with stunning views and Sherpa culture.",
       description: "The Everest Base Camp trek is a guided adventure through the heart of the Himalayas, offering breathtaking views of Everest, Nuptse, and Lhotse. Trekkers experience Sherpa culture, visit iconic sites like Thyangboche and Kalapatthar, and end at the historic Everest Base Camp.",
       itinerary: [
         {
@@ -152,6 +153,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       duration: "11N / 12D",
       maxAltitude: "5,630m",
       price: "₹2,25,000",
+      shortDescription: "Sacred pilgrimage to Mount Kailash and holy Mansarovar Lake in Tibet.",
       description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.",
       itinerary: [
         {
@@ -194,6 +196,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       type: "Nepal Family Package",
       duration: "7N / 8D",
       price: "₹45,000",
+      shortDescription: "Family-friendly cultural tour through Nepal's heritage sites and mountain valleys.",
       description: "Perfect family adventure exploring Nepal's rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations.",
       itinerary: [
         {
@@ -263,8 +266,8 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      slug: createSlug("Annapurna Circuit Trek"),
-      title: "Annapurna Circuit Trek",
+      slug: createSlug("Annapurna Base Camp Trek"),
+      title: "Annapurna Base Camp Trek",
       image: getTrekImagePath('AnnapurnaBaseCamp.jpg'),
       slideshowImages: [
         getTrekImagePath('AnnapurnaBaseCamp.jpg'),
@@ -273,32 +276,78 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ],
       category: "himalayan adventure",
       type: "Himalayan Trek",
-      difficulty: "Challenging",
-      duration: "14N / 15D",
-      maxAltitude: "5,416m",
+      difficulty: "Moderate",
+      duration: "12N / 13D",
+      maxAltitude: "4,120m",
       price: "₹1,25,000",
-      description: "Classic trek around the Annapurna massif featuring diverse landscapes, from subtropical forests to high alpine terrain with stunning mountain views.",
+      shortDescription: "The Annapurna Sanctuary Trek is an ideal first Himalayan adventure, offering superb views, gentle acclimatization, and rich cultural significance. The extended route includes Ghorepani’s rhododendron forests and the iconic Poon Hill viewpoint for sweeping panoramas.",
+      description: "The Annapurna Sanctuary Trek is the perfect first Himalayan trek – It offers wonderful walking and Superb views without undue acclimatisation problems and all within a short period of time. The trek takes you right into the Annapurna Sanctuary, a high glacial basin located north of Pokhara and known as the ‘Sanctuary’ both because of its natural beauty and its religious significance to local people who believe in the divine presence there of the goddesses, Annapurna and Gangapurna, important figures in Hindu myth and folklore. The extended version of Annapurna Sanctuary Trek takes you to the mystical village of Ghorepani and its forests that is considered as the Capital Land of Himalayan Rhododendrons. Poon Hill is in the go-to list for taking a bird’s-eye view towards the entire trip route.",
       itinerary: [
         {
           day: 1,
-          title: "Drive to Besisahar and Trek Start",
-          description: "Drive from Kathmandu to Besisahar (760m), the starting point of the classic Annapurna Circuit. Begin trekking through subtropical valleys with rice terraces and banana plantations. Experience the dramatic landscape changes as you gain altitude. Cross suspension bridges over roaring rivers and pass through traditional Gurung villages. The diverse ecosystems range from tropical to alpine within a single day's trek."
+          title: "Kathmandu",
+          description: "Welcome to Nepal. Kathmandu is an incredible mixture of legend and modern development with a rich artistic and cultural heritage. Kathmandu has been a travellers' centre for many years. It’s very important that you attend the welcome meeting at the hotel lobby. However, you need not worry for the schedule as it will be published on the notice boards beforehand your check in."
         },
         {
           day: 2,
-          title: "Manang Valley Acclimatization",
-          description: "Reach the beautiful Manang valley (3,519m), a crucial acclimatization stop. Spend an extra day to adjust to altitude while exploring this fascinating region. Visit the Himalayan Rescue Association for altitude sickness information. Explore traditional Tibetan-influenced culture and ancient monasteries. Take day hikes to Gangapurna Lake or climb to viewpoints for stunning Annapurna range vistas."
+          title: "Fly Pokhara > Drive to Nayapul & Trek to Ulleri (2080m / 6824ft)",
+          description: "Take a small aircraft to leave Leaving Kathmandu behind early in the morning, its a short and one of the most scenic flights you’ve ever had in your lifetime. Pokhara is just 25 minutes fly away from Kathmandu. Upon landing at Pokhara airport, quickly get arranged with luggage and jump onto a vehicle to drive off to Nayapul. Its another section of journey which is on the road but again filled with lots of interesting sceneries to see and get fascinated. It takes something like 2 hours to reach Nayapul, where the trek starts. While you sip a cup of fresh tea by the bank of a stream, your guide and porters organise load of your baggage. The trek starts immediately after you have finished your tea.  Gear up and follow the Bhurundi Khola to Thikhedhunga, trek through farmland before a steep ascent to reach Ulleri. At 8091 metres, Annapurna 1 is one of the highest mountains in the world. Its surrounding sister mountains are equally imposing and create magnificent panoramas from any viewpoint. This trek covers a wide variety of terrain, from lowland pastures and peaceful villages to powerful glaciers and stunning mountain views. In the rugged mountain scenery, you stay in mountain communities and meet friendly Nepali hill people as they go about their daily lives. The expedition is not only visually superb but also a chance to learn about local cultures. Along the way, see thundering waterfalls of melted snow, cross icy rivers and reward yourself with a soak in natural hot springs."
         },
         {
           day: 3,
-          title: "Thorong La Pass Challenge",
-          description: "Conquer the famous Thorong La Pass (5,416m), the highest point of the trek. Start early morning climb through rocky terrain and snow fields. Experience the triumph of reaching this legendary high-altitude pass. Enjoy spectacular 360-degree views of Annapurna, Dhaulagiri, and surrounding peaks. Descend to Muktinath, a sacred pilgrimage site for both Hindus and Buddhists."
+          title: "Ghorepani (2750m / 9022ft)",
+          description: "Ascend to Ghorepani village through a pleasant rhododendron forest, but the day is full of uphill climbing. However, it doesn’t feel as much of a struggling since there are interesting villages and sceneries to see every next few minutes."
         },
         {
           day: 4,
-          title: "Descent to Pokhara Valley",
-          description: "Complete the circuit with descent through diverse landscapes to Pokhara. Pass through the deepest gorge in the world between Annapurna and Dhaulagiri. Experience dramatic climate and vegetation changes from alpine to subtropical. Visit local villages and witness the traditional way of life. Celebrate completion of this epic journey in the beautiful lakeside city of Pokhara."
-        }
+          title: "Tadapani (2700m / 8858ft)",
+          description: "Waking up early and one hour of strenuous struggling up to Poon Hill rewards you with the best views of sunrise over the Annapurna Massif and its neighbouring peaks. This is once in a lifetime scene, if your laze isn’t the winner, you should at least try it once. Then the adventure continues as you continue your trek on to Tadapani."
+        },
+        {
+          day: 5,
+          title: "Chomrong (2177m / 7143ft)",
+          description: "This morning you’ll descend to Kimrung Khola before climbing again to Chomrong village, at the base of Hiunchuli (6441 metres). There are breathtaking views of Annapurna and Macchhapuchhre from here."
+        },
+        {
+          day: 6,
+          title: "Dobhan (2670m / 8760ft)",
+          description: "Begin by trekking for approximately 3 hours through the forest to Kuldi Ghar, then down to the banks of the Modi River and up again to Doban."
+        },
+        {
+          day: 7,
+          title: "Dobhan to Machhapuchhre Base Camp (3700m / 12139ft)",
+          description: "Passing through Himalaya Hotel, continue up the narrow valley to Deurali. Sticking to the west bank of the Modi River, enter an open valley near Machhapuchhre Base Camp."
+        },
+        {
+          day: 8,
+          title: "Annapurna Base Camp (4130m / 13549ft) > back to Himalaya",
+          description: "Early in the morning trek up to Annapurna Base Camp. The struggle uphill at that altitude takes around 2 hours but the hard work to get here is worth it. See the magic of change of colours of the majestic peaks by sunrise. Stroll around for an hour and then start tracing the way back to Himalaya."
+        },
+        {
+          day: 9,
+          title: "Chomrong (2177m / 7143ft)",
+          description: "Passing back through the forests, pastures and staircases, trek back to Chhomrong."
+        },
+        {
+          day: 10,
+          title: "Steep descent down to Jhinu Danda > trek to Kimche and drive to Pokhara.",
+          description: "There is a natural hotspring on the bank of Modi Khola, where you can plunge and take a well deserved manicure. Take lunch at Jhinu Danda and trek to Kimche where a vehicle awaits to bring us back to Pokhara. It is around 4 hours drive to Pokhara from Kimche. On reaching to Pokhara, get checked into a hotel and rush to the lakeside for a nights party."
+        },
+        {
+          day: 11,
+          title: "Fly back to Kathmandu",
+          description: "In the morning free time to stroll around the lake city Pokhara. In the afternoon take the same short flight that you have taken some 10 days ago. On reaching to Kathmandu, get transferred to hotel and stay overnight. "
+        },
+        {
+          day: 12,
+          title: "Departure, end the trip. ",
+          description: "Your incredible Annapurna Base Camp adventure comes to an end. After breakfast, transfer to Tribhuvan International Airport for your departure or onward journey. Take with you unforgettable memories of towering peaks, warm Nepali hospitality, and the sense of achievement from completing this magnificent trek. The mountains will forever call you back to Nepal's majestic Himalayas."
+        },
+        {
+          day: 4,
+          title: "Tadapani (2700m / 8858ft)",
+          description: "Waking up early and one hour of strenuous struggling up to Poon Hill rewards you with the best views of sunrise over the Annapurna Massif and its neighbouring peaks. This is once in a lifetime scene, if your laze isn’t the winner, you should at least try it once. Then the adventure continues as you continue your trek on to Tadapani."
+        },
       ]
     },
     {

@@ -9,6 +9,7 @@ export interface Trek {
   slug: string; // URL-friendly slug generated from title
   title: string;
   description: string;
+  shortDescription?: string; // Optional shorter description for tour cards
   image: string; // Cover image for tour cards and main display
   slideshowImages: string[]; // Array of images for slideshow in details page
   duration: string;
