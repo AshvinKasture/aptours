@@ -61,11 +61,13 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         {
           day: 1,
           title: "Arrival in Kathmandu",
+          subtitle: "Welcome to the Gateway of the Himalayas",
           description: "Welcome to Nepal! Upon arrival at Tribhuvan International Airport, you'll be transferred to your hotel in Kathmandu. Meet your trek guide and fellow trekkers for a briefing about the upcoming adventure. Explore the vibrant streets of Thamel and enjoy authentic Nepali cuisine. Rest well as tomorrow begins your mountain journey. This is also a good time to do any last-minute shopping for trekking gear or souvenirs."
         },
         {
           day: 2,
           title: "LUKLA 2800m/9186ft & PHAKDING 2652m/8701ft",
+          subtitle: "Thrilling Mountain Flight & Trek Beginning",
           description: "A memorable 30-minute mountain flight from Kathmandu to Lukla, spectacular aerial view of snowcapped peaks ranges. Lukla has the most amazing Short Take Off and Landing (STOL) airstrip in Nepal and is quite a dramatic place. Lunch will be served at Lukla or en route to Phakding, depending upon the arrival time. You will have time to wander around, while the Sherpa crew sort and divide the baggage on the Ghopkyo (mixed breed of yak and normal cow, as the yak cannot survive below 3000m/9843ft) some loads are carried by porters. Trek to Phakding is mostly a gradual uphill walk with a pleasant view of Kusum-Kangru (6369m/20895ft), going over a suspension bridge and climbing to Ghat from where 1.5 hrs of walking will take us to Phakding for the overnight stay in a lodge at Phakding near the banks of Dudh Koshi river."
         },
         {

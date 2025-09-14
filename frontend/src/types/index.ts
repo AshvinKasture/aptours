@@ -1,6 +1,7 @@
 export interface ItineraryDay {
   day: number;
   title: string;
+  subtitle?: string;
   description: string;
 }
 
