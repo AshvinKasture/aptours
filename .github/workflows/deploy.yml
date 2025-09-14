@@ -1,17 +1,15 @@
 name: Deploy React App to GitHub Pages
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to deploy from'
-        required: true
-        default: 'main'
-        type: choice
-        options:
-          - main
-          - react-app
-          - dev
+        description: 'Branch to deploy from (leave empty to use current branch)'
+        required: false
+        default: ''
+        type: string
 
 permissions:
   contents: read
@@ -26,10 +24,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
+    - name: Display deployment info
+      run: |
+        echo "Deploying from branch: ${{ github.event.inputs.branch || github.ref_name }}"
+        echo "Triggered by: ${{ github.event_name }}"
+    
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        ref: ${{ github.event.inputs.branch }}
+        ref: ${{ github.event.inputs.branch || github.ref }}
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
