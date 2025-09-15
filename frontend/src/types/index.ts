@@ -38,6 +38,12 @@ export interface Service {
   delay?: string;
 }
 
+export interface FeaturedTour {
+  title: string;
+  image: string;
+  slug: string; // Link/slug to navigate to the full tour details
+}
+
 export interface ParallaxSectionProps {
   backgroundImage: string;
   className?: string;
