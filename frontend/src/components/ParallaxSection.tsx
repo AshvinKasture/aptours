@@ -3,17 +3,31 @@ import type { ParallaxSectionProps } from '../types';
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({ 
   backgroundImage, 
+  mobileBackgroundImage,
   className = '', 
   children 
 }) => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [currentImage, setCurrentImage] = React.useState(backgroundImage);
 
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      // Use mobile image if provided, otherwise fallback to desktop image
+      setCurrentImage(mobile && mobileBackgroundImage ? mobileBackgroundImage : backgroundImage);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Listen for resize events
+    window.addEventListener('resize', checkMobile);
+
     const section = sectionRef.current;
     if (!section) return;
 
-    const isMobile = window.innerWidth <= 768;
-    
     if (isMobile) {
       // Mobile: Enhanced animations and interactions
       const observer = new IntersectionObserver(
@@ -30,18 +44,25 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       
       observer.observe(section);
       
-      return () => observer.disconnect();
+      return () => {
+        observer.disconnect();
+        window.removeEventListener('resize', checkMobile);
+      };
     }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
     // Desktop uses pure CSS parallax (background-attachment: fixed)
-  }, []);
+  }, [backgroundImage, mobileBackgroundImage, isMobile]);
 
   return (
     <section
       ref={sectionRef}
       className={`parallax-section min-h-screen flex items-center justify-center relative overflow-hidden ${className}`}
       style={{
-        backgroundImage: `url('${backgroundImage}')`,
-        backgroundAttachment: window.innerWidth <= 768 ? 'scroll' : 'fixed',
+        backgroundImage: `url('${currentImage}')`,
+        backgroundAttachment: isMobile ? 'scroll' : 'fixed',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'

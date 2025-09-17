@@ -45,7 +45,8 @@ export interface FeaturedTour {
 }
 
 export interface ParallaxSectionProps {
-  backgroundImage: string;
+  backgroundImage: string; // Laptop/desktop image (landscape)
+  mobileBackgroundImage?: string; // Mobile image (portrait) - optional, defaults to backgroundImage
   className?: string;
   children: React.ReactNode;
 }
