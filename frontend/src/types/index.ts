@@ -60,6 +60,15 @@ export interface FeaturedTour {
   slug: string; // Link/slug to navigate to the full tour details
 }
 
+export interface FeaturedItem {
+  type: 'tour' | 'category';
+  title: string;
+  image: string;
+  slug: string; // Link/slug to navigate to the full tour details or category page
+  tourCount?: number; // Only for categories - number of tours in category
+  duration?: string; // Only for tours - duration like "13N / 14D"
+}
+
 export interface ParallaxSectionProps {
   backgroundImage: string; // Laptop/desktop image (landscape)
   mobileBackgroundImage?: string; // Mobile image (portrait) - optional, defaults to backgroundImage

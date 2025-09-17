@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { FeaturedTour } from "../types";
+import type { FeaturedItem } from "../types";
 import { getTrekImagePath } from "../utils/assets";
+import { createSlug } from "../utils";
 
 const FeaturedTours: React.FC = () => {
   const navigate = useNavigate();
@@ -10,44 +11,67 @@ const FeaturedTours: React.FC = () => {
   const userScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isProgrammaticScrollRef = useRef(false);
 
-  // Dedicated featured tours data - minimal and curated
-  const featuredTours: FeaturedTour[] = [
+  // Mix of featured tours and categories - minimal and curated
+  const featuredItems: FeaturedItem[] = [
     {
+      type: "tour",
       title: "Everest Base Camp Trek",
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-      slug: "everest-base-camp-trek"
+      slug: "everest-base-camp-trek",
+      duration: "13N / 14D"
     },
     {
+      type: "category",
+      title: "Himalayan Adventures",
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      slug: createSlug("Himalayan Adventures"),
+      tourCount: 3
+    },
+    {
+      type: "tour",
       title: "Annapurna Base Camp Trek",
       image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
-      slug: "annapurna-base-camp-trek"
+      slug: "annapurna-base-camp-trek",
+      duration: "11N / 12D"
     },
     {
-      title: "Kailash Mansarovar Yatra",
+      type: "category",
+      title: "Sacred Pilgrimages",
       image: getTrekImagePath('Kailash_stock.jpg'),
-      slug: "kailash-mansarovar-yatra"
+      slug: createSlug("Sacred Pilgrimages"),
+      tourCount: 1
     },
     {
+      type: "tour",
       title: "Langtang Valley Trek",
       image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-      slug: "langtang-valley-trek"
+      slug: "langtang-valley-trek",
+      duration: "8N / 9D"
     },
     {
-      title: "Manaslu Circuit Trek",
-      image: getTrekImagePath('AnnapurnaLodge.jpg'),
-      slug: "manaslu-circuit-trek"
+      type: "category",
+      title: "Family Adventures",
+      image: getTrekImagePath('BoudhnathStupa.jpg'),
+      slug: createSlug("Family Adventures"),
+      tourCount: 1
     },
     {
+      type: "tour",
       title: "Upper Mustang Trek",
       image: getTrekImagePath('BoudhnathStupa.jpg'),
-      slug: "upper-mustang-trek"
+      slug: "upper-mustang-trek",
+      duration: "12N / 13D"
     }
   ];
-  // Duplicate tours for seamless infinite scroll
-  const duplicatedTours = [...featuredTours, ...featuredTours];
+  // Duplicate items for seamless infinite scroll
+  const duplicatedItems = [...featuredItems, ...featuredItems];
 
-  const handleTourClick = (slug: string) => {
-    navigate(`/tours/${slug}`);
+  const handleItemClick = (item: FeaturedItem) => {
+    if (item.type === 'category') {
+      navigate(`/tours/category/${item.slug}`);
+    } else {
+      navigate(`/tours/${item.slug}`);
+    }
   };
 
   // Handle user scroll detection
@@ -73,7 +97,7 @@ const FeaturedTours: React.FC = () => {
 
   // Auto-scroll functionality
   useEffect(() => {
-    if (featuredTours.length === 0 || isUserScrolling) return;
+    if (featuredItems.length === 0 || isUserScrolling) return;
 
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -106,7 +130,7 @@ const FeaturedTours: React.FC = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [featuredTours.length, isUserScrolling]);
+  }, [featuredItems.length, isUserScrolling]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -134,41 +158,55 @@ const FeaturedTours: React.FC = () => {
             handleUserScroll();
           }}
         >
-          {duplicatedTours.map((tour, index) => (
+          {duplicatedItems.map((item, index) => (
             <div
-              key={`${tour.slug}-${index}`}
+              key={`${item.slug}-${index}`}
               className="flex-shrink-0 group cursor-pointer fade-in-up"
               style={{
-                animationDelay: `${(index % featuredTours.length) * 0.1}s`,
+                animationDelay: `${(index % featuredItems.length) * 0.1}s`,
               }}
-              onClick={() => handleTourClick(tour.slug)}
+              onClick={() => handleItemClick(item)}
             >
-              {/* Tour Card */}
+              {/* Tour/Category Card */}
               <div className="relative w-64 h-40 sm:w-80 sm:h-56 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-3xl border border-white/10">
                 {/* Image */}
                 <img
-                  src={tour.image}
-                  alt={tour.title}
+                  src={item.image}
+                  alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
                 {/* Gradient Overlays */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-600/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className={`absolute inset-0 ${item.type === 'category' ? 'bg-gradient-to-br from-indigo-500/20 via-transparent to-purple-600/20' : 'bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-600/20'} opacity-0 group-hover:opacity-100 transition-all duration-500`}></div>
 
                 {/* Shimmer Effect on Hover */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
-                {/* Tour Info */}
+                {/* Item Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6">
-                  <h4 className="text-white font-bold text-sm sm:text-xl line-clamp-2 group-hover:text-emerald-200 transition-colors duration-300 leading-tight text-center px-1">
-                    {tour.title}
+                  <h4 className={`text-white font-bold text-sm sm:text-xl line-clamp-2 ${item.type === 'category' ? 'group-hover:text-indigo-200' : 'group-hover:text-emerald-200'} transition-colors duration-300 leading-tight text-center px-1`}>
+                    {item.title}
                   </h4>
+
+                  {/* Category tour count indicator */}
+                  {item.type === 'category' && item.tourCount && (
+                    <div className="text-xs text-white/80 text-center mt-1">
+                      {item.tourCount} Tours
+                    </div>
+                  )}
+
+                  {/* Tour duration indicator */}
+                  {item.type === 'tour' && item.duration && (
+                    <div className="text-xs text-white/80 text-center mt-1">
+                      {item.duration}
+                    </div>
+                  )}
 
                   {/* Hover CTA */}
                   <div className="mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-center">
-                    <span className="inline-flex items-center text-xs font-semibold text-emerald-200 bg-emerald-500/20 px-2 sm:px-3 py-1 rounded-full backdrop-blur-sm border border-emerald-400/30">
-                      <span className="hidden sm:inline">Explore Journey</span>
+                    <span className={`inline-flex items-center text-xs font-semibold ${item.type === 'category' ? 'text-indigo-200 bg-indigo-500/20 border-indigo-400/30' : 'text-emerald-200 bg-emerald-500/20 border-emerald-400/30'} px-2 sm:px-3 py-1 rounded-full backdrop-blur-sm border`}>
+                      <span className="hidden sm:inline">{item.type === 'category' ? 'Explore Category' : 'Explore Journey'}</span>
                       <span className="sm:hidden">Explore</span>
                       <svg
                         className="ml-1 w-3 h-3"
@@ -187,10 +225,10 @@ const FeaturedTours: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Floating Badge */}
-                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                  <span className="bg-white/90 text-slate-800 text-xs font-bold px-2 py-1 rounded-full backdrop-blur-sm">
-                    Featured
+                {/* Persistent Badge */}
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
+                  <span className={`${item.type === 'category' ? 'bg-indigo-500/90 text-white' : 'bg-emerald-500/90 text-white'} text-xs font-bold px-2 py-1 rounded-full backdrop-blur-sm shadow-lg`}>
+                    {item.type === 'category' ? 'Category' : 'Featured Tour'}
                   </span>
                 </div>
               </div>
