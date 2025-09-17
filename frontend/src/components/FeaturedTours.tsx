@@ -242,7 +242,7 @@ const FeaturedTours: React.FC = () => {
             onClick={() => navigate("/tours")}
             className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/10 text-white font-semibold backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 group text-sm sm:text-base"
           >
-            <span className="hidden sm:inline">View All Adventures</span>
+            <span className="hidden sm:inline">View All Tours</span>
             <span className="sm:hidden">View All Tours</span>
             <svg
               className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
