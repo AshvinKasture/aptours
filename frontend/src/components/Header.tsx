@@ -35,7 +35,7 @@ const Header: React.FC = () => {
 
   // Intersection Observer for active section detection
   useEffect(() => {
-    const sections = ['home', 'services', 'tours', 'about', 'contact'];
+    const sections = ['home', 'services', 'about', 'contact'];
     const sectionElements = sections.map(id => document.getElementById(id)).filter(Boolean);
 
     if (sectionElements.length === 0) return;
@@ -68,10 +68,6 @@ const Header: React.FC = () => {
   const isNavActive = (section: string) => {
     if (location.pathname === '/') {
       return activeSection === section;
-    } else if (location.pathname === '/tours' && section === 'tours') {
-      return true;
-    } else if (location.pathname.startsWith('/tours/') && section === 'tours') {
-      return true;
     }
     return false;
   };
@@ -116,24 +112,6 @@ const Header: React.FC = () => {
             >
               Services
             </HashLink>
-            <HashLink
-              smooth
-              to="/#tours"
-              scroll={scrollWithOffset}
-              className={`nav-link text-sm transition-colors ${
-                isNavActive('tours') && location.pathname === '/' ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
-              }`}
-            >
-              Tours
-            </HashLink>
-            <Link
-              to="/tours"
-              className={`nav-link text-sm transition-colors ${
-                isNavActive('tours') && location.pathname !== '/' ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
-              }`}
-            >
-              All Tours
-            </Link>
             <HashLink
               smooth
               to="/#about"
@@ -216,26 +194,6 @@ const Header: React.FC = () => {
             >
               Services
             </HashLink>
-            <HashLink 
-              smooth
-              to="/#tours"
-              scroll={scrollWithOffset}
-              onClick={handleMobileMenuClose}
-              className={`block py-2 transition-colors ${
-                isNavActive('tours') && location.pathname === '/' ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
-              }`}
-            >
-              Tours
-            </HashLink>
-            <Link
-              to="/tours"
-              onClick={handleMobileMenuClose}
-              className={`block py-2 transition-colors ${
-                isNavActive('tours') && location.pathname !== '/' ? 'text-sky-600 font-medium' : 'text-slate-700 hover:text-sky-600'
-              }`}
-            >
-              All Tours
-            </Link>
             <HashLink 
               smooth
               to="/#about"
