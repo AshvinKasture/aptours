@@ -21,6 +21,22 @@ export interface Trek {
   itinerary?: ItineraryDay[]; // Added itinerary property
 }
 
+export interface TourCategory {
+  slug: string; // URL-friendly slug for category
+  title: string;
+  description: string;
+  shortDescription?: string;
+  image: string; // Cover image for category card
+  tours: Trek[]; // Array of tours in this category
+  type: 'category'; // Identifier for category type
+}
+
+export interface TourItem {
+  type: 'tour' | 'category';
+  tour?: Trek; // Present if type is 'tour'
+  category?: TourCategory; // Present if type is 'category'
+}
+
 export interface ContactForm {
   name: string;
   email: string;

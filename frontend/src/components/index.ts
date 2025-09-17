@@ -7,6 +7,7 @@ export { default as AboutSection } from './AboutSection';
 export { default as ContactSection } from './ContactSection';
 export { default as Footer } from './Footer';
 export { default as TrekCard } from './TrekCard';
+export { default as CategoryCard } from './CategoryCard';
 export { default as Breadcrumb } from './Breadcrumb';
 export { default as FilterDropdown } from './FilterDropdown';
 

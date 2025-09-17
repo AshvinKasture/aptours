@@ -1,24 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useMemo, useCallback } from 'react';
 import type { ReactNode } from 'react';
-import type { Trek } from '../types';
+import type { Trek, TourItem, TourCategory } from '../types';
 import { getTrekImagePath } from '../utils/assets';
 import { createSlug } from '../utils';
 
 interface TourContextType {
-  treksData: Trek[];
-  filteredTreks: Trek[];
-  selectedFilter: string;
-  setSelectedFilter: (filter: string) => void;
+  tourItems: TourItem[]; // New structure supporting both tours and categories
+  treksData: Trek[]; // All individual tours (flattened from categories and direct tours)
   getTrekBySlug: (slug: string) => Trek | undefined;
-  getFilterCount: (filterId: string) => number;
-  getAllCount: () => number;
-  filterButtons: Array<{
-    id: string;
-    label: string;
-    icon: string;
-    color: string;
-    description: string;
-  }>;
+  getCategoryBySlug: (slug: string) => TourCategory | undefined;
+  getToursByCategory: (categorySlug: string) => Trek[];
 }
 
 const TourContext = createContext<TourContextType | undefined>(undefined);
@@ -36,11 +27,9 @@ interface TourProviderProps {
 }
 
 export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  const [filteredTreks, setFilteredTreks] = useState<Trek[]>([]);
 
-  // Sample trek data using our Trek interface
-  const treksData: Trek[] = [
+  // Sample trek data using our Trek interface - memoized to prevent recreation
+  const individualTreks: Trek[] = useMemo(() => [
     {
       slug: createSlug("Everest Base Camp Trek"),
       title: "Everest Base Camp Trek",
@@ -388,80 +377,187 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
           description: "Conquer the challenging Larkya La Pass (5,106m), the technical highlight of the trek. Navigate through glacial terrain and rocky moraines. Experience dramatic weather changes and spectacular mountain panoramas. The pass offers views of Himlung Himal, Cheo Himal, and Annapurna II. Descend into the Annapurna region, completing this incredible circuit trek around the magnificent Manaslu massif."
         }
       ]
+    },
+    // Independent tours (not in categories)
+    {
+      slug: createSlug("Langtang Valley Trek"),
+      title: "Langtang Valley Trek",
+      image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
+      slideshowImages: [
+        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
+        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
+        getTrekImagePath('hidden_himalayan_valleys_stock.jpg')
+      ],
+      // No category - independent tour
+      type: "Himalayan Trek",
+      difficulty: "Moderate",
+      duration: "8N / 9D",
+      maxAltitude: "3,870m",
+      price: "₹65,000",
+      shortDescription: "Beautiful valley trek close to Kathmandu with stunning mountain views and traditional Tamang culture.",
+      description: "The Langtang Valley Trek offers spectacular mountain scenery, rich cultural heritage, and is easily accessible from Kathmandu. Known as the 'Valley of Glaciers', it provides stunning views of Langtang Lirung and other peaks.",
+      itinerary: [
+        {
+          day: 1,
+          title: "Drive to Syabrubesi",
+          description: "Scenic drive from Kathmandu to Syabrubesi (1,550m), the starting point of Langtang trek. Pass through terraced fields, traditional villages, and beautiful landscapes. Meet your trekking team and prepare for the adventure ahead."
+        }
+      ]
+    },
+    {
+      slug: createSlug("Upper Mustang Trek"),
+      title: "Upper Mustang Trek",
+      image: getTrekImagePath('BoudhnathStupa.jpg'),
+      slideshowImages: [
+        getTrekImagePath('BoudhnathStupa.jpg'),
+        getTrekImagePath('BoudhnathStupa.jpg'),
+        getTrekImagePath('BoudhnathStupa.jpg')
+      ],
+      // No category - independent tour
+      type: "Himalayan Trek",
+      difficulty: "Moderate",
+      duration: "12N / 13D",
+      maxAltitude: "3,840m",
+      price: "₹1,95,000",
+      shortDescription: "Restricted area trek to the ancient Kingdom of Lo, featuring desert landscapes and Tibetan Buddhist culture.",
+      description: "Upper Mustang is a restricted area that was once an independent kingdom. This trek offers unique desert landscapes, ancient monasteries, and well-preserved Tibetan culture in the rain shadow of the Himalayas.",
+      itinerary: [
+        {
+          day: 1,
+          title: "Fly to Jomsom",
+          description: "Spectacular mountain flight to Jomsom airport through the world's deepest gorge. Begin the trek towards the forbidden kingdom of Upper Mustang with its unique landscape and culture."
+        }
+      ]
+    },
+    {
+      slug: createSlug("Gokyo Lakes Trek"),
+      title: "Gokyo Lakes Trek",
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      slideshowImages: [
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
+      ],
+      // No category - independent tour
+      type: "Himalayan Trek",
+      difficulty: "Challenging",
+      duration: "14N / 15D",
+      maxAltitude: "5,357m",
+      price: "₹1,65,000",
+      shortDescription: "Alternative Everest region trek featuring pristine glacial lakes and panoramic mountain views from Gokyo Ri.",
+      description: "The Gokyo Lakes Trek is a spectacular alternative to Everest Base Camp, featuring stunning turquoise lakes, the massive Ngozumpa Glacier, and incredible views from Gokyo Ri summit.",
+      itinerary: [
+        {
+          day: 1,
+          title: "Fly to Lukla and Trek to Phakding",
+          description: "Thrilling mountain flight to Lukla followed by gentle trek to Phakding. Begin the journey through the heart of Khumbu region towards the beautiful Gokyo valley."
+        }
+      ]
     }
-  ];
+  ], []); // Empty dependency array since this is static data
 
-  const filterButtons = [
-    { 
-      id: 'all', 
-      label: 'All Treks', 
-      icon: '🏔️',
-      color: 'from-slate-500 to-slate-600',
-      description: 'All available treks'
+  // Create tour items structure with categories and individual tours
+  const tourItems: TourItem[] = useMemo(() => [
+    // Mix categories and individual tours for varied layout
+    // Row 1: Himalayan Adventures Category
+    {
+      type: 'category',
+      category: {
+        slug: createSlug("Himalayan Adventures"),
+        title: "Himalayan Adventures",
+        description: "Epic high-altitude treks to the world's highest peaks and most spectacular mountain ranges.",
+        shortDescription: "Epic high-altitude treks and mountain expeditions",
+        image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        type: 'category',
+        tours: individualTreks.filter(trek => trek.category?.includes('himalayan'))
+      }
     },
-    { 
-      id: 'himalayan', 
-      label: 'Himalayan', 
-      icon: '⛰️',
-      color: 'from-blue-500 to-indigo-600',
-      description: 'High altitude adventures'
+    
+    // Row 1: Independent Tour - Langtang Valley Trek
+    {
+      type: 'tour',
+      tour: individualTreks.find(trek => trek.title === "Langtang Valley Trek")!
     },
-    { 
-      id: 'pilgrimage', 
-      label: 'Pilgrimage', 
-      icon: '🙏',
-      color: 'from-amber-500 to-orange-600',
-      description: 'Sacred spiritual journeys'
+    
+    // Row 1: Independent Tour - Upper Mustang Trek
+    {
+      type: 'tour',
+      tour: individualTreks.find(trek => trek.title === "Upper Mustang Trek")!
     },
-    { 
-      id: 'cultural', 
-      label: 'Cultural', 
-      icon: '🏛️',
-      color: 'from-emerald-500 to-teal-600',
-      description: 'Heritage & traditions'
+    
+    // Row 2: Independent Tour - Gokyo Lakes Trek
+    {
+      type: 'tour',
+      tour: individualTreks.find(trek => trek.title === "Gokyo Lakes Trek")!
     },
-    { 
-      id: 'adventure', 
-      label: 'Adventure', 
-      icon: '🎒',
-      color: 'from-red-500 to-pink-600',
-      description: 'Thrilling expeditions'
+    
+    // Row 2: Sacred Pilgrimages Category
+    {
+      type: 'category',
+      category: {
+        slug: createSlug("Sacred Pilgrimages"),
+        title: "Sacred Pilgrimages",
+        description: "Spiritual journeys to the most sacred sites in the Himalayas.",
+        shortDescription: "Sacred spiritual journeys to holy sites",
+        image: getTrekImagePath('Kailash_stock.jpg'),
+        type: 'category',
+        tours: individualTreks.filter(trek => trek.category?.includes('pilgrimage'))
+      }
+    },
+    
+    // Row 2: Family Adventures Category  
+    {
+      type: 'category',
+      category: {
+        slug: createSlug("Family Adventures"),
+        title: "Family Adventures",
+        description: "Family-friendly cultural tours and gentle adventures perfect for all ages.",
+        shortDescription: "Family-friendly cultural tours and gentle adventures",
+        image: getTrekImagePath('BoudhnathStupa.jpg'),
+        type: 'category',
+        tours: individualTreks.filter(trek => trek.category?.includes('cultural'))
+      }
     }
-  ];
+  ], [individualTreks]);
 
-  // Filter logic
-  useEffect(() => {
-    let filtered = treksData;
-
-    if (selectedFilter !== 'all') {
-      filtered = filtered.filter(trek => trek.category?.includes(selectedFilter));
-    }
-
-    setFilteredTreks(filtered);
-  }, [selectedFilter]);
+  // Flatten all tours from categories and individual tours
+  const treksData: Trek[] = useMemo(() => {
+    const flattened: Trek[] = [];
+    tourItems.forEach(item => {
+      if (item.type === 'category' && item.category) {
+        flattened.push(...item.category.tours);
+      } else if (item.type === 'tour' && item.tour) {
+        flattened.push(item.tour);
+      }
+    });
+    return flattened;
+  }, [tourItems]);
 
   // Helper functions
-  const getTrekBySlug = (slug: string): Trek | undefined => {
+  const getTrekBySlug = useCallback((slug: string): Trek | undefined => {
     return treksData.find(trek => trek.slug === slug);
-  };
+  }, [treksData]);
 
-  const getFilterCount = (filterId: string): number => {
-    return treksData.filter(trek => trek.category?.includes(filterId)).length;
-  };
+  const getCategoryBySlug = useCallback((slug: string): TourCategory | undefined => {
+    for (const item of tourItems) {
+      if (item.type === 'category' && item.category?.slug === slug) {
+        return item.category;
+      }
+    }
+    return undefined;
+  }, [tourItems]);
 
-  const getAllCount = (): number => {
-    return treksData.length;
-  };
+  const getToursByCategory = useCallback((categorySlug: string): Trek[] => {
+    const category = getCategoryBySlug(categorySlug);
+    return category ? category.tours : [];
+  }, [getCategoryBySlug]);
 
   const value: TourContextType = {
+    tourItems,
     treksData,
-    filteredTreks,
-    selectedFilter,
-    setSelectedFilter,
     getTrekBySlug,
-    getFilterCount,
-    getAllCount,
-    filterButtons
+    getCategoryBySlug,
+    getToursByCategory
   };
 
   return (
