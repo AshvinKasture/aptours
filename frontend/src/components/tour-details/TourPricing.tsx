@@ -6,12 +6,24 @@ interface TourPricingProps {
 }
 
 const TourPricing = ({ price, onScrollWithOffset }: TourPricingProps) => {
+  // Check environment variable for pricing display
+  const showPricing = import.meta.env.VITE_SHOW_PRICING !== 'false';
+
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg">
       <div className="text-center mb-6">
-        <div className="text-sm text-slate-500 mb-2">Starting from</div>
-        <div className="text-4xl font-bold text-sky-600 mb-1">{price}</div>
-        <div className="text-sm text-slate-500">per person</div>
+        {showPricing ? (
+          <>
+            <div className="text-sm text-slate-500 mb-2">Starting from</div>
+            <div className="text-4xl font-bold text-sky-600 mb-1">{price}</div>
+            <div className="text-sm text-slate-500">per person</div>
+          </>
+        ) : (
+          <>
+            <div className="text-lg font-semibold text-slate-700 mb-2">Price Available on Enquiry</div>
+            <div className="text-sm text-slate-500">Contact us for competitive pricing</div>
+          </>
+        )}
       </div>
       
       <div className="space-y-3 mb-6">
@@ -31,7 +43,7 @@ const TourPricing = ({ price, onScrollWithOffset }: TourPricingProps) => {
 
       <div className="text-xs text-slate-500 text-center">
         <i className="fas fa-shield-alt mr-1"></i>
-        Best price guaranteed
+        {showPricing ? 'Best price guaranteed' : 'Quick response guaranteed'}
       </div>
     </div>
   );

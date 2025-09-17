@@ -24,6 +24,9 @@ const TourDetailsPage = () => {
   const [trek, setTrek] = useState<Trek | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Check environment variable for pricing display
+  const showPricing = import.meta.env.VITE_SHOW_PRICING !== 'false';
+
   // Custom scroll function with header offset for smooth scrolling
   const scrollWithOffset = (el: HTMLElement) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -78,8 +81,8 @@ const TourDetailsPage = () => {
             {/* Right Column: Pricing + Contact */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                <TourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />
-                <TourContact />
+                {showPricing && <TourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />}
+                <TourContact onScrollWithOffset={scrollWithOffset} />
               </div>
             </div>
           </div>
@@ -88,10 +91,10 @@ const TourDetailsPage = () => {
           <MobileTourHeader trek={trek} />
 
           <div className="lg:hidden space-y-6">
-            <MobileTourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />
+            {showPricing && <MobileTourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />}
             <TourAbout description={trek.description} />
             {trek.itinerary && <TourItinerary itinerary={trek.itinerary} />}
-            <TourContact />
+            <TourContact onScrollWithOffset={scrollWithOffset} />
           </div>
         </div>
       </main>
