@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             />
             <div>
               <div className="font-semibold text-white">AP Tours & Travels</div>
-              <div className="text-xs text-slate-400">Explore. Experience. Enjoy.</div>
+              <div className="text-xs text-slate-400">Where every journey becomes a story</div>
             </div>
           </div>
           <p className="mt-4 text-sm text-slate-400">

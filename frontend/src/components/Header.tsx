@@ -90,7 +90,7 @@ const Header: React.FC = () => {
             <div>
               <div className="text-lg font-semibold text-slate-800">AP Tours & Travels</div>
               <div className="text-xs text-slate-500">
-                Explore. Experience. Enjoy.
+                Where every journey becomes a story
               </div>
             </div>
           </Link>
