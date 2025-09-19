@@ -16,7 +16,7 @@ const FeaturedTours: React.FC = () => {
     {
       type: "category",
       title: "Annapurna Trek",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      image: getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
       slug: createSlug("Annapurna Trek"),
       tourCount: 2
     },
