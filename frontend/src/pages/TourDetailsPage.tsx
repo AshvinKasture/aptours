@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -19,6 +19,7 @@ import {
 } from '../components/tour-details';
 
 const TourDetailsPage = () => {
+  const pageTopRef = useRef<HTMLDivElement>(null);
   const { slug } = useParams<{ slug: string }>();
   const { getTrekBySlug, getCategoryForTour } = useTours();
   const [trek, setTrek] = useState<Trek | null>(null);
@@ -33,6 +34,23 @@ const TourDetailsPage = () => {
     const yOffset = -80; // Header height offset
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
   };
+
+  // Scroll to top when component mounts - React best practice with useRef
+  useEffect(() => {
+    const scrollToTop = () => {
+      if (pageTopRef.current) {
+        pageTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Fallback to window scrollTo if ref not available
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    // Small delay to ensure page is fully loaded
+    const timeoutId = setTimeout(scrollToTop, 100);
+    
+    return () => clearTimeout(timeoutId);
+  }, [slug]);
 
   useEffect(() => {
     if (slug) {
@@ -61,7 +79,7 @@ const TourDetailsPage = () => {
   const category = trek ? getCategoryForTour(trek.slug) : undefined;
 
   return (
-    <div className="antialiased text-slate-50">
+    <div ref={pageTopRef} className="antialiased text-slate-50">
       <Header />
       
       <TourBreadcrumb trekTitle={trek.title} category={category} />
