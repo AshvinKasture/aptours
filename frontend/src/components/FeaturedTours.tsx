@@ -16,7 +16,7 @@ const FeaturedTours: React.FC = () => {
     {
       type: "category",
       title: "Annapurna Trek",
-      image: getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
+      image: getTrekImagePath('Annapurna_Base_Camp_Cover.jpg', 'Annapurna_Base_Camp'),
       slug: createSlug("Annapurna Trek"),
       tourCount: 2
     },
@@ -30,7 +30,7 @@ const FeaturedTours: React.FC = () => {
     {
       type: "tour",
       title: "Mount Kailash Mansarovar",
-      image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
+      image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       slug: createSlug("Mount Kailash Mansarovar"),
       duration: "11N / 12D"
     },

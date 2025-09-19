@@ -129,11 +129,11 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Mount Kailash Mansarovar"),
       title: "Mount Kailash Mansarovar",
-      image: getTrekImagePath('Kailash_stock.jpg'),
+      image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       slideshowImages: [
-        getTrekImagePath('Kailash_stock.jpg'),
-        getTrekImagePath('Kailash_stock.jpg'),
-        getTrekImagePath('Kailash_stock.jpg')
+        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       ],
       type: "Sacred Pilgrimage",
       difficulty: "Challenging",
