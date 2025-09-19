@@ -10,6 +10,7 @@ interface TourContextType {
   getTrekBySlug: (slug: string) => Trek | undefined;
   getCategoryBySlug: (slug: string) => TourCategory | undefined;
   getToursByCategory: (categorySlug: string) => Trek[];
+  getCategoryForTour: (trekSlug: string) => TourCategory | undefined;
 }
 
 const TourContext = createContext<TourContextType | undefined>(undefined);
@@ -637,12 +638,25 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     return category ? category.tours : [];
   }, [getCategoryBySlug]);
 
+  const getCategoryForTour = useCallback((trekSlug: string): TourCategory | undefined => {
+    for (const item of tourItems) {
+      if (item.type === 'category' && item.category) {
+        const tourInCategory = item.category.tours.find(tour => tour.slug === trekSlug);
+        if (tourInCategory) {
+          return item.category;
+        }
+      }
+    }
+    return undefined;
+  }, [tourItems]);
+
   const value: TourContextType = {
     tourItems,
     treksData,
     getTrekBySlug,
     getCategoryBySlug,
-    getToursByCategory
+    getToursByCategory,
+    getCategoryForTour
   };
 
   return (

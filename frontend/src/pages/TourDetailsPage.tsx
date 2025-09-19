@@ -20,7 +20,7 @@ import {
 
 const TourDetailsPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { getTrekBySlug } = useTours();
+  const { getTrekBySlug, getCategoryForTour } = useTours();
   const [trek, setTrek] = useState<Trek | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -57,11 +57,14 @@ const TourDetailsPage = () => {
     return <NotFoundTrek />;
   }
 
+  // Get category for this tour
+  const category = trek ? getCategoryForTour(trek.slug) : undefined;
+
   return (
     <div className="antialiased text-slate-50">
       <Header />
       
-      <TourBreadcrumb trekTitle={trek.title} />
+      <TourBreadcrumb trekTitle={trek.title} category={category} />
 
       {/* Trek Details Content */}
       <main className="py-12 px-4 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">

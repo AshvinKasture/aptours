@@ -53,22 +53,70 @@ const CategoryToursPage = () => {
     <div ref={pageTopRef} className="antialiased text-slate-50">
       <Header />
       
-      {/* Custom Breadcrumb for Category */}
-      <div className="bg-gradient-to-r from-sky-600 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <nav className="flex items-center gap-2 text-sm">
-            <HashLink to="/" className="hover:text-sky-200 transition-colors">
-              Home
+      {/* Category Breadcrumb */}
+      <section className="py-4 px-4 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-4">
+            {/* Back Icon Button */}
+            <HashLink 
+              to="/tours" 
+              className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-slate-600 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-all duration-200"
+              title="Back to All Tours"
+            >
+              <i className="fas fa-arrow-left text-sm"></i>
             </HashLink>
-            <i className="fas fa-chevron-right text-xs"></i>
-            <HashLink to="/tours" className="hover:text-sky-200 transition-colors">
-              Tours
-            </HashLink>
-            <i className="fas fa-chevron-right text-xs"></i>
-            <span className="text-sky-200">{category.title}</span>
-          </nav>
+            
+            {/* Breadcrumb */}
+            <nav className="flex-1 min-w-0">
+              <ol className="flex items-center space-x-2 text-sm">
+                <li className="flex items-center">
+                  <HashLink 
+                    to="/"
+                    className="text-slate-500 hover:text-sky-600 transition-colors"
+                  >
+                    Home
+                  </HashLink>
+                </li>
+                <li className="flex items-center">
+                  <svg 
+                    className="w-4 h-4 text-slate-400 mx-2" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path 
+                      fillRule="evenodd" 
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" 
+                      clipRule="evenodd" 
+                    />
+                  </svg>
+                  <HashLink 
+                    to="/tours"
+                    className="text-slate-500 hover:text-sky-600 transition-colors"
+                  >
+                    Tours
+                  </HashLink>
+                </li>
+                <li className="flex items-center">
+                  <svg 
+                    className="w-4 h-4 text-slate-400 mx-2" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path 
+                      fillRule="evenodd" 
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" 
+                      clipRule="evenodd" 
+                    />
+                  </svg>
+                  <span className="text-slate-600 font-medium truncate">
+                    {category.title}
+                  </span>
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Category Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-sky-600 to-blue-700 text-white">
