@@ -161,10 +161,10 @@ const CategoryToursPage = () => {
               Plan Your Journey
             </HashLink>
             <a 
-              href="tel:+919822020500" 
+              href="tel:+919270248887" 
               className="inline-block px-8 py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
             >
-              Call Expert: +91 98220 20500
+              Call Expert: +91 92702 48887
             </a>
           </div>
         </div>

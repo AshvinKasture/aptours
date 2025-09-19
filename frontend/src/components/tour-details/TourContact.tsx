@@ -32,7 +32,7 @@ const TourContact = ({ onScrollWithOffset }: TourContactProps) => {
           </div>
           <div>
             <div className="text-sm font-medium text-slate-800">Call Us</div>
-            <div className="text-sm text-slate-600">+91 98220 20500</div>
+            <div className="text-sm text-slate-600">+91 92702 48887</div>
           </div>
         </div>
         

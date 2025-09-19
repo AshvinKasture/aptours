@@ -107,8 +107,8 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-slate-800 mb-1">Call Us</h4>
-                  <a href="tel:+919822020500" className="text-purple-600 text-sm hover:text-purple-800 transition-colors">
-                    +91 98220 20500
+                  <a href="tel:+919270248887" className="text-purple-600 text-sm hover:text-purple-800 transition-colors">
+                    +91 92702 48887
                   </a>
                 </div>
               </div>
