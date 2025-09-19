@@ -37,7 +37,7 @@ const FeaturedTours: React.FC = () => {
     {
       type: "category",
       title: "Nepal Tours",
-      image: getTrekImagePath('Kailash_stock.jpg'),
+      image: getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
       slug: createSlug("Nepal Tours"),
       tourCount: 4
     },

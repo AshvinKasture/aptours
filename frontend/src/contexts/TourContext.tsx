@@ -36,8 +36,9 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
       slideshowImages: [
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
+        getTrekImagePath('Everest_Base_Camp_1.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_2.png', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_3.png', 'Everest_Base_Camp_Trek')
       ],
       type: "Himalayan Trek",
       difficulty: "Moderate",
@@ -174,6 +175,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
       slideshowImages: [
         getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
+        getTrekImagePath('Annapurna_Base_Camp_2.jpg', 'Annapurna_Base_Camp'),
         getTrekImagePath('Annapurna_Base_Camp_3.jpg', 'Annapurna_Base_Camp'),
         getTrekImagePath('Annapurna_Base_Camp_4.jpg', 'Annapurna_Base_Camp')
       ],
@@ -256,11 +258,12 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Annapurna Base Camp Express"),
       title: "Annapurna Base Camp Express",
-      image: getTrekImagePath('AnnapurnaLodge.jpg'),
+      image: getTrekImagePath('Annapurna_Base_Camp_Express_1.jpg', 'Annapurna_Base_Camp_Express'),
       slideshowImages: [
-        getTrekImagePath('AnnapurnaLodge.jpg'),
-        getTrekImagePath('AnnapurnaLodge.jpg'),
-        getTrekImagePath('AnnapurnaLodge.jpg')
+        getTrekImagePath('Annapurna_Base_Camp_Express_1.jpg', 'Annapurna_Base_Camp_Express'),
+        getTrekImagePath('Annapurna_Base_Camp_Express_2.jpg', 'Annapurna_Base_Camp_Express'),
+        getTrekImagePath('Annapurna_Base_Camp_Express_3.jpg', 'Annapurna_Base_Camp_Express'),
+        getTrekImagePath('Annapurna_Base_Camp_Express_4.jpg', 'Annapurna_Base_Camp_Express'),
       ],
       category: "AnnapurnaTrek",
       type: "Himalayan Trek",
@@ -322,11 +325,13 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Temples and Mountains"),
       title: "Temples and Mountains",
-      image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
+      image: getTrekImagePath('Temples_And_Mountains_1.jpg', 'Temples_And_Mountains'),
       slideshowImages: [
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg')
+        getTrekImagePath('Temples_And_Mountains_1.jpg', 'Temples_And_Mountains'),
+        getTrekImagePath('Temples_And_Mountains_2.jpg', 'Temples_And_Mountains'),
+        getTrekImagePath('Temples_And_Mountains_3.jpg', 'Temples_And_Mountains'),
+        getTrekImagePath('Temples_And_Mountains_4.jpg', 'Temples_And_Mountains'),
+        getTrekImagePath('Temples_And_Mountains_5.jpg', 'Temples_And_Mountains'),
       ],
       category: "NepalTours",
       type: "Nepal Family Package",
@@ -369,11 +374,17 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Spiritual Journey of Nepal"),
       title: "Spiritual Journey of Nepal",
-      image: getTrekImagePath('BoudhnathStupa.jpg'),
+      image: getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
       slideshowImages: [
-        getTrekImagePath('BoudhnathStupa.jpg'),
-        getTrekImagePath('BoudhnathStupa.jpg'),
-        getTrekImagePath('BoudhnathStupa.jpg')
+        getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_1.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_2.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_3.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_4.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_5.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_6.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_7.jpg', 'Spiritual_Journey_of_Nepal'),
+        getTrekImagePath('Spiritual_Journey_of_Nepal_8.jpg', 'Spiritual_Journey_of_Nepal'),
       ],
       category: "NepalTours",
       type: "Nepal Family Package",
@@ -426,11 +437,17 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Nature and History"),
       title: "Nature and History",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      image: getTrekImagePath('Nature_And_History_3.jpg', 'Nature_And_History'),
       slideshowImages: [
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
+        getTrekImagePath('Nature_And_History_3.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_1.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_2.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_4.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_5.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_6.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_7.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_8.jpg', 'Nature_And_History'),
+        getTrekImagePath('Nature_And_History_9.jpg', 'Nature_And_History'),
       ],
       category: "NepalTours",
       type: "Nepal Family Package",
@@ -483,11 +500,17 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     {
       slug: createSlug("Wilderness and Divinity"),
       title: "Wilderness and Divinity",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      image: getTrekImagePath('Wilderness_And_Divinity_8.jpg', 'Wilderness_And_Divinity'),
       slideshowImages: [
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
+        getTrekImagePath('Wilderness_And_Divinity_8.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_7.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_1.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_2.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_3.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_4.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_5.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_6.jpg', 'Wilderness_And_Divinity'),
+        getTrekImagePath('Wilderness_And_Divinity_9.jpg', 'Wilderness_And_Divinity'),
       ],
       category: "NepalTours",
       type: "Nepal Family Package",
@@ -565,7 +588,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         slug: createSlug("Annapurna Trek"),
         title: "Annapurna Trek",
         description: "Classic Annapurna region treks through terraced villages, rhododendron forests, and high mountain passes — offering spectacular mountain vistas, cultural encounters with local Gurung and Magar communities, and options for moderate to challenging itineraries.",
-        image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        image: getTrekImagePath('Annapurna_Base_Camp_Cover.jpg', 'Annapurna_Base_Camp'),
         type: 'category',
         tours: individualTreks.filter(trek => trek.category?.includes('AnnapurnaTrek'))
       }
@@ -576,7 +599,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         slug: createSlug("Nepal Tours"),
         title: "Nepal Tours",
         description: "Curated cultural and adventure tours across Nepal — from Kathmandu's UNESCO heritage sites to Himalayan foothills and scenic valleys. Ideal for first-time visitors and those seeking immersive local experiences.",
-        image: getTrekImagePath('Kailash_stock.jpg'),
+        image: getTrekImagePath('Spiritual_Journey_of_Nepal_Cover.jpg', 'Spiritual_Journey_of_Nepal'),
         type: 'category',
         tours: individualTreks.filter(trek => trek.category?.includes('NepalTours'))
       }
