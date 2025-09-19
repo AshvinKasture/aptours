@@ -258,7 +258,7 @@ const FeaturedTours: React.FC = () => {
           </button>
 
           <a
-            href="https://wa.me/919876543210?text=Hi! I'm interested in your tours and would like to know more details."
+            href="https://wa.me/919270248887?text=Hi! I'm interested in your tours and would like to know more details."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-to-r from-green-500/80 to-green-600/80 text-white font-semibold backdrop-blur-sm border border-white/30 hover:from-green-400/90 hover:to-green-500/90 hover:border-white/50 transition-all duration-300 group text-sm sm:text-base shadow-lg hover:shadow-xl"
