@@ -380,7 +380,6 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         getTrekImagePath('Spiritual_Journey_of_Nepal_1.jpg', 'Spiritual_Journey_of_Nepal'),
         getTrekImagePath('Spiritual_Journey_of_Nepal_2.jpg', 'Spiritual_Journey_of_Nepal'),
         getTrekImagePath('Spiritual_Journey_of_Nepal_3.jpg', 'Spiritual_Journey_of_Nepal'),
-        getTrekImagePath('Spiritual_Journey_of_Nepal_4.jpg', 'Spiritual_Journey_of_Nepal'),
         getTrekImagePath('Spiritual_Journey_of_Nepal_5.jpg', 'Spiritual_Journey_of_Nepal'),
         getTrekImagePath('Spiritual_Journey_of_Nepal_6.jpg', 'Spiritual_Journey_of_Nepal'),
         getTrekImagePath('Spiritual_Journey_of_Nepal_7.jpg', 'Spiritual_Journey_of_Nepal'),
