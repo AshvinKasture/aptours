@@ -39,13 +39,11 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
       ],
-      category: "himalayan adventure",
       type: "Himalayan Trek",
       difficulty: "Moderate",
       duration: "13N / 14D",
       maxAltitude: "5,364m",
       price: "₹1,85,000",
-      // shortDescription: "Ultimate Himalayan adventure to the base of the world's highest peak with stunning views and Sherpa culture.",
       description: "The Everest Base Camp trek is a guided adventure through the heart of the Himalayas, offering breathtaking views of Everest, Nuptse, and Lhotse. Trekkers experience Sherpa culture, visit iconic sites like Thyangboche and Kalapatthar, and end at the historic Everest Base Camp.",
       itinerary: [
         {
@@ -136,14 +134,12 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         getTrekImagePath('Kailash_stock.jpg'),
         getTrekImagePath('Kailash_stock.jpg')
       ],
-      category: "pilgrimage",
       type: "Sacred Pilgrimage",
       difficulty: "Challenging",
       duration: "11N / 12D",
       maxAltitude: "5,630m",
       price: "₹2,25,000",
-      shortDescription: "Sacred pilgrimage to Mount Kailash and holy Mansarovar Lake in Tibet.",
-      description: "Embark on the most sacred pilgrimage in the Himalayas. Visit the divine Mount Kailash and the pristine Mansarovar Lake.",
+  description: "A sacred pilgrimage to Mount Kailash and Mansarovar, combining spiritual rituals, remote high-altitude landscapes, and deep cultural encounters. This challenging journey includes long drives across the Tibetan plateau, scenic views of snow-capped peaks, and the transformative Kailash kora (circumambulation).",
       itinerary: [
         {
           day: 1,
@@ -173,88 +169,6 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      slug: createSlug("Nepal Cultural Family Tour"),
-      title: "Nepal Cultural Family Tour",
-      image: getTrekImagePath('BoudhnathStupa.jpg'),
-      slideshowImages: [
-        getTrekImagePath('BoudhnathStupa.jpg'),
-        getTrekImagePath('BoudhnathStupa.jpg'),
-        getTrekImagePath('BoudhnathStupa.jpg')
-      ],
-      category: "cultural family",
-      type: "Nepal Family Package",
-      duration: "7N / 8D",
-      price: "₹45,000",
-      shortDescription: "Family-friendly cultural tour through Nepal's heritage sites and mountain valleys.",
-      description: "Perfect family adventure exploring Nepal's rich cultural heritage, ancient temples, and stunning mountain views. Designed for all ages with comfortable accommodations.",
-      itinerary: [
-        {
-          day: 1,
-          title: "Arrival and Kathmandu Exploration",
-          description: "Welcome to Nepal! Airport pickup and transfer to family-friendly hotel in Kathmandu. Begin with a visit to Swayambhunath (Monkey Temple) for panoramic views of the Kathmandu valley. Explore the colorful streets of Thamel with its shops, cafes, and vibrant atmosphere. Evening welcome dinner featuring traditional Nepali cuisine and cultural dance performance. Perfect introduction to Nepal's rich culture for the whole family."
-        },
-        {
-          day: 2,
-          title: "Kathmandu UNESCO World Heritage Sites",
-          description: "Full day exploring Kathmandu's UNESCO World Heritage Sites. Visit the sacred Pashupatinath Temple on the banks of Bagmati River. Explore Boudhanath Stupa, one of the largest Buddhist stupas in the world. Walk through Kathmandu Durbar Square with its ancient palaces and temples. Each site offers unique insights into Nepal's religious and cultural diversity. Family-friendly guided tours with engaging stories for children."
-        },
-        {
-          day: 3,
-          title: "Patan and Bhaktapur Day Trip",
-          description: "Visit the medieval cities of Patan and Bhaktapur, showcasing exquisite Newari architecture. Explore Patan Durbar Square with its intricate wood and stone carvings. Watch traditional craftsmen at work creating pottery, metalwork, and woodcarvings. Bhaktapur's well-preserved medieval charm offers excellent photo opportunities. Try local delicacies like king curd (juju dhau) and traditional sweets. Perfect cultural immersion for families."
-        },
-        {
-          day: 4,
-          title: "Sunrise at Nagarkot",
-          description: "Early morning drive to Nagarkot (2,195m) for spectacular Himalayan sunrise views. On clear days, witness stunning views of Mount Everest, Langtang, and Annapurna ranges. Family-friendly hike through pine forests and terraced fields. Visit local villages and interact with friendly locals. Enjoy panoramic mountain vistas and fresh mountain air. Return to Kathmandu with lifetime memories of the Himalayas."
-        },
-        {
-          day: 5,
-          title: "Pokhara - City of Lakes",
-          description: "Scenic drive or short flight to beautiful Pokhara (823m), the city of lakes. Enjoy boating on serene Phewa Lake with reflections of Annapurna range. Visit Devi's Falls and explore mysterious Gupteshwor Cave. Take the cable car to Sarangkot for stunning mountain views. Pokhara offers a relaxed atmosphere perfect for families with children. Evening lakeside stroll and dinner by the lake."
-        }
-      ]
-    },
-    {
-      slug: createSlug("Hidden Himalayan Valleys"),
-      title: "Hidden Himalayan Valleys",
-      image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-      slideshowImages: [
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-        getTrekImagePath('hidden_himalayan_valleys_stock.jpg')
-      ],
-      category: "cultural adventure",
-      type: "Himalayan Trek",
-      difficulty: "Moderate",
-      duration: "10N / 11D",
-      maxAltitude: "4,200m",
-      price: "₹85,000",
-      description: "Explore hidden valleys, ancient monasteries, and traditional mountain villages. Immerse yourself in local culture and pristine natural beauty.",
-      itinerary: [
-        {
-          day: 1,
-          title: "Journey to Hidden Valley Base",
-          description: "Begin the adventure with a scenic drive through winding mountain roads to reach the hidden valley base camp. Pass through traditional villages where time seems to have stopped. Meet local guides and porters who will share their knowledge of secret trails. Set up camp in a pristine meadow surrounded by towering peaks. Experience the tranquility of untouched wilderness as you prepare for the days ahead."
-        },
-        {
-          day: 2,
-          title: "Ancient Monastery Discovery",
-          description: "Trek through rhododendron forests to discover a 500-year-old monastery hidden in the valley. Meet the resident monks who maintain ancient traditions and wisdom. Participate in morning prayers and meditation sessions. Learn about traditional Tibetan Buddhism and local customs. The monastery offers incredible views of snow-capped peaks and sacred valleys. Evening spent listening to monk's stories about the region's spiritual history."
-        },
-        {
-          day: 3,
-          title: "Traditional Village Immersion",
-          description: "Visit remote mountain villages where families have lived for generations. Experience authentic mountain hospitality and traditional lifestyle. Participate in daily activities like farming, weaving, and food preparation. Learn about sustainable living practices adapted to high-altitude conditions. Share meals with local families and hear stories of mountain life. This cultural exchange provides deep insights into Himalayan communities."
-        },
-        {
-          day: 4,
-          title: "Secret Valley Exploration",
-          description: "Venture into a secret valley known only to locals, accessible through a hidden trail. Discover pristine alpine lakes reflecting surrounding peaks. Encounter rare wildlife including blue sheep and golden eagles. The valley offers opportunities for meditation and spiritual reflection. Crystal-clear streams and wildflower meadows create a paradise-like setting. Camp under star-filled skies in this untouched wilderness sanctuary."
-        }
-      ]
-    },
-    {
       slug: createSlug("Annapurna Base Camp Trek"),
       title: "Annapurna Base Camp Trek",
       image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
@@ -263,7 +177,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         getTrekImagePath('Annapurna_Base_Camp_3.jpg', 'Annapurna_Base_Camp'),
         getTrekImagePath('Annapurna_Base_Camp_4.jpg', 'Annapurna_Base_Camp')
       ],
-      category: "himalayan adventure",
+      category: "AnnapurnaTrek",
       type: "Himalayan Trek",
       difficulty: "Moderate",
       duration: "12N / 13D",
@@ -340,184 +254,333 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      slug: createSlug("Manaslu Circuit Trek"),
-      title: "Manaslu Circuit Trek",
+      slug: createSlug("Annapurna Base Camp Express"),
+      title: "Annapurna Base Camp Express",
       image: getTrekImagePath('AnnapurnaLodge.jpg'),
       slideshowImages: [
         getTrekImagePath('AnnapurnaLodge.jpg'),
         getTrekImagePath('AnnapurnaLodge.jpg'),
         getTrekImagePath('AnnapurnaLodge.jpg')
       ],
-      category: "himalayan adventure",
+      category: "AnnapurnaTrek",
       type: "Himalayan Trek",
-      difficulty: "Challenging",
-      duration: "16N / 17D",
-      maxAltitude: "5,106m",
+      difficulty: "Moderate",
+      duration: "8N / 9D",
+      maxAltitude: "4,120m",
       price: "₹1,55,000",
-      description: "Off-the-beaten-path trek around Mount Manaslu, the eighth highest peak in the world, through remote valleys and traditional Tibetan villages.",
+      shortDescription: "The Annapurna Sanctuary Trek is an ideal first Himalayan trek, offering stunning mountain views and immersive walking experiences without major acclimatization challenges. The journey leads to Annapurna Base Camp (4,130m), a breathtaking amphitheater of eleven towering peaks, revered for both its natural beauty and spiritual significance.",
+      description: "The Annapurna Sanctuary Trek is the perfect first Himalayan trek – It offers wonderful walking and superb views without undue acclimatisation problems and all within a short period of time. The trek takes you right into the Annapurna Sanctuary, a high glacial basin located north of Pokhara and known as the ‘Sanctuary’ both because of its natural beauty and its religious significance to local people who believe in the divine presence there of the goddesses, Annapurna and Gangapurna, important figures in Hindu myth and folklore. The focus of the trek is Annapurna Base Camp, a magnificent spot at 4,130m/13,550 set below a ring of eleven of Nepal’s major peaks. Here you will have a spectacular view of these giants including the immensely impressive south face of Annapurna I.",
       itinerary: [
         {
           day: 1,
-          title: "Journey to Soti Khola",
-          description: "Drive from Kathmandu to Soti Khola (700m) through scenic hills and rural landscapes. This marks the beginning of the remote Manaslu Circuit adventure. The trail follows the Budhi Gandaki River through terraced fields and traditional villages. Experience the authentic rural life of Nepal away from tourist crowds. Set up camp and prepare for the wilderness trek ahead into the restricted Manaslu region."
+          title: "Kathmandu",
+          description: "Welcome to Nepal. Kathmandu is an incredible mixture of legend and modern development with a rich artistic and cultural heritage. Kathmandu has been a travellers' centre for many years. It’s very important that you attend the welcome meeting at the hotel lobby. However, you need not worry for the schedule as it will be published on the notice board beforehand your check in."
         },
         {
           day: 2,
-          title: "Remote Valley Exploration",
-          description: "Trek through increasingly remote valleys with spectacular gorges and waterfalls. Cross numerous suspension bridges over the powerful Budhi Gandaki River. Pass through villages where Tibetan culture becomes more prominent. Encounter friendly locals maintaining traditional lifestyles unchanged for centuries. The landscape becomes more dramatic as you enter the heart of the Manaslu conservation area."
+          title: "Fly Pokhara > Drive to Kimche & Trek to Chhomrong (2177m / 7143ft)",
+          description: "Take a small aircraft to leave Leaving Kathmandu behind early in the morning, its a short and one of the most scenic flights you’ve ever had in your lifetime. Pokhara is just 25 minutes fly away from Kathmandu. Upon landing at Pokhara airport, quickly get arranged with luggage and jump onto a vehicle to drive off to Nayapul. Its another section of journey which is on the road but again filled with lots of interesting sceneries to see and get fascinated. It takes something like 3 hours to reach Kimche, where the trek starts from. Get immediately arranged with load of your baggage and porters and start trekking towards New Bridge. The initial part of the trail follows upstream Modi Khola. The last leg of the trek is steep uphill until the village of Chhomrong, which is located on the top of the hill. The magnificent Fishtail stands at the backdrop."
         },
         {
           day: 3,
-          title: "Manaslu Base Camp Views",
-          description: "Reach viewpoints offering magnificent vistas of Mount Manaslu (8,163m), the world's eighth highest peak. Trek through alpine meadows with yaks grazing peacefully. Visit ancient monasteries where monks practice traditional Buddhism. Experience the spiritual energy of this sacred mountain region. The close-up views of Manaslu's massive ice walls and seracs are breathtaking."
+          title: "Dobhan (2670m / 8760ft)",
+          description: "Begin by trekking for approximately 3 hours through the forest to Kuldi Ghar, then down to the banks of the Modi River and up again to Doban."
         },
         {
           day: 4,
-          title: "Larkya La Pass Crossing",
-          description: "Conquer the challenging Larkya La Pass (5,106m), the technical highlight of the trek. Navigate through glacial terrain and rocky moraines. Experience dramatic weather changes and spectacular mountain panoramas. The pass offers views of Himlung Himal, Cheo Himal, and Annapurna II. Descend into the Annapurna region, completing this incredible circuit trek around the magnificent Manaslu massif."
-        }
+          title: "Dobhan to Machhapuchhre Base Camp (3700m / 12139ft)",
+          description: "Passing through Himalaya Hotel, continue up the narrow valley to Deurali. Sticking to the west bank of the Modi River, enter an open valley near Machhapuchhre Base Camp."
+        },
+        {
+          day: 5,
+          title: "Annapurna Base Camp (4130m / 13549ft) > back to Himalaya",
+          description: "Early in the morning trek up to Annapurna Base Camp. The struggle uphill at that altitude takes around 2 hours but the hard work to get here is worth it. See the magic of change of colours of the majestic peaks by sunrise. Stroll around for an hour and then start tracing the way back to Himalaya."
+        },
+        {
+          day: 6,
+          title: "Chomrong (2177m / 7143ft)",
+          description: "Passing back through the forests, pastures and staircases, trek back to Chhomrong."
+        },
+        {
+          day: 7,
+          title: "Steep descent down to Jhinu Danda > trek to Kimche and drive to Pokhara.",
+          description: "There is a natural hotspring on the bank of Modi Khola, where you can plunge and take a well deserved manicure. Take lunch at Jhinu Danda and trek to Kimche where a vehicle awaits to bring us back to Pokhara. It is around 4 hours drive to Pokhara from Kimche. On reaching to Pokhara, get checked into a hotel and rush to the lakeside for a nights party."
+        },
+        {
+          day: 8,
+          title: "Fly back to Kathmandu",
+          description: "In the morning free time to stroll around the lake city Pokhara. In the afternoon take the same short flight that you have taken some 10 days ago. On reaching to Kathmandu, get transferred to hotel and stay overnight."
+        },
+        {
+          day: 9,
+          title: "Departure, end the trip.",
+          description: "After breakfast, you will be transferred to the airport for your onward journey."
+        },
       ]
     },
     // Independent tours (not in categories)
     {
-      slug: createSlug("Langtang Valley Trek"),
-      title: "Langtang Valley Trek",
+      slug: createSlug("Temples and Mountains"),
+      title: "Temples and Mountains",
       image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
       slideshowImages: [
         getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
         getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
         getTrekImagePath('hidden_himalayan_valleys_stock.jpg')
       ],
-      // No category - independent tour
-      type: "Himalayan Trek",
-      difficulty: "Moderate",
-      duration: "8N / 9D",
-      maxAltitude: "3,870m",
+      category: "NepalTours",
+      type: "Nepal Family Package",
+      duration: "5N / 6D",
       price: "₹65,000",
-      shortDescription: "Beautiful valley trek close to Kathmandu with stunning mountain views and traditional Tamang culture.",
-      description: "The Langtang Valley Trek offers spectacular mountain scenery, rich cultural heritage, and is easily accessible from Kathmandu. Known as the 'Valley of Glaciers', it provides stunning views of Langtang Lirung and other peaks.",
+      description: "Nepal is the home to the supreme deities, untouched cultures, mesmerizing nature and centuries-old heritages. This brisk journey takes you right into the heart of these heritages and gives you an awe-spiring experience.",
       itinerary: [
         {
           day: 1,
-          title: "Drive to Syabrubesi",
-          description: "Scenic drive from Kathmandu to Syabrubesi (1,550m), the starting point of Langtang trek. Pass through terraced fields, traditional villages, and beautiful landscapes. Meet your trekking team and prepare for the adventure ahead."
-        }
+          title: "MUM – KTM",
+          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Dinner only."
+        },
+        {
+          day: 2,
+          title: "Kathmandu – Pokhara",
+          description: "Drive from Kathmandu to Pokhara. A scenic drive from Kathmandu to Pokhara is a memorable journey in itself. Take a cable car lift to go and pay homage to Mata Manokamana, the Goddess of fulfillment. Continue the journey further onto Pokhara. Upon reaching to Pokhara, a quick check in procedure and some time is allowed to get refreshed. Go to the boating station, get onboard one of the wooden boats and row off to the temple of Mata Tal Barahi. Later in the evening get back to the hotel. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "Pokhara",
+          description: "Exploration around Pokhara. Rise up early in the morning to drive up to Sarangkot view point to absorb the amazing view of sunrise over the Annpurna massif. Drive back to the city; on the way have a blessing from Mata Vindyabasisni. Back to the hotel, have breakfast and drive up to the World Peace Pagoda. Drive down to Devi’s Fall then go to International Mountain Museum. Later in the day stroll around the lakeside area and relax. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 4,
+          title: "Pokhara – Kathmandu",
+          description: "Fly back to Kathmandu. Take the first flight and fly back to Kathmandu. Get onboard a vehicle and go straight out to the ancient city of Bhaktapur for the sightseeing. The tour continues onto Patan. Later in the afternoon visit Baudha; the largest dome stupa in South Asia which is believed to have inhoused the Buddha relics. Drive back to the hotel and check in. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 5,
+          title: "Full day Kathmandu",
+          description: "Sightseeing of the heritage sites. Early morning drive to Chandragiri base and take a cable car lift to the top. It serves as the view tower to the Central Himalaya as well as the valley underneath. The sightseeing tour further continues to Swoyambhu, Kathmandu Durbar Square and Maha Vishnu Budhanilakantha. Back to the hotel for overnight. A Farewell Dinner will be hosted in your honor. Meals: Breakfast & Dinner."
+        },
+        {
+          day: 6,
+          title: "Departure",
+          description: "End of an epic journey. But wait a moment… how can you simply go back not having had paid your visit to the principal deity; the mighty Shiva! Start a few hours ahead of your airport timing so that you can have a peaceful time to pray to the God. Meals: Breakfast"
+        },
       ]
     },
     {
-      slug: createSlug("Upper Mustang Trek"),
-      title: "Upper Mustang Trek",
+      slug: createSlug("Spiritual Journey of Nepal"),
+      title: "Spiritual Journey of Nepal",
       image: getTrekImagePath('BoudhnathStupa.jpg'),
       slideshowImages: [
         getTrekImagePath('BoudhnathStupa.jpg'),
         getTrekImagePath('BoudhnathStupa.jpg'),
         getTrekImagePath('BoudhnathStupa.jpg')
       ],
-      // No category - independent tour
-      type: "Himalayan Trek",
-      difficulty: "Moderate",
-      duration: "12N / 13D",
-      maxAltitude: "3,840m",
+      category: "NepalTours",
+      type: "Nepal Family Package",
+      duration: "7N / 8D",
       price: "₹1,95,000",
-      shortDescription: "Restricted area trek to the ancient Kingdom of Lo, featuring desert landscapes and Tibetan Buddhist culture.",
-      description: "Upper Mustang is a restricted area that was once an independent kingdom. This trek offers unique desert landscapes, ancient monasteries, and well-preserved Tibetan culture in the rain shadow of the Himalayas.",
+      description: "Himalaya is the abode of Gods – mentions every Veda, Purana and Upanishada. Nepal is home to 3/4th of the entire Himalaya; no wonder why most of the deities are believed to have dwelled this land. This particular journey has been designed to give you a sense of meeting with the Gods and Goddesses in person and getting blessed.",
       itinerary: [
         {
           day: 1,
-          title: "Fly to Jomsom",
-          description: "Spectacular mountain flight to Jomsom airport through the world's deepest gorge. Begin the trek towards the forbidden kingdom of Upper Mustang with its unique landscape and culture."
-        }
+          title: "MUM – KTM",
+          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
+        },
+        {
+          day: 2,
+          title: "Kathmandu – Pokhara",
+          description: "Drive from Kathmandu to Pokhara. A scenic drive from Kathmandu to Pokhara is a memorable journey in itself. Take a cable car lift to go and pay homage to Mata Manokamana, the Goddess of fulfillment. Continue the journey further onto Pokhara. Upon reaching to Pokhara, a quick check in procedure and some time is allowed to get refreshed. Go to the boating station, get onboard one of the wooden boats and row off to the temple of Mata Tal Barahi. Later in the evening get back to the hotel. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "Pokhara to Muktinath",
+          description: "Drive from Pokhara to Muktinath. The real Tirtha Yatra begins here today as you rise up early in the morning to drive up to Muktinath. On the way at Tatopani (a natural hotspring) you can cleanse yourself before taking a darshan of Galeshwor Mahadev. Then the journey continues onto Ghasa, Kalopani, Marpha, Jomsom, Kakbeni and Muktinath. Upon reaching Muktinath, settle down in a guesthouse and relax to recuperate some energy to go and get the first Darshan of the Lord Muktinath. You may take a holy bath at the 108 dhaara. An overnight at the guesthouse.  Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "Muktinath to Pokhara",
+          description: "Drive back to Pokhara. Early morning you have yet another opportunity to take Darshan of the Lord of Salvation. After breakfast, drive down to Pokhara, retracing the road that was taken yesterday. On reaching to Pokhara, check into a cozy hotel docked at the lake front and relax for the whole evening. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "Pokhara Exploration",
+          description: "Sightseeing in and around Pokhara. You will be woken up really early in the morning and rushed in a vehicle up to Sarangkot hilltop. The breathtaking views of the sunrise over the Annapurna Himalayas is the reward for this hard job done early in the morning. Drive back down to Pokhara, have breakfast and start the sightseeing trip of World Peace Pagoda, Devi’s Fall, Bidyabasini Temple and International Mountain Museum."
+        },
+        {
+          day: 6,
+          title: "Fly Pokhara to Kathmandu",
+          description: "Fly Pokhara to Kathmandu. Sightseeing of Bhaktapur & Patan. You will be put up on an early morning flight to fly back to Kathmandu. There’s a lot waiting for you back in the capital city of Nepal. And also a lot of chaotic traffic! Hence, we start pretty early to compensate the time lost in between the sites. Upon arriving at Kathmandu airport, get onboard a vehicle and head straight out to visit the World Heritage sites of Bhaktapur and later onto Patan. The lunch today is on yourself to give you an independence of choice. We bring you to your hotel later in the evening and let you relax. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 7,
+          title: "Full day Kathmandu",
+          description: "Sightseeing of the heritage sites. Early morning drive to Chandragiri base and take a cable car lift to the top. It serves as the view tower to the Central Himalaya as well as the valley underneath. The sightseeing tour further continues to Swoyambhu, Kathmandu Durbar Square and Maha Vishnu Budhanilakantha. Back to the hotel for overnight. A Farewell Dinner will be hosted in your honor. Meals: Breakfast & Dinner."
+        },
+        {
+          day: 8,
+          title: "Departure",
+          description: "The Ultimate is here, finally! You will be picked up from your hotel well in advance and take you to Pashupatinath Temple to take blessings from the Lord Shiva. After your meeting with the God himself, we see you off to the airport. Meals: Breakfast"
+        },
       ]
     },
     {
-      slug: createSlug("Gokyo Lakes Trek"),
-      title: "Gokyo Lakes Trek",
+      slug: createSlug("Nature and History"),
+      title: "Nature and History",
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
       slideshowImages: [
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
       ],
-      // No category - independent tour
-      type: "Himalayan Trek",
-      difficulty: "Challenging",
-      duration: "14N / 15D",
-      maxAltitude: "5,357m",
+      category: "NepalTours",
+      type: "Nepal Family Package",
+      duration: "7N / 8D",
       price: "₹1,65,000",
-      shortDescription: "Alternative Everest region trek featuring pristine glacial lakes and panoramic mountain views from Gokyo Ri.",
-      description: "The Gokyo Lakes Trek is a spectacular alternative to Everest Base Camp, featuring stunning turquoise lakes, the massive Ngozumpa Glacier, and incredible views from Gokyo Ri summit.",
+      description: "If you are a nature lover, then this is the most perfect thing to do. It goes so deep into the flora and fauna of the low lands and Himalayan mid hills that one finds himself totally lost in awe of the lushness. A perfect blend of culture, heritage and nature for a perfect family holiday.",
       itinerary: [
         {
           day: 1,
-          title: "Fly to Lukla and Trek to Phakding",
-          description: "Thrilling mountain flight to Lukla followed by gentle trek to Phakding. Begin the journey through the heart of Khumbu region towards the beautiful Gokyo valley."
-        }
+          title: "MUM – KTM",
+          description: "Fly Mumbai to Kathmandu Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner"
+        },
+        {
+          day: 2,
+          title: "Kathmandu to Chitwan",
+          description: "Drive from Kathmandu to Chitwan National Park. A scenic drive from Kathmandu to Chitwan National Park is a memorable journey in itself. On the half way down at Kurintar, detour for a Darshan of Mata Manokamana, the Goddess of fulfillment of wishes. Continue the journey further down to Chitwan. Upon reaching Chitwan, a quick check in procedure at a jungle lodge and participate on a trip briefing session. Some jungle activities will be carried out right away. Tharu Cultural shows are shown in later in the evening. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "Chitwan",
+          description: "Jungle activities. A full day to explore the insides of the national park and do uncountable number of jungle activities such as canoe ride, jungle walk, safari and jeep safari. Meals: Breakfast, Lunch & dinner"
+        },
+        {
+          day: 4,
+          title: "Chitwan to Pokhara",
+          description: "Fly from Chitwan to Pokhara. A short flight out from Bharatpur airport to puts you down at the lake city of Pokhara. On reaching Pokhara, get onboard a vehicle and drive to the hotel that is situated right at the lakeshore. Check in, get refreshed and go for a boat ride to the temple that is located on an island made by the lake. Relax by the lake in the evening. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 5,
+          title: "Pokhara",
+          description: "Exploration around Pokhara. Rise up early in the morning to drive up to Sarangkot view point to absorb the amazing view of sunrise over the Annpurna massif. Drive back to the city; on the way have a blessing from Mata Vindyabasisni. Back to the hotel, have breakfast and drive up to the World Peace Pagoda. Drive down to Devi’s Fall then go to International Mountain Museum. Later in the day stroll around the lakeside area and relax. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 6,
+          title: "Pokhara – Kathmandu",
+          description: "Fly back to Kathmandu. Take the first flight and fly back to Kathmandu. Get onboard a vehicle and go straight out to the ancient city of Bhaktapur for the sightseeing. The tour continues onto Patan. Later in the afternoon visit Baudha; the largest dome stupa in South Asia which is believed to have inhoused the Buddha relics. Drive back to the hotel and check in. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 7,
+          title: "Full day Kathmandu",
+          description: "Sightseeing of the heritage sites. Early morning drive to Chandragiri base and take a cable car lift to the top. It serves as the view tower to the Central Himalaya as well as the valley underneath. The sightseeing tour further continues to Swoyambhu, Kathmandu Durbar Square and Maha Vishnu Budhanilakantha. Back to the hotel for overnight. A Farewell Dinner will be hosted in your honor. Meals: Breakfast & Dinner."
+        },
+        {
+          day: 8,
+          title: "Departure",
+          description: "Departure day. We are yet to go and take blessings from the mightiest of all the deities, the mighty Shiva! Start a few hours ahead of your airport timing so that you can have a peaceful time to pray to the God. Har Har Mahadev! Meals: Breakfast"
+        },
+      ]
+    },
+    {
+      slug: createSlug("Wilderness and Divinity"),
+      title: "Wilderness and Divinity",
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      slideshowImages: [
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek')
+      ],
+      category: "NepalTours",
+      type: "Nepal Family Package",
+      duration: "9N / 10D",
+      price: "₹1,65,000",
+      description: "Nepal, from the pinnacle of Mount Sagarmatha at 8848.86m to the low lands of Chitwan National Park at almost sea-level of elevation is barely 250 kilometers apart. Endowed with such a varied vegetation and landscape, Nepal is the home to almost every living creature and plant found on earth. The northern boundary is the never-ending series of the tallest mountain peaks on earth whereas the southern boundary is flat land stretching from east to west. Taking the advantage of varied landscape and vegetation, one can have the widest range of experience of adventure, nature and culture of this country.",
+      itinerary: [
+        {
+          day: 1,
+          title: "MUM – KTM",
+          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
+        },
+        {
+          day: 2,
+          title: "Kathmandu – Chitwan",
+          description: "Drive from Kathmandu to Chitwan. A scenic drive from Kathmandu to Pokhara is a memorable journey in itself. Take a cable car lift to go and pay homage to Mata Manokamana, the Goddess of fulfillment of wishes. Continue the journey further down to Chitwan National Park. Upon reaching to Chitwan, a quick check in procedure and partake on a briefing session followed by one of the jungle activities. Later in the evening participate in Tharu Cultural Show and dinner. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "Chitwan",
+          description: "Full day jungle activities. Explore the insides of Chitwan National Park by participating in Jungle safari, Canoe ride, Walks and Jeep ride etc."
+        },
+        {
+          day: 4,
+          title: "Chitwan to Pokhara & Tatopani",
+          description: "Fly from Chitwan to Pokhara and drive to Tatopani. Take a short flight from Bharatpur Chitwan to Pokhara. On reaching to Pokhara, get onboard a vehicle and start driving towards Tatopani. It takes about 4 hours to reach Tatopani. Check into one of the nicest riverside hotels and you will have a free time to plunge into natural hotspring, Tatopani Kund."
+        },
+        {
+          day: 5,
+          title: "Tatopani to Muktinath & back to Marpha",
+          description: "Drive from Tatopani to Muktinath & turn back to Marpha. Driving from Tatopani to Muktinath is a pleasant journey, traversing numerous villages and gorges, before ascending the slopes of Muktinath. Upon reaching Muktinath, take the Darshan of the Lord Vishnu and have a lunch in one of the nearby guesthouses. Get back into the vehicle and drive down to Marpha. Settle down in an apple orchard to experience the Thakali culture and food.  Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "Marpha to Pokhara",
+          description: "Drive back to Pokhara. After breakfast, drive down to Pokhara, retracing the road that was taken yesterday. Get blessings from Shanker Mahadev at Galeshwor on the way. On reaching to Pokhara, check into a cozy hotel docked at the lake front and relax for the whole evening. Meals: Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 7,
+          title: "Pokhara Exploration",
+          description: "Sightseeing in and around Pokhara. You will be woken up really early in the morning and rushed in a vehicle up to Sarangkot hilltop. The breathtaking views of the sunrise over the Annapurna Himalayas is the reward for this hard job done early in the morning. Drive back down to Pokhara, have breakfast and start the sightseeing trip of World Peace Pagoda, Devi’s Fall, Bidyabasini Temple and International Mountain Museum."
+        },
+        {
+          day: 8,
+          title: "Fly Pokhara to Kathmandu",
+          description: "Fly Pokhara to Kathmandu – Sightseeing of Bhaktapur & Patan. You will be put up on an early morning flight to fly back to Kathmandu. Upon arriving at Kathmandu airport, get onboard a vehicle and head straight out to visit the World Heritage sites of Bhaktapur and later onto Patan. The lunch today is on yourself to give you an independence of choice. We bring you to your hotel later in the evening and let you relax. Meals: Breakfast & Dinner"
+        },
+        {
+          day: 9,
+          title: "Full day Kathmandu",
+          description: "Sightseeing of the heritage sites. Early morning drive to Chandragiri base and take a cable car lift to the top. It serves as the view tower to the Central Himalaya as well as the valley underneath. The sightseeing tour further continues to Swoyambhu, Kathmandu Durbar Square and Maha Vishnu Budhanilakantha. Back to the hotel for overnight. A Farewell Dinner will be hosted in your honor. Meals: Breakfast & Dinner."
+        },
+        {
+          day: 10,
+          title: "Departure",
+          description: "The Ultimate is here, finally! You will be picked up from your hotel well in advance and take you to Pashupatinath Temple to take blessings from the Lord Shiva. After your meeting with the God himself, we see you off to the airport. Meals: Breakfast"
+        },
       ]
     }
   ], []); // Empty dependency array since this is static data
 
   // Create tour items structure with categories and individual tours
   const tourItems: TourItem[] = useMemo(() => [
-    // Mix categories and individual tours for varied layout
-    // Row 1: Himalayan Adventures Category
+    {
+      type: 'tour',
+      tour: individualTreks.find(trek => trek.title === "Everest Base Camp Trek")!
+    },
+    {
+      type: 'tour',
+      tour: individualTreks.find(trek => trek.title === "Mount Kailash Mansarovar")!
+    },
     {
       type: 'category',
       category: {
-        slug: createSlug("Himalayan Adventures"),
-        title: "Himalayan Adventures",
-        description: "Epic high-altitude treks to the world's highest peaks and most spectacular mountain ranges.",
-        shortDescription: "Epic high-altitude treks and mountain expeditions",
+        slug: createSlug("Annapurna Trek"),
+        title: "Annapurna Trek",
+        description: "Classic Annapurna region treks through terraced villages, rhododendron forests, and high mountain passes — offering spectacular mountain vistas, cultural encounters with local Gurung and Magar communities, and options for moderate to challenging itineraries.",
         image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
         type: 'category',
-        tours: individualTreks.filter(trek => trek.category?.includes('himalayan'))
+        tours: individualTreks.filter(trek => trek.category?.includes('AnnapurnaTrek'))
       }
     },
-    
-    // Row 1: Independent Tour - Langtang Valley Trek
-    {
-      type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Langtang Valley Trek")!
-    },
-    
-    // Row 1: Independent Tour - Upper Mustang Trek
-    {
-      type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Upper Mustang Trek")!
-    },
-    
-    // Row 2: Independent Tour - Gokyo Lakes Trek
-    {
-      type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Gokyo Lakes Trek")!
-    },
-    
-    // Row 2: Sacred Pilgrimages Category
     {
       type: 'category',
       category: {
-        slug: createSlug("Sacred Pilgrimages"),
-        title: "Sacred Pilgrimages",
-        description: "Spiritual journeys to the most sacred sites in the Himalayas.",
-        shortDescription: "Sacred spiritual journeys to holy sites",
+        slug: createSlug("Nepal Tours"),
+        title: "Nepal Tours",
+        description: "Curated cultural and adventure tours across Nepal — from Kathmandu's UNESCO heritage sites to Himalayan foothills and scenic valleys. Ideal for first-time visitors and those seeking immersive local experiences.",
         image: getTrekImagePath('Kailash_stock.jpg'),
         type: 'category',
-        tours: individualTreks.filter(trek => trek.category?.includes('pilgrimage'))
+        tours: individualTreks.filter(trek => trek.category?.includes('NepalTours'))
       }
     },
-    
-    // Row 2: Family Adventures Category  
-    {
-      type: 'category',
-      category: {
-        slug: createSlug("Family Adventures"),
-        title: "Family Adventures",
-        description: "Family-friendly cultural tours and gentle adventures perfect for all ages.",
-        shortDescription: "Family-friendly cultural tours and gentle adventures",
-        image: getTrekImagePath('BoudhnathStupa.jpg'),
-        type: 'category',
-        tours: individualTreks.filter(trek => trek.category?.includes('cultural'))
-      }
-    }
   ], [individualTreks]);
 
   // Flatten all tours from categories and individual tours

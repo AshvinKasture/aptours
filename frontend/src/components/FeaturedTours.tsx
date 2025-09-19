@@ -14,54 +14,33 @@ const FeaturedTours: React.FC = () => {
   // Mix of featured tours and categories - minimal and curated
   const featuredItems: FeaturedItem[] = [
     {
+      type: "category",
+      title: "Annapurna Trek",
+      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
+      slug: createSlug("Annapurna Trek"),
+      tourCount: 2
+    },
+    {
       type: "tour",
       title: "Everest Base Camp Trek",
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-      slug: "everest-base-camp-trek",
+      slug: createSlug("Everest Base Camp Trek"),
       duration: "13N / 14D"
     },
     {
-      type: "category",
-      title: "Himalayan Adventures",
-      image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-      slug: createSlug("Himalayan Adventures"),
-      tourCount: 3
-    },
-    {
       type: "tour",
-      title: "Annapurna Base Camp Trek",
+      title: "Mount Kailash Mansarovar",
       image: getTrekImagePath('Annapurna_Base_Camp_1.jpg', 'Annapurna_Base_Camp'),
-      slug: "annapurna-base-camp-trek",
+      slug: createSlug("Mount Kailash Mansarovar"),
       duration: "11N / 12D"
     },
     {
       type: "category",
-      title: "Sacred Pilgrimages",
+      title: "Nepal Tours",
       image: getTrekImagePath('Kailash_stock.jpg'),
-      slug: createSlug("Sacred Pilgrimages"),
-      tourCount: 1
+      slug: createSlug("Nepal Tours"),
+      tourCount: 4
     },
-    {
-      type: "tour",
-      title: "Langtang Valley Trek",
-      image: getTrekImagePath('hidden_himalayan_valleys_stock.jpg'),
-      slug: "langtang-valley-trek",
-      duration: "8N / 9D"
-    },
-    {
-      type: "category",
-      title: "Family Adventures",
-      image: getTrekImagePath('BoudhnathStupa.jpg'),
-      slug: createSlug("Family Adventures"),
-      tourCount: 1
-    },
-    {
-      type: "tour",
-      title: "Upper Mustang Trek",
-      image: getTrekImagePath('BoudhnathStupa.jpg'),
-      slug: "upper-mustang-trek",
-      duration: "12N / 13D"
-    }
   ];
   // Duplicate items for seamless infinite scroll
   const duplicatedItems = [...featuredItems, ...featuredItems];
