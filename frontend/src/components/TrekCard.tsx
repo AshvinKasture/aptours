@@ -6,6 +6,9 @@ interface TrekCardProps {
 }
 
 const TrekCard: React.FC<TrekCardProps> = ({ trek }) => {
+  // Check environment variable for pricing display
+  const showPricing = import.meta.env.VITE_SHOW_PRICING !== 'false';
+
   const getDifficultyColor = (difficulty?: Trek['difficulty']) => {
     if (!difficulty) return 'bg-gray-500/90';
     switch (difficulty) {
@@ -119,16 +122,28 @@ const TrekCard: React.FC<TrekCardProps> = ({ trek }) => {
           </h3>
           
           <p className="text-slate-600 text-sm mb-4 leading-relaxed flex-grow">
-            {trek.description}
+            {trek.shortDescription || trek.description}
           </p>
 
           {/* Price and CTA */}
           <div className="flex items-center justify-between mt-auto">
-            <div>
-              <div className="text-xs text-slate-500 mb-1">Starting from</div>
-              <div className={`text-2xl font-bold ${getPriceColor(trek.type)}`}>{trek.price}</div>
-              <div className="text-xs text-slate-500">per person</div>
-            </div>
+            {showPricing ? (
+              <div>
+                <div className="text-xs text-slate-500 mb-1">Starting from</div>
+                <div className={`text-2xl font-bold ${getPriceColor(trek.type)}`}>{trek.price}</div>
+                <div className="text-xs text-slate-500">per person</div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-3">
+                <Link 
+                  to={`/tours/${trek.slug}`}
+                  className="px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-yellow-700 transition-all duration-300"
+                >
+                  Enquire
+                </Link>
+              </div>
+            )}
+            
             <Link 
               to={`/tours/${trek.slug}`}
               className={`cta-button px-6 py-3 bg-gradient-to-r ${getButtonGradient(trek.type)} text-white font-semibold rounded-lg ${getButtonHoverGradient(trek.type)} transition-all duration-300 flex-shrink-0`}

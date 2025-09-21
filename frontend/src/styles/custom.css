@@ -6,6 +6,67 @@
   background-position: center;
 }
 
+/* Hide scrollbars while keeping functionality */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
+
+/* Text truncation utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced shadow utilities */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile text overflow prevention */
+@media (max-width: 640px) {
+  .hero-text-container {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Featured Tours specific styles */
+.featured-tours-container {
+  position: relative;
+}
+
+.featured-tours-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.featured-tours-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
@@ -614,4 +675,29 @@ section {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Text shadow utilities for better readability */
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-md {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.text-shadow-lg {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-xl {
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Enhanced text backdrop for hero sections */
+.text-backdrop {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
 }
