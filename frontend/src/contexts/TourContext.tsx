@@ -250,7 +250,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
           description: "Your incredible Annapurna Base Camp adventure comes to an end. After breakfast, transfer to Tribhuvan International Airport for your departure or onward journey. Take with you unforgettable memories of towering peaks, warm Nepali hospitality, and the sense of achievement from completing this magnificent trek. The mountains will forever call you back to Nepal's majestic Himalayas."
         },
         {
-          day: 4,
+          day: 13,
           title: "Tadapani (2700m / 8858ft)",
           description: "Waking up early and one hour of strenuous struggling up to Poon Hill rewards you with the best views of sunrise over the Annapurna Massif and its neighbouring peaks. This is once in a lifetime scene, if your laze isn’t the winner, you should at least try it once. Then the adventure continues as you continue your trek on to Tadapani."
         },
