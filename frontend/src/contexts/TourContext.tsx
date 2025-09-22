@@ -343,7 +343,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         {
           day: 1,
           title: "MUM – KTM",
-          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Dinner only."
+          description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Dinner only."
         },
         {
           day: 2,
@@ -395,7 +395,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         {
           day: 1,
           title: "MUM – KTM",
-          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
+          description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
         },
         {
           day: 2,
@@ -458,7 +458,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         {
           day: 1,
           title: "MUM – KTM",
-          description: "Fly Mumbai to Kathmandu Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner"
+          description: "Fly Pune to Kathmandu Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner"
         },
         {
           day: 2,
@@ -521,7 +521,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
         {
           day: 1,
           title: "MUM – KTM",
-          description: "Fly Mumbai to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
+          description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
         },
         {
           day: 2,
