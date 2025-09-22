@@ -51,7 +51,7 @@ const TourCarousel = ({ images, title }: TourCarouselProps) => {
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = '/assets/logo.png';
+                    target.src = '/assets/logo.jpg';
                   }}
                 />
               </div>

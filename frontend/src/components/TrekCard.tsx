@@ -82,7 +82,7 @@ const TrekCard: React.FC<TrekCardProps> = ({ trek }) => {
             loading="lazy"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = '/assets/logo.png'; // Fallback to logo if image fails to load
+              target.src = '/assets/logo.jpg'; // Fallback to logo if image fails to load
             }}
           />
           {trek.difficulty && (
