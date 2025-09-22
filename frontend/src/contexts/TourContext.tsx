@@ -128,8 +128,8 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      slug: createSlug("kailash Manas Sarovar Parikrama"),
-      title: "kailash Manas Sarovar Parikrama",
+      slug: createSlug("Kailash Manas Sarovar Parikrama"),
+      title: "Kailash Manas Sarovar Parikrama",
       image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       slideshowImages: [
         getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
@@ -627,7 +627,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
     },
     {
       type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Mount Kailash Mansarovar")!
+      tour: individualTreks.find(trek => trek.title === "Kailash Manas Sarovar Parikrama")!
     },
     {
       type: 'category',
