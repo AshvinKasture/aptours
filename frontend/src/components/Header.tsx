@@ -132,6 +132,16 @@ const Header: React.FC = () => {
             >
               Contact
             </HashLink>
+            <Link
+              to="/tours"
+              className={`nav-link text-sm transition-colors ${
+                location.pathname === '/tours' || location.pathname.startsWith('/tours/') 
+                  ? 'text-sky-600 font-medium' 
+                  : 'text-slate-700 hover:text-sky-600'
+              }`}
+            >
+              All Tours
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -216,6 +226,17 @@ const Header: React.FC = () => {
             >
               Contact
             </HashLink>
+            <Link 
+              to="/tours"
+              onClick={handleMobileMenuClose}
+              className={`block py-2 transition-colors ${
+                location.pathname === '/tours' || location.pathname.startsWith('/tours/') 
+                  ? 'text-sky-600 font-medium' 
+                  : 'text-slate-700 hover:text-sky-600'
+              }`}
+            >
+              All Tours
+            </Link>
           </div>
         </div>
       )}

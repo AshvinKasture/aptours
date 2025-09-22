@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +63,7 @@ const Footer: React.FC = () => {
               </li>
             ))}
             <li>
-              <a href="./treks/index.html" className="hover:text-sky-400 transition-colors">All Treks</a>
+              <Link to="/tours" className="hover:text-sky-400 transition-colors">All Tours</Link>
             </li>
           </ul>
         </div>
