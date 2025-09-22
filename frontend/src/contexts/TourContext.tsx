@@ -128,8 +128,8 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ]
     },
     {
-      slug: createSlug("Mount Kailash Mansarovar"),
-      title: "Mount Kailash Mansarovar",
+      slug: createSlug("kailash Manas Sarovar Parikrama"),
+      title: "kailash Manas Sarovar Parikrama",
       image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       slideshowImages: [
         getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
@@ -138,36 +138,83 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       ],
       type: "Sacred Pilgrimage",
       difficulty: "Challenging",
-      duration: "11N / 12D",
+      duration: "13N / 14D",
       maxAltitude: "5,630m",
       price: "₹2,25,000",
-  description: "A sacred pilgrimage to Mount Kailash and Mansarovar, combining spiritual rituals, remote high-altitude landscapes, and deep cultural encounters. This challenging journey includes long drives across the Tibetan plateau, scenic views of snow-capped peaks, and the transformative Kailash kora (circumambulation).",
+      shortDescription: "A sacred pilgrimage to Mount Kailash and Mansarovar, combining spiritual rituals, remote high-altitude landscapes, and deep cultural encounters. This challenging journey includes long drives across the Tibetan plateau, scenic views of snow-capped peaks, and the transformative Kailash kora (circumambulation).",
+      description: "This is a sacred, but tough and adventurous yatra in the mountaineous region! According to the Shrutis and Smirtis, Mt. Kailash, the snow jewel, crowning the roof of the world, is the most sacred and admired. Kailash is also known as Mt. Meru, the centre of the cosmos, navel or the axis of the earth, Mt. Sumeru etc. According to the Hindu Mythology,Lord Shiva resides on the summit of Mount Kailash and is in constant meditation ensuring continuity of the three aspects of the universe – creation, preservation and destruction. Thus Shiva represents the Trinity – Brahma, Vishnu and Mahesh. Kailash is the Shiva personified and he takes the earthly form in Mt. Kailash. It is in the centre of the universe and the sun, the moon, the stars and all the higher and lower worlds regularly circumambulate around this centre. Kailash, unlike the other mountains of the world, has distinct shape with the features most peculiar and pious both outwardly and eternally that are not known anywhere else. Kailash rises like a symmetrical rock temple covered with snow. It is in the shape of Lingam.",
       itinerary: [
         {
           day: 1,
-          title: "Arrival in Kathmandu",
-          description: "Arrive in Kathmandu and transfer to hotel. Attend comprehensive briefing about the sacred Kailash Mansarovar pilgrimage. Complete necessary documentation and medical check-up. Visit Pashupatinath Temple for blessings before the holy journey. Prepare mentally and spiritually for this transformative pilgrimage. Rest well as the journey requires physical and mental preparation."
+          title: "Pune To Kathmandu",
+          description: "Reach Kathmandu international airport, from Pune–Delhi, Delhi–Kathmandu connecting flight. Reach by afternoon. Transfer to hotel."
         },
         {
           day: 2,
-          title: "Drive to Syabrubesi",
-          description: "Early morning drive to Syabrubesi (1,550m), approximately 7-8 hours through scenic hills and valleys. Pass through traditional Nepali villages and terraced fields. Cross the border into Tibet and complete immigration formalities. The landscape gradually changes from subtropical to alpine. Overnight at guesthouse and prepare for the high-altitude journey ahead."
+          title: "Kathmandu",
+          description: "Morning, visit to Pashupatinath temple, and Budha Neelkanth (Sleeping Vishnu). After lunch, group briefing regarding further journey."
         },
         {
           day: 3,
-          title: "Drive to Saga",
-          description: "Long drive across the Tibetan plateau to Saga (4,640m). Experience the vast, open landscapes of Tibet with distant views of the Himalayas. Stop at local checkpoints and enjoy traditional Tibetan lunch. The high-altitude drive provides gradual acclimatization. Witness the unique Tibetan culture and Buddhist monasteries along the route. Rest and acclimatize in Saga for the night."
+          title: "Kathmandu To Syabrubesi",
+          description: "Drive to Syabrubesi about 142 kms. which is the nearest Nepali town from Tibet border. This road is bad and through the mountains & valleys, (Ghat road) and hence this journey is through Non AC local buses."
         },
         {
           day: 4,
-          title: "First Darshan of Mount Kailash",
-          description: "Drive to Darchen (4,560m) with the first magnificent darshan of sacred Mount Kailash. This moment is deeply spiritual for pilgrims as they witness the holy mountain in all its glory. Perform traditional prayers and offer gratitude for reaching this sacred place. Prepare for the holy Kailash Kora (circumambulation) starting tomorrow. The energy around Mount Kailash is palpable and transformative."
+          title: "Syabrubesi To Kerung",
+          description: "After breakfast, drive to Rasugawadi (25 kms, 1:30 hour drive) which is Nepal-China border. After completing the custom formalities, we check in a small town in Tibet occupied China , named, ‘Kerung’."
         },
         {
           day: 5,
-          title: "Holy Mansarovar Lake",
-          description: "Visit the sacred Mansarovar Lake (4,590m), one of the highest freshwater lakes in the world. Take holy bath in the pristine waters believed to cleanse sins and purify the soul. Perform puja and meditation on the shores of this divine lake. The crystal-clear waters reflect the snow-capped peaks creating a heavenly atmosphere. Experience profound peace and spiritual connection with the divine."
-        }
+          title: "Kerung To Saga / Dongba",
+          description: "Drive about 5 hours to reach Saga / Dongba."
+        },
+        {
+          day: 6,
+          title: "Saga / Dongba",
+          description: "Free day at SAGA for acclimatization."
+        },
+        {
+          day: 7,
+          title: "Drive to Manas Sarovar",
+          description: "Reach at Manas Sarovar and parikrama of Manas Sarovar."
+        },
+        {
+          day: 8,
+          title: "Manas Sarovar",
+          description: "Puja, Hawan and sacred bath at Manas Sarovar, then drive to Darchen."
+        },
+        {
+          day: 9,
+          title: "Drive to Yama Dwar and trek to Driaphuk",
+          description: "Kailash North face."
+        },
+        {
+          day: 10,
+          title: "Trek to Zuthulphuk via crossing Dolma –La – Pass (Gauri Kund)",
+          description: "The most challenging day of Kailash parikrama. Cross the sacred Dolma-La Pass at 5,630m, visit Gauri Kund lake, and descend to Zuthulphuk monastery. Experience the spiritual significance of completing the holy circuit around Mount Kailash."
+        },
+        {
+          day: 11,
+          title: "Trek down to Darchen and drive to SAGA",
+          description: "Complete the Kailash parikrama by trekking back to Darchen base camp. After accomplishing the sacred circumambulation, drive back to Saga for overnight rest and celebration of the spiritual journey."
+        },
+        {
+          day: 12,
+          title: "Drive to Kerung. Last night stay in Tibet, China.",
+          description: "Long drive journey from Saga to Kerung near the Nepal-Tibet border. Enjoy the last evening in Tibet, reflecting on the transformative pilgrimage experience while preparing for border crossing formalities."
+        },
+        {
+          day: 13,
+          title: "Drive to Rasuwagadi border",
+          description: "complete immigration process and drive to Kathmandu."
+        },
+        {
+          day: 14,
+          title: "Transfer to airport for the departure towards Pune",
+          description: "After breakfast, transfer to Tribhuvan airport, for onward journey to Pune."
+        },
+
       ]
     },
     {
