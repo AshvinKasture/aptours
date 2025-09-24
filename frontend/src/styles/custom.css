@@ -6,6 +6,13 @@
   background-position: center;
 }
 
+/* Bottom bar spacing for mobile */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px; /* Space for bottom bar */
+  }
+}
+
 /* Hide scrollbars while keeping functionality */
 .scrollbar-hide {
   scrollbar-width: none; /* Firefox */

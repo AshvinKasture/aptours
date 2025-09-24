@@ -7,6 +7,7 @@ import ParallaxSection from '../components/ParallaxSection';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import BottomBar from '../components/BottomBar';
 
 const HomePage = () => {
   // Initialize parallax effects
@@ -71,6 +72,12 @@ const HomePage = () => {
       </main>
 
       <Footer />
+      
+      {/* Bottom Bar - Only visible on mobile */}
+      <BottomBar 
+        phoneNumber="919270248887"
+        whatsappNumber="919270248887"
+      />
     </div>
   );
 };

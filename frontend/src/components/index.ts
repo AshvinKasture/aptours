@@ -9,6 +9,7 @@ export { default as Footer } from './Footer';
 export { default as TrekCard } from './TrekCard';
 export { default as CategoryCard } from './CategoryCard';
 export { default as FilterDropdown } from './FilterDropdown';
+export { default as BottomBar } from './BottomBar';
 
 // Tour Details Components
 export * from './tour-details';
