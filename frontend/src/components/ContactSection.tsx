@@ -94,8 +94,8 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-slate-800 mb-1">Email Us</h4>
-                  <a href="mailto:info@aptours.in" className="text-emerald-600 text-sm hover:text-emerald-800 transition-colors">
-                    info@aptours.in
+                  <a href="mailto:aptourstravelspune@gmail.com" className="text-emerald-600 text-sm hover:text-emerald-800 transition-colors">
+                    aptourstravelspune@gmail.com
                   </a>
                 </div>
               </div>
