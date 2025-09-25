@@ -32,14 +32,110 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
   // Sample trek data using our Trek interface - memoized to prevent recreation
   const individualTreks: Trek[] = useMemo(() => [
     {
+      slug: createSlug("Kailash Manas Sarovar Parikrama"),
+      title: "Kailash Manas Sarovar Parikrama",
+      image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
+      slideshowImages: [
+        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Kailash_3.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Kailash_4.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Kailash_5.jpg', 'Mount_Kailash_Mansarovar'),
+        getTrekImagePath('Kailash_6.jpg', 'Mount_Kailash_Mansarovar'),
+      ],
+      type: "Sacred Pilgrimage",
+      difficulty: "Challenging",
+      duration: "13N / 14D",
+      maxAltitude: "5,630m",
+      price: "₹2,25,000",
+      shortDescription: "A sacred pilgrimage to Mount Kailash and Mansarovar, combining spiritual rituals, remote high-altitude landscapes, and deep cultural encounters. This challenging journey includes long drives across the Tibetan plateau, scenic views of snow-capped peaks, and the transformative Kailash kora (circumambulation).",
+      description: "This is a sacred, but tough and adventurous yatra in the mountaineous region! According to the Shrutis and Smirtis, Mt. Kailash, the snow jewel, crowning the roof of the world, is the most sacred and admired. Kailash is also known as Mt. Meru, the centre of the cosmos, navel or the axis of the earth, Mt. Sumeru etc. According to the Hindu Mythology,Lord Shiva resides on the summit of Mount Kailash and is in constant meditation ensuring continuity of the three aspects of the universe – creation, preservation and destruction. Thus Shiva represents the Trinity – Brahma, Vishnu and Mahesh. Kailash is the Shiva personified and he takes the earthly form in Mt. Kailash. It is in the centre of the universe and the sun, the moon, the stars and all the higher and lower worlds regularly circumambulate around this centre. Kailash, unlike the other mountains of the world, has distinct shape with the features most peculiar and pious both outwardly and eternally that are not known anywhere else. Kailash rises like a symmetrical rock temple covered with snow. It is in the shape of Lingam.",
+      itinerary: [
+        {
+          day: 1,
+          title: "Pune To Kathmandu",
+          description: "Reach Kathmandu international airport, from Pune–Delhi, Delhi–Kathmandu connecting flight. Reach by afternoon. Transfer to hotel."
+        },
+        {
+          day: 2,
+          title: "Kathmandu",
+          description: "Morning, visit to Pashupatinath temple, and Budha Neelkanth (Sleeping Vishnu). After lunch, group briefing regarding further journey."
+        },
+        {
+          day: 3,
+          title: "Kathmandu To Syabrubesi",
+          description: "Drive to Syabrubesi about 142 kms. which is the nearest Nepali town from Tibet border. This road is bad and through the mountains & valleys, (Ghat road) and hence this journey is through Non AC local buses."
+        },
+        {
+          day: 4,
+          title: "Syabrubesi To Kerung",
+          description: "After breakfast, drive to Rasugawadi (25 kms, 1:30 hour drive) which is Nepal-China border. After completing the custom formalities, we check in a small town in Tibet occupied China , named, ‘Kerung’."
+        },
+        {
+          day: 5,
+          title: "Kerung To Saga / Dongba",
+          description: "Drive about 5 hours to reach Saga / Dongba."
+        },
+        {
+          day: 6,
+          title: "Saga / Dongba",
+          description: "Free day at SAGA for acclimatization."
+        },
+        {
+          day: 7,
+          title: "Drive to Manas Sarovar",
+          description: "Reach at Manas Sarovar and parikrama of Manas Sarovar."
+        },
+        {
+          day: 8,
+          title: "Manas Sarovar",
+          description: "Puja, Hawan and sacred bath at Manas Sarovar, then drive to Darchen."
+        },
+        {
+          day: 9,
+          title: "Drive to Yama Dwar and trek to Driaphuk",
+          description: "Kailash North face."
+        },
+        {
+          day: 10,
+          title: "Trek to Zuthulphuk via crossing Dolma –La – Pass (Gauri Kund)",
+          description: "The most challenging day of Kailash parikrama. Cross the sacred Dolma-La Pass at 5,630m, visit Gauri Kund lake, and descend to Zuthulphuk monastery. Experience the spiritual significance of completing the holy circuit around Mount Kailash."
+        },
+        {
+          day: 11,
+          title: "Trek down to Darchen and drive to SAGA",
+          description: "Complete the Kailash parikrama by trekking back to Darchen base camp. After accomplishing the sacred circumambulation, drive back to Saga for overnight rest and celebration of the spiritual journey."
+        },
+        {
+          day: 12,
+          title: "Drive to Kerung. Last night stay in Tibet, China.",
+          description: "Long drive journey from Saga to Kerung near the Nepal-Tibet border. Enjoy the last evening in Tibet, reflecting on the transformative pilgrimage experience while preparing for border crossing formalities."
+        },
+        {
+          day: 13,
+          title: "Drive to Rasuwagadi border",
+          description: "complete immigration process and drive to Kathmandu."
+        },
+        {
+          day: 14,
+          title: "Transfer to airport for the departure towards Pune",
+          description: "After breakfast, transfer to Tribhuvan airport, for onward journey to Pune."
+        },
+
+      ]
+    },
+    {
       slug: createSlug("Everest Base Camp Trek"),
       title: "Everest Base Camp Trek",
       image: getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
       slideshowImages: [
         getTrekImagePath('Everest_Base_Camp_stock.jpg', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_1.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_7.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_5.jpg', 'Everest_Base_Camp_Trek'),
         getTrekImagePath('Everest_Base_Camp_2.png', 'Everest_Base_Camp_Trek'),
-        getTrekImagePath('Everest_Base_Camp_3.png', 'Everest_Base_Camp_Trek')
+        getTrekImagePath('Everest_Base_Camp_3.png', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_6.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_8.jpg', 'Everest_Base_Camp_Trek'),
+        getTrekImagePath('Everest_Base_Camp_9.jpg', 'Everest_Base_Camp_Trek')
       ],
       type: "Himalayan Trek",
       difficulty: "Moderate",
@@ -125,96 +221,6 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
           title: "Departure 1336m/4383ft",
           description: "As per your international flight time, we will transfer you to the airport."
         },
-      ]
-    },
-    {
-      slug: createSlug("Kailash Manas Sarovar Parikrama"),
-      title: "Kailash Manas Sarovar Parikrama",
-      image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
-      slideshowImages: [
-        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
-        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
-        getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
-      ],
-      type: "Sacred Pilgrimage",
-      difficulty: "Challenging",
-      duration: "13N / 14D",
-      maxAltitude: "5,630m",
-      price: "₹2,25,000",
-      shortDescription: "A sacred pilgrimage to Mount Kailash and Mansarovar, combining spiritual rituals, remote high-altitude landscapes, and deep cultural encounters. This challenging journey includes long drives across the Tibetan plateau, scenic views of snow-capped peaks, and the transformative Kailash kora (circumambulation).",
-      description: "This is a sacred, but tough and adventurous yatra in the mountaineous region! According to the Shrutis and Smirtis, Mt. Kailash, the snow jewel, crowning the roof of the world, is the most sacred and admired. Kailash is also known as Mt. Meru, the centre of the cosmos, navel or the axis of the earth, Mt. Sumeru etc. According to the Hindu Mythology,Lord Shiva resides on the summit of Mount Kailash and is in constant meditation ensuring continuity of the three aspects of the universe – creation, preservation and destruction. Thus Shiva represents the Trinity – Brahma, Vishnu and Mahesh. Kailash is the Shiva personified and he takes the earthly form in Mt. Kailash. It is in the centre of the universe and the sun, the moon, the stars and all the higher and lower worlds regularly circumambulate around this centre. Kailash, unlike the other mountains of the world, has distinct shape with the features most peculiar and pious both outwardly and eternally that are not known anywhere else. Kailash rises like a symmetrical rock temple covered with snow. It is in the shape of Lingam.",
-      itinerary: [
-        {
-          day: 1,
-          title: "Pune To Kathmandu",
-          description: "Reach Kathmandu international airport, from Pune–Delhi, Delhi–Kathmandu connecting flight. Reach by afternoon. Transfer to hotel."
-        },
-        {
-          day: 2,
-          title: "Kathmandu",
-          description: "Morning, visit to Pashupatinath temple, and Budha Neelkanth (Sleeping Vishnu). After lunch, group briefing regarding further journey."
-        },
-        {
-          day: 3,
-          title: "Kathmandu To Syabrubesi",
-          description: "Drive to Syabrubesi about 142 kms. which is the nearest Nepali town from Tibet border. This road is bad and through the mountains & valleys, (Ghat road) and hence this journey is through Non AC local buses."
-        },
-        {
-          day: 4,
-          title: "Syabrubesi To Kerung",
-          description: "After breakfast, drive to Rasugawadi (25 kms, 1:30 hour drive) which is Nepal-China border. After completing the custom formalities, we check in a small town in Tibet occupied China , named, ‘Kerung’."
-        },
-        {
-          day: 5,
-          title: "Kerung To Saga / Dongba",
-          description: "Drive about 5 hours to reach Saga / Dongba."
-        },
-        {
-          day: 6,
-          title: "Saga / Dongba",
-          description: "Free day at SAGA for acclimatization."
-        },
-        {
-          day: 7,
-          title: "Drive to Manas Sarovar",
-          description: "Reach at Manas Sarovar and parikrama of Manas Sarovar."
-        },
-        {
-          day: 8,
-          title: "Manas Sarovar",
-          description: "Puja, Hawan and sacred bath at Manas Sarovar, then drive to Darchen."
-        },
-        {
-          day: 9,
-          title: "Drive to Yama Dwar and trek to Driaphuk",
-          description: "Kailash North face."
-        },
-        {
-          day: 10,
-          title: "Trek to Zuthulphuk via crossing Dolma –La – Pass (Gauri Kund)",
-          description: "The most challenging day of Kailash parikrama. Cross the sacred Dolma-La Pass at 5,630m, visit Gauri Kund lake, and descend to Zuthulphuk monastery. Experience the spiritual significance of completing the holy circuit around Mount Kailash."
-        },
-        {
-          day: 11,
-          title: "Trek down to Darchen and drive to SAGA",
-          description: "Complete the Kailash parikrama by trekking back to Darchen base camp. After accomplishing the sacred circumambulation, drive back to Saga for overnight rest and celebration of the spiritual journey."
-        },
-        {
-          day: 12,
-          title: "Drive to Kerung. Last night stay in Tibet, China.",
-          description: "Long drive journey from Saga to Kerung near the Nepal-Tibet border. Enjoy the last evening in Tibet, reflecting on the transformative pilgrimage experience while preparing for border crossing formalities."
-        },
-        {
-          day: 13,
-          title: "Drive to Rasuwagadi border",
-          description: "complete immigration process and drive to Kathmandu."
-        },
-        {
-          day: 14,
-          title: "Transfer to airport for the departure towards Pune",
-          description: "After breakfast, transfer to Tribhuvan airport, for onward journey to Pune."
-        },
-
       ]
     },
     {
@@ -623,11 +629,11 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
   const tourItems: TourItem[] = useMemo(() => [
     {
       type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Everest Base Camp Trek")!
+      tour: individualTreks.find(trek => trek.title === "Kailash Manas Sarovar Parikrama")!
     },
     {
       type: 'tour',
-      tour: individualTreks.find(trek => trek.title === "Kailash Manas Sarovar Parikrama")!
+      tour: individualTreks.find(trek => trek.title === "Everest Base Camp Trek")!
     },
     {
       type: 'category',

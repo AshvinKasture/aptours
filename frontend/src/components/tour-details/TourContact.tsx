@@ -41,7 +41,7 @@ const TourContact = (_: TourContactProps) => {
           </div>
           <div>
             <div className="text-sm font-medium text-slate-800">Email Us</div>
-            <div className="text-sm text-slate-600">info@aptours.in</div>
+            <div className="text-sm text-slate-600">aptourstravelspune@gmail.com</div>
           </div>
         </div>
       </div>
