@@ -126,14 +126,14 @@ const ContactSection: React.FC = () => {
                   <i className="fab fa-facebook-f"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/ap_tourstravels?utm_source=qr&igsh=MTZ0dmhuZmVvY2Z5YQ=="
                   className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white hover:from-pink-600 hover:to-rose-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                   title="Instagram"
                 >
                   <i className="fab fa-instagram"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/919270248887"
                   className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                   title="WhatsApp"
                 >
