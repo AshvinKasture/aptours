@@ -34,8 +34,14 @@ const EnquiryModal: React.FC = () => {
       
       // Add Web3Forms access key
       const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      console.log('Environment check:', {
+        hasAccessKey: !!accessKey,
+        accessKeyLength: accessKey?.length,
+        allEnvVars: Object.keys(import.meta.env).filter(key => key.startsWith('VITE_'))
+      });
+      
       if (!accessKey) {
-        throw new Error('Web3Forms access key not configured');
+        throw new Error(`Web3Forms access key not configured. Available env vars: ${Object.keys(import.meta.env).filter(key => key.startsWith('VITE_')).join(', ')}`);
       }
       submitFormData.append("access_key", accessKey);
       

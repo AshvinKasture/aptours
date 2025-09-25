@@ -45,11 +45,19 @@ jobs:
       working-directory: ./frontend
       run: npm ci
 
-    - name: Build
+    - name: Create environment file
       working-directory: ./frontend
       env:
-        VITE_SHOW_PRICING: 'false'
-        VITE_WEB3FORMS_ACCESS_KEY: '4591bb94-e0de-4369-93fb-aa0eff4534f1'
+        WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
+      run: |
+        echo "VITE_SHOW_PRICING=false" > .env
+        echo "VITE_WEB3FORMS_ACCESS_KEY=${WEB3FORMS_ACCESS_KEY}" >> .env
+        echo "Environment file created:"
+        echo "VITE_SHOW_PRICING=$(grep VITE_SHOW_PRICING .env | cut -d'=' -f2)"
+        echo "VITE_WEB3FORMS_ACCESS_KEY is set: $([ -n "${WEB3FORMS_ACCESS_KEY}" ] && echo 'YES' || echo 'NO')"
+
+    - name: Build
+      working-directory: ./frontend
       run: npm run build
 
     - name: Setup Pages
