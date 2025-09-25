@@ -32,7 +32,7 @@ const FeaturedTours: React.FC = () => {
       title: "Kailash Manas Sarovar Parikrama",
       image: getTrekImagePath('Mount_Kailash_Manasarovar_2.jpg', 'Mount_Kailash_Mansarovar'),
       slug: createSlug("Kailash Manas Sarovar Parikrama"),
-      duration: "11N / 12D"
+      duration: "13N / 14D"
     },
     {
       type: "category",
