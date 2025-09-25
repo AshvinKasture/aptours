@@ -6,6 +6,8 @@ interface EnquiryModalContextType {
   openModal: () => void;
   closeModal: () => void;
   toggleModal: () => void;
+  submitStatus: string;
+  setSubmitStatus: (status: string) => void;
 }
 
 const EnquiryModalContext = createContext<EnquiryModalContextType | undefined>(undefined);
@@ -24,15 +26,18 @@ interface EnquiryModalProviderProps {
 
 export const EnquiryModalProvider: React.FC<EnquiryModalProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<string>('');
 
   const openModal = useCallback(() => {
     setIsOpen(true);
+    setSubmitStatus(''); // Clear any previous status
     // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
   }, []);
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
+    setSubmitStatus(''); // Clear status when closing
     // Restore body scroll when modal is closed
     document.body.style.overflow = 'unset';
   }, []);
@@ -50,6 +55,8 @@ export const EnquiryModalProvider: React.FC<EnquiryModalProviderProps> = ({ chil
     openModal,
     closeModal,
     toggleModal,
+    submitStatus,
+    setSubmitStatus,
   };
 
   return (

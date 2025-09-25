@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useEnquiryModal } from '../contexts/EnquiryModalContext';
 
 const EnquiryModal: React.FC = () => {
-  const { isOpen, closeModal } = useEnquiryModal();
+  const { isOpen, closeModal, submitStatus, setSubmitStatus } = useEnquiryModal();
   const modalRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -27,20 +27,59 @@ const EnquiryModal: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your enquiry! We will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        destination: '',
-        message: ''
+    try {
+      const submitFormData = new FormData();
+      
+      // Add Web3Forms access key
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error('Web3Forms access key not configured');
+      }
+      submitFormData.append("access_key", accessKey);
+      
+      // Add form fields
+      submitFormData.append("name", formData.name);
+      submitFormData.append("email", formData.email || '');
+      submitFormData.append("phone", formData.phone);
+      submitFormData.append("destination", formData.destination || '');
+      submitFormData.append("message", formData.message);
+      
+      // Add additional fields for better organization
+      submitFormData.append("subject", "New Trek Enquiry from AP Tours Website");
+      submitFormData.append("from_name", "AP Tours Contact Form");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submitFormData
       });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus("Form Submitted Successfully");
+        alert('Thank you for your enquiry! We will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          destination: '',
+          message: ''
+        });
+        closeModal();
+      } else {
+        console.error("Form submission error:", data);
+        setSubmitStatus(data.message || "Failed to send enquiry");
+        alert('Sorry, there was an error sending your enquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("Failed to send enquiry");
+      alert('Sorry, there was an error sending your enquiry. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      closeModal();
-    }, 1000);
+    }
   };
 
   // Handle click outside modal to close
@@ -116,6 +155,20 @@ const EnquiryModal: React.FC = () => {
               Include your preferred dates, group size, and any specific requirements to help us create the perfect itinerary for you.
             </p>
           </div>
+
+          {/* Status Message */}
+          {submitStatus && (
+            <div className={`rounded-lg p-4 mb-6 border ${
+              submitStatus.includes('Successfully') 
+                ? 'bg-green-50 border-green-200 text-green-800' 
+                : 'bg-red-50 border-red-200 text-red-800'
+            }`}>
+              <p className="text-sm">
+                <i className={`fas ${submitStatus.includes('Successfully') ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-2`}></i>
+                {submitStatus}
+              </p>
+            </div>
+          )}
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">

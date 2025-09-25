@@ -49,6 +49,7 @@ jobs:
       working-directory: ./frontend
       env:
         VITE_SHOW_PRICING: 'false'
+        VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
       run: npm run build
 
     - name: Setup Pages
