@@ -1,10 +1,11 @@
-import { HashLink } from 'react-router-hash-link';
+import { useEnquiryModal } from '../../contexts/EnquiryModalContext';
 
 interface TourContactProps {
   onScrollWithOffset?: (el: HTMLElement) => void;
 }
 
-const TourContact = ({ onScrollWithOffset }: TourContactProps) => {
+const TourContact = (_: TourContactProps) => {
+  const { openModal } = useEnquiryModal();
   // Check environment variable for pricing display
   const showPricing = import.meta.env.VITE_SHOW_PRICING !== 'false';
 
@@ -12,16 +13,14 @@ const TourContact = ({ onScrollWithOffset }: TourContactProps) => {
     <div className="bg-white rounded-xl p-6 shadow-lg">
       <h3 className="text-lg font-bold text-slate-800 mb-4">Need Help?</h3>
       
-      {!showPricing && onScrollWithOffset && (
+      {!showPricing && (
         <div className="mb-4">
-          <HashLink
-            smooth
-            to="/#contact"
-            scroll={onScrollWithOffset}
-            className="w-full block text-center px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
+          <button
+            onClick={openModal}
+            className="w-full px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
           >
             Enquire Now
-          </HashLink>
+          </button>
         </div>
       )}
       

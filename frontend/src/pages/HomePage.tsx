@@ -1,5 +1,5 @@
 import { useParallax } from '../hooks/useParallax';
-import { HashLink } from 'react-router-hash-link';
+import { useEnquiryModal } from '../contexts/EnquiryModalContext';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
@@ -12,6 +12,7 @@ import BottomBar from '../components/BottomBar';
 const HomePage = () => {
   // Initialize parallax effects
   useParallax();
+  const { openModal } = useEnquiryModal();
 
   return (
     <div className="antialiased text-slate-50">
@@ -51,13 +52,12 @@ const HomePage = () => {
             Let us craft your perfect mountain journey. From sacred peaks of Himalayas to ancient temples, your next great Indian adventure awaits.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
-            <HashLink 
-              to="/#contact"
-              smooth
+            <button 
+              onClick={openModal}
               className="inline-block px-6 md:px-8 py-3 md:py-4 rounded-lg bg-white text-slate-900 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-sm md:text-base"
             >
               Start Your Journey
-            </HashLink>
+            </button>
             <a 
               href="tel:+919270248887" 
               className="inline-block px-6 md:px-8 py-3 md:py-4 rounded-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 text-sm md:text-base"

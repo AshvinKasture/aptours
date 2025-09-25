@@ -10,6 +10,7 @@ export { default as TrekCard } from './TrekCard';
 export { default as CategoryCard } from './CategoryCard';
 export { default as FilterDropdown } from './FilterDropdown';
 export { default as BottomBar } from './BottomBar';
+export { default as EnquiryModal } from './EnquiryModal';
 
 // Tour Details Components
 export * from './tour-details';

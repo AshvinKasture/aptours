@@ -28,13 +28,6 @@ const TourDetailsPage = () => {
   // Check environment variable for pricing display
   const showPricing = import.meta.env.VITE_SHOW_PRICING !== 'false';
 
-  // Custom scroll function with header offset for smooth scrolling
-  const scrollWithOffset = (el: HTMLElement) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80; // Header height offset
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-  };
-
   // Scroll to top when component mounts - React best practice with useRef
   useEffect(() => {
     const scrollToTop = () => {
@@ -102,8 +95,8 @@ const TourDetailsPage = () => {
             {/* Right Column: Pricing + Contact */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                {showPricing && <TourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />}
-                <TourContact onScrollWithOffset={scrollWithOffset} />
+                {showPricing && <TourPricing price={trek.price} />}
+                <TourContact />
               </div>
             </div>
           </div>
@@ -112,10 +105,10 @@ const TourDetailsPage = () => {
           <MobileTourHeader trek={trek} />
 
           <div className="lg:hidden space-y-6">
-            {showPricing && <MobileTourPricing price={trek.price} onScrollWithOffset={scrollWithOffset} />}
+            {showPricing && <MobileTourPricing price={trek.price} />}
             <TourAbout description={trek.description} />
             {trek.itinerary && <TourItinerary itinerary={trek.itinerary} />}
-            <TourContact onScrollWithOffset={scrollWithOffset} />
+            <TourContact />
           </div>
         </div>
       </main>

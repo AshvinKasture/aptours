@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEnquiryModal } from '../contexts/EnquiryModalContext';
 
 interface BottomBarProps {
   phoneNumber?: string;
@@ -11,6 +12,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
   whatsappNumber = '919270248887',
   onEnquireClick
 }) => {
+  const { openModal } = useEnquiryModal();
+
   const handlePhoneCall = () => {
     window.open(`tel:${phoneNumber}`, '_self');
   };
@@ -24,11 +27,8 @@ const BottomBar: React.FC<BottomBarProps> = ({
     if (onEnquireClick) {
       onEnquireClick();
     } else {
-      // Default behavior - scroll to contact section or open contact form
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Use the modal instead of scrolling to contact section
+      openModal();
     }
   };
 

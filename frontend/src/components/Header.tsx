@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { useEnquiryModal } from '../contexts/EnquiryModalContext';
 
 /*
  * NOTE: react-router-hash-link does not reliably work with HashRouter
@@ -21,6 +22,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
+  const { openModal } = useEnquiryModal();
 
   const handleMobileMenuClose = () => {
     setIsOpen(false);
@@ -145,14 +147,12 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <HashLink
-              smooth
-              to="/#contact"
-              scroll={scrollWithOffset}
+            <button
+              onClick={openModal}
               className="hidden md:inline-block px-4 py-2 rounded-md bg-sky-600 text-white text-sm font-medium hover:bg-sky-700 transition-colors"
             >
               Enquire
-            </HashLink>
+            </button>
 
             {/* Mobile menu button */}
             <button
@@ -237,6 +237,15 @@ const Header: React.FC = () => {
             >
               All Tours
             </Link>
+            <button
+              onClick={() => {
+                openModal();
+                handleMobileMenuClose();
+              }}
+              className="mt-4 px-4 py-2 rounded-md bg-sky-600 text-white text-sm font-medium hover:bg-sky-700 transition-colors text-center"
+            >
+              Enquire
+            </button>
           </div>
         </div>
       )}
