@@ -395,7 +395,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       itinerary: [
         {
           day: 1,
-          title: "MUM – KTM",
+          title: "PUN – KTM",
           description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Dinner only."
         },
         {
@@ -447,7 +447,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       itinerary: [
         {
           day: 1,
-          title: "MUM – KTM",
+          title: "PUN – KTM",
           description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
         },
         {
@@ -510,7 +510,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       itinerary: [
         {
           day: 1,
-          title: "MUM – KTM",
+          title: "PUN – KTM",
           description: "Fly Pune to Kathmandu Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner"
         },
         {
@@ -573,7 +573,7 @@ export const TourProvider: React.FC<TourProviderProps> = ({ children }) => {
       itinerary: [
         {
           day: 1,
-          title: "MUM – KTM",
+          title: "PUN – KTM",
           description: "Fly Pune to Kathmandu. Meet the airport rep. and get transferred to your designated hotel. Check in and participate on a briefing session. Welcome dinner will be hosted on your honor. Meals: Welcome Dinner."
         },
         {
