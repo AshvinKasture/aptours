@@ -39,7 +39,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div className="mt-3">
                     <a 
-                      href="https://www.google.com/maps/search/?api=1&query=Samarth+Carina+Commercial+Thergaon+Mulshi+Pune+411033+Maharashtra+India" 
+                      href="https://maps.app.goo.gl/UHHNUBpMrxqUqCMQ8" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-xs text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-200 hover:bg-sky-100 hover:border-sky-300 transition-all duration-200 cursor-pointer"
